@@ -8,7 +8,8 @@
 	  "noImplicitAny": true,
 	  "resolveJsonModule": true,
 	  "lib": ["ES2022"],
-	  "downlevelIteration": true
+	  "downlevelIteration": true,
+	  "esModuleInterop": true
 	},
 	"include": [
       "./src/**/*.js",
