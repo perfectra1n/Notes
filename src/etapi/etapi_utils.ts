@@ -23,6 +23,10 @@ class EtapiError extends Error {
         this.code = code;
         this.message = message;
     }
+
+    foo() {
+        console.log("bar");
+    }
 }
 
 function sendError(res: Response, statusCode: number, code: string, message: string) {
