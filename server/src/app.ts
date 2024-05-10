@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public/root')));
 app.use(`/manifest.webmanifest`, express.static(path.join(__dirname, 'public/manifest.webmanifest')));
 app.use(`/robots.txt`, express.static(path.join(__dirname, 'public/robots.txt')));
 app.use(sessionParser);
-app.use(favicon(`${__dirname}/../images/app-icons/win/icon.ico`));
+app.use(favicon(`${__dirname}/../../common/images/app-icons/win/icon.ico`));
 
 require('./routes/assets').register(app);
 require('./routes/routes').register(app);
