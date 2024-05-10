@@ -1,0 +1,1114 @@
+11:53:37.915 DB size: 1921 KB
+11:53:38.521 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T09:53:37.753Z"
+}
+11:53:38.523 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+11:53:38.523 Trusted reverse proxy: false
+11:53:38.524 App HTTP server starting up at port 8080
+11:53:38.528 Listening on port 8080
+11:53:38.542 Becca (note cache) load took 13ms
+11:53:38.871 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+11:53:42.574 Table counts: notes: 207, revisions: 0, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 123
+11:53:42.591 TypeError: sanitizeAttributeName is not a function
+11:55:49.186 DB size: 1921 KB
+11:55:49.800 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T09:55:49.013Z"
+}
+11:55:49.802 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+11:55:49.803 Trusted reverse proxy: false
+11:55:49.803 App HTTP server starting up at port 8080
+11:55:49.807 Listening on port 8080
+11:55:49.818 Becca (note cache) load took 10ms
+11:55:50.140 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+11:55:50.143 JS Info: Frontend app reload: received request from backend to reload frontend
+11:55:50.145 JS Info: Frontend app reload: received request from backend to reload frontend
+11:55:50.218 Generated CSRF token zwp1JQli-H36rIA-aTtk96vXsjAL7wq0v1bg with secret undefined
+11:55:50.237 Generated CSRF token dCSf6gYf-p4uL4-9lrT9Glt0Vo1F6IGDT2CI with secret undefined
+11:55:53.203 200 GET /api/options with 6236 bytes took 2ms
+11:55:53.214 304 GET /api/tree with 13353 bytes took 3ms
+11:55:53.224 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+11:55:53.234 304 GET /api/script/widgets with 2 bytes took 0ms
+11:55:53.469 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+11:55:53.487 200 POST /api/tree/load with 5506 bytes took 1ms
+11:55:53.504 200 POST /api/tree/load with 42 bytes took 1ms
+11:55:53.559 200 POST /api/tree/load with 18448 bytes took 1ms
+11:55:53.847 Table counts: notes: 207, revisions: 0, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 123
+11:55:53.857 All consistency checks passed with no errors detected (took 10ms)
+11:55:55.683 304 GET /api/options with 6236 bytes took 1ms
+11:55:55.684 304 GET /api/tree with 13353 bytes took 1ms
+11:55:55.686 304 GET /api/keyboard-actions with 13999 bytes took 1ms
+11:55:55.687 304 GET /api/script/widgets with 2 bytes took 0ms
+11:55:55.702 304 GET /api/notes/root/blob with 155 bytes took 2ms
+11:55:55.703 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+11:55:55.793 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+11:55:55.797 200 POST /api/tree/load with 5506 bytes took 1ms
+11:55:55.798 200 POST /api/tree/load with 42 bytes took 0ms
+11:55:55.854 200 POST /api/tree/load with 18448 bytes took 1ms
+11:55:56.693 200 GET /api/script/startup with 2 bytes took 1ms
+11:55:57.760 200 GET /api/notes/root/blob with 155 bytes took 1ms
+11:55:57.762 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+11:55:58.345 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+11:55:59.024 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 1ms
+11:55:59.128 304 GET /api/note-map/root/backlink-count with 11 bytes took 0ms
+11:55:59.888 304 GET /api/script/startup with 2 bytes took 1ms
+11:56:00.944 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 2ms
+11:56:01.083 204 PUT /api/options with 0 bytes took 2ms
+11:56:01.085 304 GET /api/notes/30GS4UW3pe87/blob with 1077 bytes took 1ms
+11:56:01.087 304 GET /api/note-map/30GS4UW3pe87/backlink-count with 11 bytes took 1ms
+11:56:01.949 204 PUT /api/options with 0 bytes took 2ms
+11:56:02.208 304 GET /api/notes/root/blob with 155 bytes took 0ms
+11:56:06.183 200 POST /api/tree/load with 4167 bytes took 1ms
+11:56:06.222 304 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 1ms
+11:56:06.242 304 GET /api/notes/H3OumRDc2ptz/blob with 1796 bytes took 1ms
+11:56:06.323 304 GET /api/notes/aIwIqy9Hp7NS/blob with 2119 bytes took 1ms
+11:56:06.889 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+11:56:44.218 DB size: 1921 KB
+11:56:44.820 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T09:56:44.047Z"
+}
+11:56:44.822 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+11:56:44.822 Trusted reverse proxy: false
+11:56:44.823 App HTTP server starting up at port 8080
+11:56:44.828 Listening on port 8080
+11:56:44.839 Becca (note cache) load took 10ms
+11:56:45.155 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+11:56:48.864 Table counts: notes: 207, revisions: 0, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 123
+11:56:48.877 All consistency checks passed with no errors detected (took 14ms)
+11:56:55.050 Generated CSRF token uYjobaBI-WO2mywCm7fy3DZZpOzDqsrp9op8 with secret undefined
+11:56:57.881 200 GET /api/options with 6236 bytes took 1ms
+11:56:57.886 304 GET /api/tree with 13353 bytes took 2ms
+11:56:57.895 304 GET /api/keyboard-actions with 13999 bytes took 3ms
+11:56:57.896 304 GET /api/script/widgets with 2 bytes took 1ms
+11:56:58.021 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+11:56:58.034 200 POST /api/tree/load with 5506 bytes took 1ms
+11:56:58.036 200 POST /api/tree/load with 42 bytes took 1ms
+11:56:58.125 200 POST /api/tree/load with 18448 bytes took 2ms
+11:56:58.891 304 GET /api/notes/root/blob with 155 bytes took 1ms
+11:56:58.894 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+11:56:59.252 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+11:57:00.000 304 GET /api/script/startup with 2 bytes took 0ms
+11:57:01.619 204 PUT /api/options with 0 bytes took 2ms
+11:57:01.621 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+11:57:01.622 304 GET /api/note-map/Czyr19eDCdCe/backlink-count with 11 bytes took 1ms
+11:57:07.796 204 PUT /api/options with 0 bytes took 2ms
+11:57:07.797 304 GET /api/notes/30GS4UW3pe87/blob with 1077 bytes took 1ms
+11:57:07.799 304 GET /api/note-map/30GS4UW3pe87/backlink-count with 11 bytes took 1ms
+11:57:07.925 200 POST /api/tree/load with 4167 bytes took 1ms
+11:57:07.946 304 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 2ms
+11:57:07.968 304 GET /api/notes/H3OumRDc2ptz/blob with 1796 bytes took 1ms
+11:57:07.990 304 GET /api/notes/aIwIqy9Hp7NS/blob with 2119 bytes took 1ms
+11:57:11.863 200 GET /api/notes/phVs12tWPgu6/blob with 1011 bytes took 1ms
+11:57:11.865 200 GET /api/note-map/phVs12tWPgu6/backlink-count with 11 bytes took 1ms
+11:57:11.868 204 PUT /api/options with 0 bytes took 3ms
+11:57:12.039 200 POST /api/tree/load with 5433 bytes took 2ms
+11:57:12.067 200 GET /api/notes/MhBGNZ1Gte4J/blob with 155 bytes took 1ms
+11:57:12.086 200 POST /api/tree/load with 8209 bytes took 1ms
+11:57:12.112 200 GET /api/notes/h3de4RGnUkVm/blob with 155 bytes took 1ms
+11:57:12.131 200 POST /api/tree/load with 5421 bytes took 1ms
+11:57:12.155 200 GET /api/notes/S3JKwmaCQN7b/blob with 155 bytes took 1ms
+11:57:12.174 200 POST /api/tree/load with 4154 bytes took 2ms
+11:57:15.055 304 GET /api/notes/phVs12tWPgu6/blob with 1011 bytes took 1ms
+11:57:17.486 200 POST /api/tree/load with 4258 bytes took 1ms
+11:57:17.562 200 GET /api/note-map/_options/backlink-count with 11 bytes took 2ms
+11:57:17.569 204 PUT /api/options with 0 bytes took 2ms
+11:57:17.571 200 GET /api/tree?subTreeNoteId=_hidden with 25650 bytes took 1ms
+11:57:17.573 200 POST /api/tree/load with 7687 bytes took 1ms
+11:57:17.670 204 PUT /api/branches/root__hidden/expanded/1 with 0 bytes took 2ms
+11:57:17.672 200 GET /api/tree?subTreeNoteId=_options with 7686 bytes took 1ms
+11:57:18.257 200 GET /api/note-map/_optionsAppearance/backlink-count with 11 bytes took 1ms
+11:57:18.258 200 GET /api/options with 6609 bytes took 1ms
+11:57:18.261 204 PUT /api/branches/_hidden__options/expanded/1 with 0 bytes took 1ms
+11:57:18.301 200 GET /api/options/user-themes with 67 bytes took 4ms
+11:57:18.302 304 GET /api/options with 6609 bytes took 1ms
+11:57:18.335 304 GET /api/options with 6609 bytes took 1ms
+11:57:18.358 304 GET /api/options with 6609 bytes took 1ms
+11:57:18.377 304 GET /api/options with 6609 bytes took 1ms
+11:57:18.555 204 PUT /api/options with 0 bytes took 2ms
+11:57:20.027 304 GET /api/notes/phVs12tWPgu6/blob with 1011 bytes took 1ms
+11:57:20.108 204 PUT /api/options with 0 bytes took 3ms
+11:57:21.129 304 GET /api/notes/MhBGNZ1Gte4J/blob with 155 bytes took 1ms
+11:57:21.130 200 GET /api/note-map/MhBGNZ1Gte4J/backlink-count with 11 bytes took 1ms
+11:57:21.131 200 GET /api/tree?subTreeNoteId=phVs12tWPgu6 with 5432 bytes took 1ms
+11:57:21.133 204 PUT /api/options with 0 bytes took 2ms
+11:57:21.194 204 PUT /api/branches/Czyr19eDCdCe_phVs12tWPgu6/expanded/1 with 0 bytes took 2ms
+11:57:21.291 200 GET /api/notes/6jrYVmfXbm4g/blob with 2136 bytes took 1ms
+11:57:21.855 200 GET /api/note-map/6jrYVmfXbm4g/backlink-count with 11 bytes took 1ms
+11:57:21.858 200 GET /api/tree?subTreeNoteId=MhBGNZ1Gte4J with 8207 bytes took 1ms
+11:57:21.894 204 PUT /api/branches/phVs12tWPgu6_MhBGNZ1Gte4J/expanded/1 with 0 bytes took 1ms
+11:57:22.106 204 PUT /api/options with 0 bytes took 1ms
+11:57:22.365 304 GET /api/notes/6jrYVmfXbm4g/blob with 2136 bytes took 1ms
+11:57:22.836 Slow 204 PUT /api/notes/6jrYVmfXbm4g/data with 0 bytes took 10ms
+11:57:22.855 200 GET /api/notes/6jrYVmfXbm4g/blob with 996 bytes took 1ms
+11:57:23.841 204 PUT /api/notes/6jrYVmfXbm4g/data with 0 bytes took 6ms
+11:57:23.869 200 GET /api/notes/6jrYVmfXbm4g/blob with 998 bytes took 1ms
+11:57:24.840 204 PUT /api/notes/6jrYVmfXbm4g/data with 0 bytes took 2ms
+11:57:24.862 200 GET /api/notes/6jrYVmfXbm4g/blob with 1001 bytes took 1ms
+12:07:24.046 204 PUT /api/branches/root_Czyr19eDCdCe/expanded/0 with 0 bytes took 2ms
+12:07:24.871 204 PUT /api/branches/_hidden__lbRoot/expanded/0 with 0 bytes took 1ms
+12:07:24.873 204 PUT /api/branches/_lbRoot__lbAvailableLaunchers/expanded/0 with 0 bytes took 1ms
+12:07:24.875 204 PUT /api/branches/_lbRoot__lbVisibleLaunchers/expanded/0 with 0 bytes took 1ms
+12:07:24.876 204 PUT /api/branches/_hidden__options/expanded/0 with 0 bytes took 0ms
+12:07:25.052 204 PUT /api/branches/root__hidden/expanded/0 with 0 bytes took 1ms
+12:19:27.897 DB size: 1921 KB
+12:19:28.497 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:19:27.733Z"
+}
+12:19:28.499 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+12:19:28.499 Trusted reverse proxy: false
+12:19:28.500 App HTTP server starting up at port 8080
+12:19:28.506 Listening on port 8080
+12:19:28.520 Becca (note cache) load took 14ms
+12:19:28.853 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:19:32.547 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+12:19:32.557 All consistency checks passed with no errors detected (took 10ms)
+12:19:53.219 DB size: 1921 KB
+12:19:53.829 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:19:53.054Z"
+}
+12:19:53.831 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+12:19:53.831 Trusted reverse proxy: false
+12:19:53.832 App HTTP server starting up at port 8080
+12:19:53.837 Listening on port 8080
+12:19:53.851 Becca (note cache) load took 13ms
+12:19:54.177 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:19:57.878 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+12:19:57.889 All consistency checks passed with no errors detected (took 11ms)
+12:20:32.466 DB size: 1921 KB
+12:20:33.079 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:20:32.301Z"
+}
+12:20:33.081 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+12:20:33.082 Trusted reverse proxy: false
+12:20:33.082 App HTTP server starting up at port 8080
+12:20:33.090 Listening on port 8080
+12:20:33.102 Becca (note cache) load took 11ms
+12:20:33.436 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:20:37.131 Table counts: notes: null, revisions: null, attachments: null, branches: null, attributes: null, etapi_tokens: null, blobs: null
+12:20:37.141 TypeError: results is not iterable
+12:21:26.445 DB size: 1921 KB
+12:21:27.057 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:21:26.279Z"
+}
+12:21:27.059 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+12:21:27.059 Trusted reverse proxy: false
+12:21:27.060 App HTTP server starting up at port 8080
+12:21:27.065 Listening on port 8080
+12:21:27.076 Becca (note cache) load took 10ms
+12:21:27.394 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:21:31.104 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+12:21:31.116 All consistency checks passed with no errors detected (took 12ms)
+12:21:38.037 Generated CSRF token yCGENQ7e--MTo7S5hOoIux-YeMrsO3cnLEvo with secret undefined
+12:21:40.911 200 GET /api/options with 6236 bytes took 2ms
+12:21:40.915 200 GET /api/tree with 4879 bytes took 1ms
+12:21:40.922 304 GET /api/keyboard-actions with 13999 bytes took 3ms
+12:21:40.923 304 GET /api/script/widgets with 2 bytes took 1ms
+12:21:41.052 200 POST /api/tree/load with 5507 bytes took 1ms
+12:21:41.054 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+12:21:41.055 200 POST /api/tree/load with 42 bytes took 0ms
+12:21:41.072 200 POST /api/tree/load with 18449 bytes took 1ms
+12:21:41.865 304 GET /api/notes/root/blob with 155 bytes took 1ms
+12:21:41.868 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+12:21:42.245 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 2ms
+12:21:42.311 200 POST /api/tree/load with 8208 bytes took 1ms
+12:21:42.314 204 PUT /api/options with 0 bytes took 3ms
+12:21:42.387 200 GET /api/tree?subTreeNoteId=Czyr19eDCdCe with 16515 bytes took 1ms
+12:21:42.388 304 GET /api/notes/6jrYVmfXbm4g/blob with 1001 bytes took 0ms
+12:21:42.390 304 GET /api/note-map/6jrYVmfXbm4g/backlink-count with 11 bytes took 1ms
+12:21:42.430 204 PUT /api/branches/root_Czyr19eDCdCe/expanded/1 with 0 bytes took 2ms
+12:21:43.025 304 GET /api/script/startup with 2 bytes took 0ms
+12:21:43.287 204 PUT /api/options with 0 bytes took 2ms
+12:21:47.166 200 POST /api/tree/load with 4258 bytes took 2ms
+12:21:47.257 304 GET /api/note-map/_options/backlink-count with 11 bytes took 1ms
+12:21:47.263 204 PUT /api/options with 0 bytes took 2ms
+12:21:47.265 200 POST /api/tree/load with 7687 bytes took 1ms
+12:21:47.267 304 GET /api/tree?subTreeNoteId=_hidden with 25650 bytes took 2ms
+12:21:47.358 204 PUT /api/branches/root__hidden/expanded/1 with 0 bytes took 1ms
+12:21:47.361 304 GET /api/tree?subTreeNoteId=_options with 7686 bytes took 1ms
+12:21:47.901 304 GET /api/note-map/_optionsAppearance/backlink-count with 11 bytes took 1ms
+12:21:47.902 200 GET /api/options with 6852 bytes took 1ms
+12:21:47.904 204 PUT /api/branches/_hidden__options/expanded/1 with 0 bytes took 1ms
+12:21:47.939 304 GET /api/options with 6852 bytes took 1ms
+12:21:47.942 304 GET /api/options/user-themes with 67 bytes took 3ms
+12:21:47.963 304 GET /api/options with 6852 bytes took 1ms
+12:21:47.986 304 GET /api/options with 6852 bytes took 2ms
+12:21:48.007 304 GET /api/options with 6852 bytes took 1ms
+12:21:48.236 204 PUT /api/options with 0 bytes took 2ms
+12:21:49.261 Updating option 'theme' to 'light'
+12:21:49.262 204 PUT /api/options/theme/light with 0 bytes took 2ms
+12:21:49.281 200 GET /api/options with 6872 bytes took 2ms
+12:21:49.284 200 GET /api/options with 6872 bytes took 1ms
+12:21:49.287 200 GET /api/options with 6872 bytes took 2ms
+12:21:49.289 JS Info: Frontend app reload: theme change
+12:21:49.290 200 GET /api/options with 6872 bytes took 1ms
+12:21:49.295 200 GET /api/options with 6872 bytes took 2ms
+12:21:49.322 Generated CSRF token xE4LWRZh-2fCCMlZMrAWII1aVRuDkVjIkzeU with secret undefined
+12:21:49.327 304 GET /api/options/user-themes with 67 bytes took 2ms
+12:21:52.063 200 GET /api/options with 6872 bytes took 1ms
+12:21:52.066 200 GET /api/tree with 45175 bytes took 1ms
+12:21:52.068 304 GET /api/keyboard-actions with 13999 bytes took 1ms
+12:21:52.069 304 GET /api/script/widgets with 2 bytes took 1ms
+12:21:52.239 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+12:21:53.266 304 GET /api/note-map/_optionsAppearance/backlink-count with 11 bytes took 1ms
+12:21:53.267 304 GET /api/options with 6872 bytes took 1ms
+12:21:53.307 304 GET /api/options/user-themes with 67 bytes took 2ms
+12:21:53.308 304 GET /api/options with 6872 bytes took 1ms
+12:21:53.337 304 GET /api/options with 6872 bytes took 1ms
+12:21:53.363 304 GET /api/options with 6872 bytes took 1ms
+12:21:53.389 304 GET /api/options with 6872 bytes took 1ms
+12:21:54.151 304 GET /api/script/startup with 2 bytes took 1ms
+12:21:56.913 304 GET /api/notes/6jrYVmfXbm4g/blob with 1001 bytes took 1ms
+12:21:56.914 304 GET /api/note-map/6jrYVmfXbm4g/backlink-count with 11 bytes took 1ms
+12:21:57.232 204 PUT /api/options with 0 bytes took 2ms
+12:22:38.966 DB size: 1921 KB
+12:22:39.573 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:22:38.801Z"
+}
+12:22:39.575 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+12:22:39.576 Trusted reverse proxy: false
+12:22:39.576 App HTTP server starting up at port 8080
+12:22:39.585 Listening on port 8080
+12:22:39.596 Becca (note cache) load took 11ms
+12:22:39.924 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:22:39.927 JS Info: Frontend app reload: received request from backend to reload frontend
+12:22:39.928 JS Info: Frontend app reload: received request from backend to reload frontend
+12:22:39.928 JS Info: Frontend app reload: received request from backend to reload frontend
+12:22:40.015 Generated CSRF token VWyCzISL-VRERqnS5gL9B1VC7eB2_gNfnqVY with secret undefined
+12:22:40.040 Generated CSRF token K4OcNBYt-vNb2pBNMHIbWdmVg6FXA42IuYbQ with secret undefined
+12:22:40.046 Generated CSRF token dsGyt8h3-wghxuNV65efAunceHIYA6vd7VK8 with secret undefined
+12:22:43.251 200 GET /api/options with 6237 bytes took 1ms
+12:22:43.262 304 GET /api/tree with 45175 bytes took 3ms
+12:22:43.272 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+12:22:43.281 304 GET /api/script/widgets with 2 bytes took 0ms
+12:22:43.481 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+12:22:43.501 200 POST /api/tree/load with 42 bytes took 1ms
+12:22:43.624 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+12:22:43.634 All consistency checks passed with no errors detected (took 10ms)
+12:22:44.451 304 GET /api/notes/root/blob with 155 bytes took 2ms
+12:22:44.458 304 GET /api/note-map/root/backlink-count with 11 bytes took 0ms
+12:22:44.882 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 2ms
+12:22:44.927 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 0ms
+12:22:45.040 304 GET /api/notes/6jrYVmfXbm4g/blob with 1001 bytes took 1ms
+12:22:45.051 304 GET /api/note-map/6jrYVmfXbm4g/backlink-count with 11 bytes took 1ms
+12:22:45.060 204 PUT /api/options with 0 bytes took 2ms
+12:22:45.436 304 GET /api/script/startup with 2 bytes took 1ms
+12:22:45.850 200 GET /api/options with 6615 bytes took 1ms
+12:22:45.861 304 GET /api/tree with 45175 bytes took 1ms
+12:22:45.872 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+12:22:45.881 304 GET /api/script/widgets with 2 bytes took 0ms
+12:22:46.091 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+12:22:47.983 304 GET /api/options with 6615 bytes took 1ms
+12:22:47.988 304 GET /api/tree with 45175 bytes took 2ms
+12:22:47.991 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+12:22:47.991 304 GET /api/script/widgets with 2 bytes took 0ms
+12:22:48.163 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+12:22:48.872 304 GET /api/notes/6jrYVmfXbm4g/blob with 1001 bytes took 1ms
+12:22:48.875 304 GET /api/note-map/6jrYVmfXbm4g/backlink-count with 11 bytes took 1ms
+12:22:50.302 304 GET /api/notes/6jrYVmfXbm4g/blob with 1001 bytes took 0ms
+12:22:50.303 304 GET /api/note-map/6jrYVmfXbm4g/backlink-count with 11 bytes took 0ms
+12:22:51.118 304 GET /api/script/startup with 2 bytes took 1ms
+12:22:52.234 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 1ms
+12:22:52.319 304 GET /api/notes/root/blob with 155 bytes took 1ms
+12:22:52.320 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+12:22:52.562 304 GET /api/script/startup with 2 bytes took 1ms
+12:22:53.241 204 PUT /api/options with 0 bytes took 2ms
+12:22:53.660 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 1ms
+12:22:53.746 304 GET /api/notes/30GS4UW3pe87/blob with 1077 bytes took 1ms
+12:22:53.747 304 GET /api/note-map/30GS4UW3pe87/backlink-count with 11 bytes took 1ms
+12:22:54.668 204 PUT /api/options with 0 bytes took 2ms
+12:22:56.538 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+12:22:56.835 200 POST /api/tree/load with 4165 bytes took 1ms
+12:22:56.879 304 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 1ms
+12:22:56.919 304 GET /api/notes/H3OumRDc2ptz/blob with 1796 bytes took 2ms
+12:22:56.947 304 GET /api/notes/aIwIqy9Hp7NS/blob with 2119 bytes took 1ms
+12:24:10.390 DB size: 1921 KB
+12:24:11.019 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:24:10.226Z"
+}
+12:24:11.021 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+12:24:11.022 Trusted reverse proxy: false
+12:24:11.022 App HTTP server starting up at port 8080
+12:24:11.028 Listening on port 8080
+12:24:11.041 Becca (note cache) load took 12ms
+12:24:11.367 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:24:15.068 Table counts: notes: null, revisions: null, attachments: null, branches: null, attributes: null, etapi_tokens: null, blobs: null
+12:24:15.082 TypeError: results is not iterable
+12:25:18.178 DB size: 1921 KB
+12:25:18.783 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:25:18.017Z"
+}
+12:25:18.785 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+12:25:18.785 Trusted reverse proxy: false
+12:25:18.786 App HTTP server starting up at port 8080
+12:25:18.791 Listening on port 8080
+12:25:18.805 Becca (note cache) load took 13ms
+12:25:19.132 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:25:22.433 DB size: 1921 KB
+12:25:23.034 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:25:22.270Z"
+}
+12:25:23.036 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+12:25:23.037 Trusted reverse proxy: false
+12:25:23.037 App HTTP server starting up at port 8080
+12:25:23.045 Listening on port 8080
+12:25:23.056 Becca (note cache) load took 10ms
+12:25:23.375 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:25:26.584 DB size: 1921 KB
+12:25:27.185 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:25:26.420Z"
+}
+12:25:27.187 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+12:25:27.187 Trusted reverse proxy: false
+12:25:27.188 App HTTP server starting up at port 8080
+12:25:27.193 Listening on port 8080
+12:25:27.204 Becca (note cache) load took 10ms
+12:25:27.520 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:25:27.524 JS Info: Frontend app reload: received request from backend to reload frontend
+12:25:27.526 JS Info: Frontend app reload: received request from backend to reload frontend
+12:25:27.527 JS Info: Frontend app reload: received request from backend to reload frontend
+12:25:27.610 Generated CSRF token 54zoTI6v-cZuQHFybF7BOF4c3Ev8SFGc-DoA with secret undefined
+12:25:27.628 Generated CSRF token WNro7sXB-IoO5JkGhMnPSB5rV_ePx-1feoag with secret undefined
+12:25:27.638 Generated CSRF token kmJ6VuYR-sfAgvlazxwi8uge-OmhZweX_Mok with secret undefined
+12:25:31.231 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+12:25:31.241 All consistency checks passed with no errors detected (took 10ms)
+12:25:32.991 200 GET /api/options with 6237 bytes took 1ms
+12:25:33.001 304 GET /api/tree with 45175 bytes took 2ms
+12:25:33.012 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+12:25:33.021 304 GET /api/script/widgets with 2 bytes took 1ms
+12:25:33.042 200 GET /api/options with 6237 bytes took 0ms
+12:25:33.054 200 GET /api/tree with 45175 bytes took 2ms
+12:25:33.064 200 GET /api/keyboard-actions with 13999 bytes took 1ms
+12:25:33.085 200 GET /api/script/widgets with 2 bytes took 0ms
+12:25:33.289 200 POST /api/tree/load with 42 bytes took 0ms
+12:25:33.348 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+12:25:33.440 200 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 0ms
+12:25:33.450 200 POST /api/tree/load with 42 bytes took 1ms
+12:25:35.367 304 GET /api/notes/root/blob with 155 bytes took 2ms
+12:25:35.378 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+12:25:35.484 304 GET /api/notes/root/blob with 155 bytes took 1ms
+12:25:35.495 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+12:25:35.596 304 GET /api/options with 6237 bytes took 1ms
+12:25:35.605 304 GET /api/tree with 45175 bytes took 2ms
+12:25:35.607 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+12:25:35.608 304 GET /api/script/widgets with 2 bytes took 0ms
+12:25:35.723 200 POST /api/tree/load with 42 bytes took 1ms
+12:25:35.725 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 0ms
+12:25:36.370 200 GET /api/script/startup with 2 bytes took 1ms
+12:25:36.474 304 GET /api/script/startup with 2 bytes took 1ms
+12:25:36.883 304 GET /api/notes/root/blob with 155 bytes took 1ms
+12:25:36.885 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+12:25:38.665 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 1ms
+12:25:38.745 304 GET /api/notes/30GS4UW3pe87/blob with 1077 bytes took 1ms
+12:25:38.746 304 GET /api/note-map/30GS4UW3pe87/backlink-count with 11 bytes took 0ms
+12:25:38.885 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 1ms
+12:25:38.971 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+12:25:39.108 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 1ms
+12:25:39.198 304 GET /api/notes/6jrYVmfXbm4g/blob with 1001 bytes took 1ms
+12:25:39.199 304 GET /api/note-map/6jrYVmfXbm4g/backlink-count with 11 bytes took 1ms
+12:25:39.729 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+12:25:39.894 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+12:25:40.938 204 PUT /api/options with 0 bytes took 3ms
+12:25:41.054 204 PUT /api/options with 0 bytes took 1ms
+12:25:41.057 304 GET /api/notes/root/blob with 155 bytes took 0ms
+12:25:41.360 304 GET /api/script/startup with 2 bytes took 1ms
+12:25:41.362 204 PUT /api/options with 0 bytes took 2ms
+12:25:44.072 200 POST /api/tree/load with 4165 bytes took 1ms
+12:25:44.074 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+12:25:44.164 304 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 1ms
+12:25:44.195 304 GET /api/notes/H3OumRDc2ptz/blob with 1796 bytes took 0ms
+12:25:44.215 304 GET /api/notes/aIwIqy9Hp7NS/blob with 2119 bytes took 1ms
+12:32:19.560 DB size: 1921 KB
+12:32:20.184 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T10:32:19.396Z"
+}
+12:32:20.186 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+12:32:20.186 Trusted reverse proxy: false
+12:32:20.187 App HTTP server starting up at port 8080
+12:32:20.191 Listening on port 8080
+12:32:20.203 Becca (note cache) load took 11ms
+12:32:20.517 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+12:32:24.232 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+12:32:24.242 All consistency checks passed with no errors detected (took 11ms)
+12:32:32.055 Generated CSRF token v1yKAGLE-TaeL8mYMZFlU9f_xBijIezEgnAE with secret undefined
+12:32:34.977 200 GET /api/options with 6237 bytes took 2ms
+12:32:34.982 304 GET /api/tree with 45175 bytes took 3ms
+12:32:34.988 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+12:32:34.989 304 GET /api/script/widgets with 2 bytes took 1ms
+12:32:35.124 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+12:32:35.136 200 POST /api/tree/load with 42 bytes took 1ms
+12:32:35.968 200 GET /api/notes/root/blob with 155 bytes took 1ms
+12:32:35.970 304 GET /api/note-map/root/backlink-count with 11 bytes took 0ms
+12:32:36.334 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 1ms
+12:32:36.597 204 PUT /api/options with 0 bytes took 3ms
+12:32:36.598 304 GET /api/note-map/root/backlink-count with 11 bytes took 0ms
+12:32:36.600 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+12:32:37.080 304 GET /api/script/startup with 2 bytes took 1ms
+12:32:37.269 304 GET /api/note-map/Czyr19eDCdCe/backlink-count with 11 bytes took 1ms
+12:32:37.398 204 PUT /api/options with 0 bytes took 2ms
+12:32:38.350 304 GET /api/notes/30GS4UW3pe87/blob with 1077 bytes took 1ms
+12:32:38.352 304 GET /api/note-map/30GS4UW3pe87/backlink-count with 11 bytes took 1ms
+12:32:38.438 204 PUT /api/options with 0 bytes took 3ms
+12:32:38.439 200 POST /api/tree/load with 4165 bytes took 1ms
+12:32:38.466 304 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 1ms
+12:32:38.487 304 GET /api/notes/H3OumRDc2ptz/blob with 1796 bytes took 0ms
+12:32:38.507 304 GET /api/notes/aIwIqy9Hp7NS/blob with 2119 bytes took 1ms
+12:32:39.377 200 GET /api/note-map/Z8KOZqH2gl6A/backlink-count with 11 bytes took 1ms
+12:32:39.381 200 GET /api/tree?subTreeNoteId=30GS4UW3pe87 with 4165 bytes took 1ms
+12:32:39.426 204 PUT /api/branches/Czyr19eDCdCe_30GS4UW3pe87/expanded/1 with 0 bytes took 1ms
+12:32:39.432 204 PUT /api/options with 0 bytes took 1ms
+12:32:41.716 204 PUT /api/options with 0 bytes took 2ms
+12:32:41.717 304 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 0ms
+12:32:50.200 304 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 1ms
+12:32:50.274 204 PUT /api/options with 0 bytes took 1ms
+12:35:39.331 204 PUT /api/branches/phVs12tWPgu6_MhBGNZ1Gte4J/expanded/0 with 0 bytes took 2ms
+12:35:39.334 204 PUT /api/branches/_hidden__lbRoot/expanded/0 with 0 bytes took 1ms
+12:35:39.338 204 PUT /api/branches/_lbRoot__lbVisibleLaunchers/expanded/0 with 0 bytes took 1ms
+12:35:39.340 204 PUT /api/branches/_lbRoot__lbAvailableLaunchers/expanded/0 with 0 bytes took 1ms
+12:35:39.343 204 PUT /api/branches/_hidden__options/expanded/0 with 0 bytes took 1ms
+12:35:39.905 204 PUT /api/branches/_hidden__lbRoot/expanded/0 with 0 bytes took 1ms
+12:35:39.910 204 PUT /api/branches/_lbRoot__lbAvailableLaunchers/expanded/0 with 0 bytes took 1ms
+12:35:39.912 204 PUT /api/branches/_lbRoot__lbVisibleLaunchers/expanded/0 with 0 bytes took 1ms
+12:35:39.913 204 PUT /api/branches/_hidden__options/expanded/0 with 0 bytes took 1ms
+12:35:40.333 204 PUT /api/branches/Czyr19eDCdCe_phVs12tWPgu6/expanded/0 with 0 bytes took 1ms
+12:35:40.336 204 PUT /api/branches/root__hidden/expanded/0 with 0 bytes took 1ms
+12:35:40.904 204 PUT /api/branches/root__hidden/expanded/0 with 0 bytes took 1ms
+20:24:13.855 DB size: 1921 KB
+20:24:14.595 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T18:24:13.635Z"
+}
+20:24:14.597 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+20:24:14.598 Trusted reverse proxy: false
+20:24:14.598 App HTTP server starting up at port 8080
+20:24:14.603 Listening on port 8080
+20:24:14.616 Becca (note cache) load took 11ms
+20:24:14.943 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:24:17.849 Generated CSRF token whCFyjY7-tnaJ_VHzBcwcSYKtzCwqBWEPr7s with secret undefined
+20:24:18.646 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+20:24:18.657 All consistency checks passed with no errors detected (took 11ms)
+20:24:20.833 200 GET /api/options with 6237 bytes took 1ms
+20:24:20.839 200 GET /api/tree with 13914 bytes took 3ms
+20:24:20.847 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+20:24:20.848 304 GET /api/script/widgets with 2 bytes took 1ms
+20:24:21.096 200 POST /api/tree/load with 5506 bytes took 1ms
+20:24:21.097 200 POST /api/tree/load with 42 bytes took 1ms
+20:24:21.098 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 0ms
+20:24:21.134 200 POST /api/tree/load with 18448 bytes took 1ms
+20:24:22.166 304 GET /api/notes/root/blob with 155 bytes took 2ms
+20:24:22.169 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+20:24:22.560 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+20:24:23.066 304 GET /api/script/startup with 2 bytes took 1ms
+20:27:32.049 DB size: 1921 KB
+20:27:32.767 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T18:27:31.836Z"
+}
+20:27:32.769 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+20:27:32.769 Trusted reverse proxy: false
+20:27:32.770 App HTTP server starting up at port 8080
+20:27:32.774 Listening on port 8080
+20:27:32.785 Becca (note cache) load took 10ms
+20:27:33.103 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:27:36.817 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+20:27:36.829 All consistency checks passed with no errors detected (took 12ms)
+20:29:55.031 DB size: 1921 KB
+20:29:55.754 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T18:29:54.830Z"
+}
+20:29:55.756 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2198 Mhz
+20:29:55.756 Trusted reverse proxy: false
+20:29:55.757 App HTTP server starting up at port 8080
+20:29:55.762 Listening on port 8080
+20:29:55.773 Becca (note cache) load took 10ms
+20:29:56.094 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:29:59.804 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+20:29:59.816 All consistency checks passed with no errors detected (took 12ms)
+20:45:04.015 DB size: 1921 KB
+20:45:04.711 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T18:45:03.772Z"
+}
+20:45:04.713 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2196 Mhz
+20:45:04.713 Trusted reverse proxy: false
+20:45:04.714 App HTTP server starting up at port 8080
+20:45:04.719 Listening on port 8080
+20:45:04.730 Becca (note cache) load took 10ms
+20:45:05.048 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:45:08.762 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+20:45:08.773 All consistency checks passed with no errors detected (took 11ms)
+20:55:35.658 DB size: 1921 KB
+20:55:36.437 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T18:55:35.406Z"
+}
+20:55:36.439 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+20:55:36.439 Trusted reverse proxy: false
+20:55:36.440 App HTTP server starting up at port 8080
+20:55:36.444 Listening on port 8080
+20:55:36.457 Becca (note cache) load took 12ms
+20:55:36.765 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:55:40.481 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+20:55:40.495 All consistency checks passed with no errors detected (took 14ms)
+20:55:46.822 304 GET /api/note-map/Czyr19eDCdCe/backlink-count with 11 bytes took 5ms
+20:55:46.829 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 2ms
+20:55:46.857 204 PUT /api/options with 0 bytes took 4ms
+20:55:47.728 304 GET /api/note-map/Czyr19eDCdCe/backlink-count with 11 bytes took 0ms
+20:55:47.762 204 PUT /api/options with 0 bytes took 2ms
+20:55:47.897 304 GET /api/note-map/Czyr19eDCdCe/backlink-count with 11 bytes took 1ms
+20:55:47.994 204 PUT /api/branches/root_Czyr19eDCdCe/expanded/1 with 0 bytes took 2ms
+20:55:48.767 204 PUT /api/options with 0 bytes took 1ms
+20:55:50.235 200 GET /api/notes/Czyr19eDCdCe/metadata with 181 bytes took 2ms
+20:55:51.409 200 POST /api/note-map/Czyr19eDCdCe/link with 11759 bytes took 6ms
+20:55:56.190 304 GET /api/notes/Czyr19eDCdCe/metadata with 181 bytes took 2ms
+20:56:06.326 200 POST /api/note-map/Czyr19eDCdCe/link with 11759 bytes took 4ms
+20:56:06.982 Slow 200 GET /api/similar-notes/Czyr19eDCdCe with 221 bytes took 133ms
+20:56:07.013 200 POST /api/tree/load with 4190 bytes took 2ms
+20:56:07.710 200 GET /api/notes/XAHPZAIWuwoa/blob with 1451 bytes took 2ms
+20:56:11.191 200 GET /api/note-map/WyRUvkUkYXwn/backlink-count with 11 bytes took 1ms
+20:56:11.198 204 PUT /api/options with 0 bytes took 3ms
+20:56:11.202 200 POST /api/tree/load with 4878 bytes took 2ms
+20:56:11.236 200 GET /api/notes/1mIQNoaQdwCz/blob with 3550 bytes took 2ms
+20:56:11.267 200 GET /api/notes/rHyDbP4xzgWD/blob with 2531 bytes took 2ms
+20:56:11.285 200 GET /api/notes/9p9pYoTzJRhM/blob with 2702 bytes took 1ms
+20:56:11.313 304 GET /api/notes/XAHPZAIWuwoa/blob with 1451 bytes took 1ms
+20:56:11.334 200 GET /api/notes/q8FB1KBnjfZ4/blob with 1826 bytes took 1ms
+20:58:54.067 DB size: 1921 KB
+20:58:54.841 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T18:58:53.812Z"
+}
+20:58:54.843 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+20:58:54.844 Trusted reverse proxy: false
+20:58:54.844 App HTTP server starting up at port 8080
+20:58:54.849 Listening on port 8080
+20:58:54.862 Becca (note cache) load took 12ms
+20:58:55.188 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:58:58.894 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+20:58:58.907 All consistency checks passed with no errors detected (took 13ms)
+20:59:45.109 DB size: 1921 KB
+20:59:45.921 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T18:59:44.854Z"
+}
+20:59:45.923 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+20:59:45.924 Trusted reverse proxy: false
+20:59:45.924 App HTTP server starting up at port 8080
+20:59:45.929 Listening on port 8080
+20:59:45.942 Becca (note cache) load took 12ms
+20:59:50.004 DB size: 1921 KB
+20:59:50.790 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T18:59:49.753Z"
+}
+20:59:50.792 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+20:59:50.792 Trusted reverse proxy: false
+20:59:50.793 App HTTP server starting up at port 8080
+20:59:50.797 Listening on port 8080
+20:59:50.812 Becca (note cache) load took 13ms
+20:59:51.137 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:59:54.845 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+20:59:54.856 All consistency checks passed with no errors detected (took 11ms)
+21:01:21.532 DB size: 1921 KB
+21:01:22.321 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:01:21.290Z"
+}
+21:01:22.323 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+21:01:22.323 Trusted reverse proxy: false
+21:01:22.324 App HTTP server starting up at port 8080
+21:01:22.328 Listening on port 8080
+21:01:22.342 Becca (note cache) load took 12ms
+21:01:22.660 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:01:26.376 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+21:01:26.391 All consistency checks passed with no errors detected (took 15ms)
+21:02:24.343 DB size: 1921 KB
+21:02:25.131 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:02:24.097Z"
+}
+21:02:25.132 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+21:02:25.133 Trusted reverse proxy: false
+21:02:25.133 App HTTP server starting up at port 8080
+21:02:25.138 Listening on port 8080
+21:02:25.153 Becca (note cache) load took 13ms
+21:02:25.476 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:02:29.184 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+21:02:29.196 All consistency checks passed with no errors detected (took 12ms)
+21:07:44.736 DB size: 1921 KB
+21:07:45.507 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:07:44.489Z"
+}
+21:07:45.509 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2197 Mhz
+21:07:45.509 Trusted reverse proxy: false
+21:07:45.510 App HTTP server starting up at port 8080
+21:07:45.514 Listening on port 8080
+21:07:45.528 Becca (note cache) load took 13ms
+21:07:45.845 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:07:53.321 DB size: 1921 KB
+21:07:54.095 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:07:53.076Z"
+}
+21:07:54.097 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+21:07:54.097 Trusted reverse proxy: false
+21:07:54.098 App HTTP server starting up at port 8080
+21:07:54.102 Listening on port 8080
+21:07:54.115 Becca (note cache) load took 12ms
+21:07:54.435 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:07:58.148 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+21:07:58.158 All consistency checks passed with no errors detected (took 11ms)
+21:08:10.971 Generated CSRF token QoLrMUMW-uqOPkLonJP4rpDHdLuKT2AMkwRI with secret undefined
+21:08:13.934 200 GET /api/options with 6237 bytes took 2ms
+21:08:13.939 304 GET /api/tree with 13914 bytes took 2ms
+21:08:13.945 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+21:08:13.946 304 GET /api/script/widgets with 2 bytes took 0ms
+21:08:14.148 200 POST /api/tree/load with 5506 bytes took 2ms
+21:08:14.149 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+21:08:14.151 200 POST /api/tree/load with 42 bytes took 0ms
+21:08:14.295 200 POST /api/tree/load with 18448 bytes took 2ms
+21:08:15.168 304 GET /api/notes/root/blob with 155 bytes took 2ms
+21:08:15.171 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+21:08:15.621 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 2ms
+21:08:15.719 204 PUT /api/options with 0 bytes took 3ms
+21:08:15.721 304 GET /api/note-map/WyRUvkUkYXwn/backlink-count with 11 bytes took 1ms
+21:08:15.723 200 POST /api/tree/load with 5314 bytes took 1ms
+21:08:15.756 304 GET /api/notes/1mIQNoaQdwCz/blob with 3550 bytes took 1ms
+21:08:15.781 304 GET /api/notes/rHyDbP4xzgWD/blob with 2531 bytes took 1ms
+21:08:15.807 304 GET /api/notes/9p9pYoTzJRhM/blob with 2702 bytes took 1ms
+21:08:15.832 304 GET /api/notes/XAHPZAIWuwoa/blob with 1451 bytes took 1ms
+21:08:15.856 304 GET /api/notes/q8FB1KBnjfZ4/blob with 1826 bytes took 1ms
+21:08:16.114 304 GET /api/script/startup with 2 bytes took 1ms
+21:08:21.176 304 GET /api/notes/9p9pYoTzJRhM/blob with 2702 bytes took 1ms
+21:08:21.179 200 GET /api/note-map/9p9pYoTzJRhM/backlink-count with 11 bytes took 1ms
+21:08:21.184 204 PUT /api/options with 0 bytes took 2ms
+21:08:21.186 200 GET /api/tree?subTreeNoteId=WyRUvkUkYXwn with 5314 bytes took 1ms
+21:08:21.532 204 PUT /api/branches/Czyr19eDCdCe_WyRUvkUkYXwn/expanded/1 with 0 bytes took 1ms
+21:08:23.174 JS Error: Uncaught error: Message: ResizeObserver loop completed with undelivered notifications., URL: , Line: 0, Column: 0, Error object: undefined, Stack: undefined
+Stack: logError@http://localhost:8080/assets/v0.63.1-beta/app/services/ws.js:24:20
+setupGlobs/window.onerror@http://localhost:8080/assets/v0.63.1-beta/app/services/glob.js:62:12
+
+21:08:23.992 200 GET /api/notes/9p9pYoTzJRhM/metadata with 181 bytes took 1ms
+21:08:24.783 200 GET /api/stats/note-size/9p9pYoTzJRhM with 17 bytes took 1ms
+21:08:24.810 200 GET /api/stats/subtree-size/9p9pYoTzJRhM with 41 bytes took 2ms
+21:12:49.003 DB size: 1921 KB
+21:12:49.822 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:12:48.763Z"
+}
+21:12:49.824 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2197 Mhz
+21:12:49.824 Trusted reverse proxy: false
+21:12:49.825 App HTTP server starting up at port 8080
+21:12:49.829 Listening on port 8080
+21:12:49.847 Becca (note cache) load took 16ms
+21:12:50.170 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:12:53.878 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+21:12:53.889 All consistency checks passed with no errors detected (took 11ms)
+21:27:16.707 DB size: 1921 KB
+21:27:17.498 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:27:16.463Z"
+}
+21:27:17.500 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+21:27:17.501 Trusted reverse proxy: false
+21:27:17.501 App HTTP server starting up at port 8080
+21:27:17.506 Listening on port 8080
+21:27:17.522 Becca (note cache) load took 15ms
+21:27:17.833 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:27:21.543 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+21:27:21.553 All consistency checks passed with no errors detected (took 11ms)
+21:28:59.938 DB size: 1921 KB
+21:29:00.735 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:28:59.690Z"
+}
+21:29:00.737 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+21:29:00.737 Trusted reverse proxy: false
+21:29:00.738 App HTTP server starting up at port 8080
+21:29:00.742 Listening on port 8080
+21:29:00.758 Becca (note cache) load took 15ms
+21:29:01.076 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:29:04.790 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+21:29:04.801 All consistency checks passed with no errors detected (took 11ms)
+21:30:15.300 DB size: 1921 KB
+21:30:16.103 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:30:15.053Z"
+}
+21:30:16.105 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+21:30:16.105 Trusted reverse proxy: false
+21:30:16.106 App HTTP server starting up at port 8080
+21:30:16.111 Listening on port 8080
+21:30:16.127 Becca (note cache) load took 15ms
+21:30:16.444 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:30:20.153 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+21:30:20.164 All consistency checks passed with no errors detected (took 10ms)
+21:33:09.020 DB size: 1921 KB
+21:33:09.813 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:33:08.785Z"
+}
+21:33:09.814 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2201 Mhz
+21:33:09.815 Trusted reverse proxy: false
+21:33:09.815 App HTTP server starting up at port 8080
+21:33:09.820 Listening on port 8080
+21:33:09.835 Becca (note cache) load took 13ms
+21:33:10.157 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:33:13.867 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+21:33:13.878 All consistency checks passed with no errors detected (took 11ms)
+21:34:20.626 DB size: 1921 KB
+21:34:21.451 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:34:20.366Z"
+}
+21:34:21.453 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+21:34:21.453 Trusted reverse proxy: false
+21:34:21.454 App HTTP server starting up at port 8080
+21:34:21.458 Listening on port 8080
+21:34:21.472 Becca (note cache) load took 13ms
+21:34:21.783 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:58:09.470 DB size: 1921 KB
+21:58:10.276 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T19:58:09.218Z"
+}
+21:58:10.278 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+21:58:10.278 Trusted reverse proxy: false
+21:58:10.279 App HTTP server starting up at port 8080
+21:58:10.284 Listening on port 8080
+21:58:10.297 Becca (note cache) load took 12ms
+21:58:10.623 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:58:14.329 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+21:58:14.340 All consistency checks passed with no errors detected (took 11ms)
+23:00:49.342 DB size: 1921 KB
+23:00:50.147 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T21:00:49.055Z"
+}
+23:00:50.148 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+23:00:50.149 Trusted reverse proxy: false
+23:00:50.149 App HTTP server starting up at port 8080
+23:00:50.154 Listening on port 8080
+23:00:50.167 Becca (note cache) load took 12ms
+23:00:54.379 DB size: 1921 KB
+23:00:55.175 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-17T21:00:54.090Z"
+}
+23:00:55.177 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+23:00:55.177 Trusted reverse proxy: false
+23:00:55.178 App HTTP server starting up at port 8080
+23:00:55.182 Listening on port 8080
+23:00:55.196 Becca (note cache) load took 13ms
+23:00:55.505 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+23:00:58.521 Generated CSRF token Bj1tJBQW-bKf1Iaukccsr-F06ovgIuzMps_c with secret undefined
+23:00:59.214 Table counts: notes: 207, revisions: 1, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 124
+23:00:59.225 All consistency checks passed with no errors detected (took 10ms)
+23:01:01.569 200 GET /api/options with 6237 bytes took 1ms
+23:01:01.574 200 GET /api/tree with 15473 bytes took 2ms
+23:01:01.580 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+23:01:01.581 304 GET /api/script/widgets with 2 bytes took 0ms
+23:01:01.747 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+23:01:01.749 200 POST /api/tree/load with 5506 bytes took 1ms
+23:01:01.750 200 POST /api/tree/load with 42 bytes took 1ms
+23:01:01.904 200 POST /api/tree/load with 18448 bytes took 2ms
+23:01:02.764 304 GET /api/notes/root/blob with 155 bytes took 1ms
+23:01:02.766 304 GET /api/note-map/root/backlink-count with 11 bytes took 0ms
+23:01:03.214 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 2ms
+23:01:03.332 204 PUT /api/options with 0 bytes took 1ms
+23:01:03.335 304 GET /api/notes/9p9pYoTzJRhM/blob with 2702 bytes took 1ms
+23:01:03.336 304 GET /api/note-map/9p9pYoTzJRhM/backlink-count with 11 bytes took 0ms
+23:01:03.712 304 GET /api/script/startup with 2 bytes took 0ms
+23:01:07.950 204 PUT /api/notes/9p9pYoTzJRhM/data with 0 bytes took 9ms
+23:01:08.949 204 PUT /api/notes/9p9pYoTzJRhM/data with 0 bytes took 3ms
+23:01:09.953 204 PUT /api/notes/9p9pYoTzJRhM/data with 0 bytes took 2ms
+23:01:12.010 Generated CSRF token VGZ422Xj-0Cz8USOLTw42CrandEoSEgxBvuU with secret undefined
+23:01:15.041 200 GET /api/options with 6602 bytes took 2ms
+23:01:15.044 200 GET /api/tree with 15473 bytes took 1ms
+23:01:15.049 304 GET /api/keyboard-actions with 13999 bytes took 1ms
+23:01:15.050 304 GET /api/script/widgets with 2 bytes took 0ms
+23:01:15.303 200 POST /api/tree/load with 5506 bytes took 1ms
+23:01:15.304 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 0ms
+23:01:16.192 200 POST /api/tree/load with 18448 bytes took 1ms
+23:01:16.357 200 GET /api/notes/9p9pYoTzJRhM/blob with 1445 bytes took 1ms
+23:01:16.360 304 GET /api/note-map/9p9pYoTzJRhM/backlink-count with 11 bytes took 0ms
+23:01:16.711 304 GET /api/note-map/9p9pYoTzJRhM/backlink-count with 11 bytes took 0ms
+23:01:16.724 204 PUT /api/options with 0 bytes took 1ms
+23:01:17.172 304 GET /api/script/startup with 2 bytes took 1ms
+23:01:24.744 304 GET /api/notes/q8FB1KBnjfZ4/blob with 1826 bytes took 0ms
+23:01:24.745 200 GET /api/note-map/q8FB1KBnjfZ4/backlink-count with 11 bytes took 0ms
+23:01:24.747 204 PUT /api/options with 0 bytes took 1ms
+23:01:32.930 204 PUT /api/notes/q8FB1KBnjfZ4/data with 0 bytes took 7ms
+23:01:32.949 200 GET /api/notes/q8FB1KBnjfZ4/blob with 784 bytes took 0ms
+23:01:34.145 304 GET /api/notes/q8FB1KBnjfZ4/blob with 784 bytes took 1ms
+23:01:34.994 Generated CSRF token VdudHO1R-ipilMdtMU1rpeHFDCr1QLsZBVTI with secret undefined
+23:01:37.860 200 GET /api/options with 6602 bytes took 1ms
+23:01:37.865 200 GET /api/tree with 15473 bytes took 1ms
+23:01:37.871 304 GET /api/keyboard-actions with 13999 bytes took 1ms
+23:01:37.872 304 GET /api/script/widgets with 2 bytes took 0ms
+23:01:38.130 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+23:01:38.132 200 POST /api/tree/load with 5506 bytes took 1ms
+23:01:39.027 200 POST /api/tree/load with 18448 bytes took 1ms
+23:01:39.195 304 GET /api/notes/q8FB1KBnjfZ4/blob with 784 bytes took 1ms
+23:01:39.198 304 GET /api/note-map/q8FB1KBnjfZ4/backlink-count with 11 bytes took 0ms
+23:01:39.519 304 GET /api/note-map/q8FB1KBnjfZ4/backlink-count with 11 bytes took 1ms
+23:01:39.525 204 PUT /api/options with 0 bytes took 2ms
+23:01:39.997 304 GET /api/script/startup with 2 bytes took 1ms
+23:01:43.067 204 PUT /api/options with 0 bytes took 2ms
+23:01:43.068 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+23:01:43.069 304 GET /api/note-map/Czyr19eDCdCe/backlink-count with 11 bytes took 0ms
+23:01:43.785 204 PUT /api/branches/root_Czyr19eDCdCe/expanded/0 with 0 bytes took 2ms
+23:05:55.223 Created backup at ./data/backup/backup-daily.db
+23:15:55.206 204 PUT /api/branches/Czyr19eDCdCe_30GS4UW3pe87/expanded/0 with 0 bytes took 1ms
+23:15:55.209 204 PUT /api/branches/Czyr19eDCdCe_WyRUvkUkYXwn/expanded/0 with 0 bytes took 1ms

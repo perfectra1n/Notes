@@ -1,0 +1,589 @@
+20:10:18.258 Generated session secret
+20:10:18.788 DB not initialized, please visit setup page - http://[your-server-host]:8080 to see instructions on how to initialize Trilium.
+20:10:18.789 DB size: 4 KB
+20:10:19.419 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-16T18:10:18.602Z"
+}
+20:10:19.421 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+20:10:19.421 Trusted reverse proxy: false
+20:10:19.422 App HTTP server starting up at port 8080
+20:10:19.427 Listening on port 8080
+20:10:19.735 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:10:43.660 Creating database schema ...
+20:10:43.663 Becca (note cache) load took 1ms
+20:10:43.663 Creating root note ...
+20:10:43.678 Created option "revisionSnapshotTimeInterval" with default value "600"
+20:10:43.678 Created option "protectedSessionTimeout" with default value "600"
+20:10:43.678 Created option "zoomFactor" with default value "1.0"
+20:10:43.679 Created option "overrideThemeFonts" with default value "false"
+20:10:43.679 Created option "mainFontFamily" with default value "theme"
+20:10:43.679 Created option "mainFontSize" with default value "100"
+20:10:43.680 Created option "treeFontFamily" with default value "theme"
+20:10:43.680 Created option "treeFontSize" with default value "100"
+20:10:43.680 Created option "detailFontFamily" with default value "theme"
+20:10:43.681 Created option "detailFontSize" with default value "110"
+20:10:43.681 Created option "monospaceFontFamily" with default value "theme"
+20:10:43.681 Created option "monospaceFontSize" with default value "110"
+20:10:43.682 Created option "spellCheckEnabled" with default value "true"
+20:10:43.682 Created option "spellCheckLanguageCode" with default value "en-US"
+20:10:43.682 Created option "imageMaxWidthHeight" with default value "2000"
+20:10:43.683 Created option "imageJpegQuality" with default value "75"
+20:10:43.683 Created option "autoFixConsistencyIssues" with default value "true"
+20:10:43.683 Created option "vimKeymapEnabled" with default value "false"
+20:10:43.684 Created option "codeLineWrapEnabled" with default value "true"
+20:10:43.684 Created option "codeNotesMimeTypes" with default value "["text/x-csrc","text/x-c++src","text/x-csharp","text/css","text/x-go","text/x-groovy","text/x-haskell","text/html","message/http","text/x-java","application/javascript;env=frontend","application/javascript;env=backend","application/json","text/x-kotlin","text/x-markdown","text/x-perl","text/x-php","text/x-python","text/x-ruby",null,"text/x-sql","text/x-sqlite;schema=trilium","text/x-swift","text/xml","text/x-yaml","text/x-sh"]"
+20:10:43.684 Created option "leftPaneWidth" with default value "25"
+20:10:43.685 Created option "leftPaneVisible" with default value "true"
+20:10:43.685 Created option "rightPaneWidth" with default value "25"
+20:10:43.686 Created option "rightPaneVisible" with default value "true"
+20:10:43.686 Created option "nativeTitleBarVisible" with default value "false"
+20:10:43.686 Created option "eraseEntitiesAfterTimeInSeconds" with default value "604800"
+20:10:43.687 Created option "hideArchivedNotes_main" with default value "false"
+20:10:43.687 Created option "debugModeEnabled" with default value "false"
+20:10:43.687 Created option "headingStyle" with default value "underline"
+20:10:43.688 Created option "autoCollapseNoteTree" with default value "true"
+20:10:43.688 Created option "autoReadonlySizeText" with default value "10000"
+20:10:43.688 Created option "autoReadonlySizeCode" with default value "30000"
+20:10:43.689 Created option "dailyBackupEnabled" with default value "true"
+20:10:43.689 Created option "weeklyBackupEnabled" with default value "true"
+20:10:43.689 Created option "monthlyBackupEnabled" with default value "true"
+20:10:43.690 Created option "maxContentWidth" with default value "1200"
+20:10:43.690 Created option "compressImages" with default value "true"
+20:10:43.690 Created option "downloadImagesAutomatically" with default value "true"
+20:10:43.691 Created option "minTocHeadings" with default value "5"
+20:10:43.691 Created option "highlightsList" with default value "["bold","italic","underline","color","bgColor"]"
+20:10:43.691 Created option "checkForUpdates" with default value "true"
+20:10:43.692 Created option "disableTray" with default value "false"
+20:10:43.692 Created option "eraseUnusedAttachmentsAfterSeconds" with default value "2592000"
+20:10:43.692 Created option "customSearchEngineName" with default value "DuckDuckGo"
+20:10:43.693 Created option "customSearchEngineUrl" with default value "https://duckduckgo.com/?q={keyword}"
+20:10:43.693 Created option "promotedAttributesOpenInRibbon" with default value "true"
+20:10:43.693 Created option "editedNotesOpenInRibbon" with default value "true"
+20:10:43.694 Created option "keyboardShortcutsBackInNoteHistory" with default value "["Alt+Left"]"
+20:10:43.694 Created option "keyboardShortcutsForwardInNoteHistory" with default value "["Alt+Right"]"
+20:10:43.694 Created option "keyboardShortcutsJumpToNote" with default value "["Ctrl+J"]"
+20:10:43.695 Created option "keyboardShortcutsScrollToActiveNote" with default value "["Ctrl+."]"
+20:10:43.696 Created option "keyboardShortcutsQuickSearch" with default value "["Ctrl+S"]"
+20:10:43.696 Created option "keyboardShortcutsSearchInSubtree" with default value "["Ctrl+Shift+S"]"
+20:10:43.696 Created option "keyboardShortcutsExpandSubtree" with default value "[]"
+20:10:43.697 Created option "keyboardShortcutsCollapseTree" with default value "["Alt+C"]"
+20:10:43.697 Created option "keyboardShortcutsCollapseSubtree" with default value "["Alt+-"]"
+20:10:43.697 Created option "keyboardShortcutsSortChildNotes" with default value "["Alt+S"]"
+20:10:43.698 Created option "keyboardShortcutsCreateNoteAfter" with default value "["Ctrl+O"]"
+20:10:43.698 Created option "keyboardShortcutsCreateNoteInto" with default value "["Ctrl+P"]"
+20:10:43.698 Created option "keyboardShortcutsCreateNoteIntoInbox" with default value "["global:Ctrl+Alt+P"]"
+20:10:43.699 Created option "keyboardShortcutsDeleteNotes" with default value "["Delete"]"
+20:10:43.699 Created option "keyboardShortcutsMoveNoteUp" with default value "["Ctrl+Up"]"
+20:10:43.699 Created option "keyboardShortcutsMoveNoteDown" with default value "["Ctrl+Down"]"
+20:10:43.700 Created option "keyboardShortcutsMoveNoteUpInHierarchy" with default value "["Ctrl+Left"]"
+20:10:43.700 Created option "keyboardShortcutsMoveNoteDownInHierarchy" with default value "["Ctrl+Right"]"
+20:10:43.700 Created option "keyboardShortcutsEditNoteTitle" with default value "["Enter"]"
+20:10:43.701 Created option "keyboardShortcutsEditBranchPrefix" with default value "["F2"]"
+20:10:43.701 Created option "keyboardShortcutsCloneNotesTo" with default value "["Ctrl+Shift+C"]"
+20:10:43.701 Created option "keyboardShortcutsMoveNotesTo" with default value "["Ctrl+Shift+X"]"
+20:10:43.702 Created option "keyboardShortcutsCopyNotesToClipboard" with default value "["Ctrl+C"]"
+20:10:43.702 Created option "keyboardShortcutsPasteNotesFromClipboard" with default value "["Ctrl+V"]"
+20:10:43.702 Created option "keyboardShortcutsCutNotesToClipboard" with default value "["Ctrl+X"]"
+20:10:43.703 Created option "keyboardShortcutsSelectAllNotesInParent" with default value "["Ctrl+A"]"
+20:10:43.703 Created option "keyboardShortcutsAddNoteAboveToSelection" with default value "["Shift+Up"]"
+20:10:43.703 Created option "keyboardShortcutsAddNoteBelowToSelection" with default value "["Shift+Down"]"
+20:10:43.703 Created option "keyboardShortcutsDuplicateSubtree" with default value "[]"
+20:10:43.704 Created option "keyboardShortcutsOpenNewTab" with default value "[]"
+20:10:43.704 Created option "keyboardShortcutsCloseActiveTab" with default value "[]"
+20:10:43.704 Created option "keyboardShortcutsReopenLastTab" with default value "[]"
+20:10:43.705 Created option "keyboardShortcutsActivateNextTab" with default value "[]"
+20:10:43.705 Created option "keyboardShortcutsActivatePreviousTab" with default value "[]"
+20:10:43.705 Created option "keyboardShortcutsOpenNewWindow" with default value "[]"
+20:10:43.706 Created option "keyboardShortcutsToggleTray" with default value "[]"
+20:10:43.706 Created option "keyboardShortcutsFirstTab" with default value "["Ctrl+1"]"
+20:10:43.706 Created option "keyboardShortcutsSecondTab" with default value "["Ctrl+2"]"
+20:10:43.707 Created option "keyboardShortcutsThirdTab" with default value "["Ctrl+3"]"
+20:10:43.707 Created option "keyboardShortcutsFourthTab" with default value "["Ctrl+4"]"
+20:10:43.707 Created option "keyboardShortcutsFifthTab" with default value "["Ctrl+5"]"
+20:10:43.708 Created option "keyboardShortcutsSixthTab" with default value "["Ctrl+6"]"
+20:10:43.708 Created option "keyboardShortcutsSeventhTab" with default value "["Ctrl+7"]"
+20:10:43.708 Created option "keyboardShortcutsEigthTab" with default value "["Ctrl+8"]"
+20:10:43.709 Created option "keyboardShortcutsNinthTab" with default value "["Ctrl+9"]"
+20:10:43.709 Created option "keyboardShortcutsLastTab" with default value "[]"
+20:10:43.709 Created option "keyboardShortcutsShowNoteSource" with default value "[]"
+20:10:43.709 Created option "keyboardShortcutsShowOptions" with default value "[]"
+20:10:43.710 Created option "keyboardShortcutsShowRevisions" with default value "[]"
+20:10:43.710 Created option "keyboardShortcutsShowRecentChanges" with default value "[]"
+20:10:43.710 Created option "keyboardShortcutsShowSQLConsole" with default value "["Alt+O"]"
+20:10:43.711 Created option "keyboardShortcutsShowBackendLog" with default value "[]"
+20:10:43.711 Created option "keyboardShortcutsShowHelp" with default value "["F1"]"
+20:10:43.711 Created option "keyboardShortcutsAddLinkToText" with default value "["Ctrl+L"]"
+20:10:43.712 Created option "keyboardShortcutsFollowLinkUnderCursor" with default value "["Ctrl+Enter"]"
+20:10:43.712 Created option "keyboardShortcutsInsertDateTimeToText" with default value "["Alt+T"]"
+20:10:43.712 Created option "keyboardShortcutsPasteMarkdownIntoText" with default value "[]"
+20:10:43.713 Created option "keyboardShortcutsCutIntoNote" with default value "[]"
+20:10:43.713 Created option "keyboardShortcutsAddIncludeNoteToText" with default value "[]"
+20:10:43.713 Created option "keyboardShortcutsEditReadOnlyNote" with default value "[]"
+20:10:43.714 Created option "keyboardShortcutsAddNewLabel" with default value "["Alt+L"]"
+20:10:43.714 Created option "keyboardShortcutsAddNewRelation" with default value "["Alt+R"]"
+20:10:43.714 Created option "keyboardShortcutsToggleRibbonTabBasicProperties" with default value "[]"
+20:10:43.715 Created option "keyboardShortcutsToggleRibbonTabBookProperties" with default value "[]"
+20:10:43.715 Created option "keyboardShortcutsToggleRibbonTabFileProperties" with default value "[]"
+20:10:43.715 Created option "keyboardShortcutsToggleRibbonTabImageProperties" with default value "[]"
+20:10:43.716 Created option "keyboardShortcutsToggleRibbonTabOwnedAttributes" with default value "["Alt+A"]"
+20:10:43.716 Created option "keyboardShortcutsToggleRibbonTabInheritedAttributes" with default value "[]"
+20:10:43.716 Created option "keyboardShortcutsToggleRibbonTabPromotedAttributes" with default value "[]"
+20:10:43.716 Created option "keyboardShortcutsToggleRibbonTabNoteMap" with default value "[]"
+20:10:43.717 Created option "keyboardShortcutsToggleRibbonTabNoteInfo" with default value "[]"
+20:10:43.717 Created option "keyboardShortcutsToggleRibbonTabNotePaths" with default value "[]"
+20:10:43.717 Created option "keyboardShortcutsToggleRibbonTabSimilarNotes" with default value "[]"
+20:10:43.718 Created option "keyboardShortcutsToggleRightPane" with default value "[]"
+20:10:43.719 Created option "keyboardShortcutsPrintActiveNote" with default value "[]"
+20:10:43.719 Created option "keyboardShortcutsOpenNoteExternally" with default value "[]"
+20:10:43.719 Created option "keyboardShortcutsRenderActiveNote" with default value "[]"
+20:10:43.720 Created option "keyboardShortcutsRunActiveNote" with default value "["Ctrl+Enter"]"
+20:10:43.720 Created option "keyboardShortcutsToggleNoteHoisting" with default value "["Alt+H"]"
+20:10:43.720 Created option "keyboardShortcutsUnhoist" with default value "["Alt+U"]"
+20:10:43.721 Created option "keyboardShortcutsReloadFrontendApp" with default value "["F5","Ctrl+R"]"
+20:10:43.721 Created option "keyboardShortcutsOpenDevTools" with default value "[]"
+20:10:43.721 Created option "keyboardShortcutsFindInText" with default value "[]"
+20:10:43.722 Created option "keyboardShortcutsToggleLeftPane" with default value "[]"
+20:10:43.722 Created option "keyboardShortcutsToggleFullscreen" with default value "["F11"]"
+20:10:43.722 Created option "keyboardShortcutsZoomOut" with default value "[]"
+20:10:43.723 Created option "keyboardShortcutsZoomIn" with default value "[]"
+20:10:43.723 Created option "keyboardShortcutsZoomReset" with default value "[]"
+20:10:43.723 Created option "keyboardShortcutsCopyWithoutFormatting" with default value "["Ctrl+Alt+C"]"
+20:10:43.724 Created option "keyboardShortcutsForceSaveRevision" with default value "[]"
+20:10:43.733 Importing demo content ...
+20:10:43.763 Created new note 'Czyr19eDCdCe', branch 'root_Czyr19eDCdCe' of type 'text', mime 'text/html'
+20:10:43.772 Created new note '30GS4UW3pe87', branch 'Czyr19eDCdCe_30GS4UW3pe87' of type 'text', mime 'text/html'
+20:10:43.775 Created new note 'Z8KOZqH2gl6A', branch '30GS4UW3pe87_Z8KOZqH2gl6A' of type 'text', mime 'text/html'
+20:10:43.779 Created new note 'H3OumRDc2ptz', branch '30GS4UW3pe87_H3OumRDc2ptz' of type 'text', mime 'text/html'
+20:10:43.782 Created new note 'aIwIqy9Hp7NS', branch '30GS4UW3pe87_aIwIqy9Hp7NS' of type 'text', mime 'text/html'
+20:10:43.786 Created new note 'A72FRz6K8FOU', branch 'aIwIqy9Hp7NS_A72FRz6K8FOU' of type 'file', mime 'application/pdf'
+20:10:43.789 Created new note 'WyRUvkUkYXwn', branch 'Czyr19eDCdCe_WyRUvkUkYXwn' of type 'book', mime ''
+20:10:43.793 Created new note '1mIQNoaQdwCz', branch 'WyRUvkUkYXwn_1mIQNoaQdwCz' of type 'text', mime 'text/html'
+20:10:43.797 Created new note 'rHyDbP4xzgWD', branch 'WyRUvkUkYXwn_rHyDbP4xzgWD' of type 'text', mime 'text/html'
+20:10:43.800 Created new note '9p9pYoTzJRhM', branch 'WyRUvkUkYXwn_9p9pYoTzJRhM' of type 'text', mime 'text/html'
+20:10:43.803 Created new note 'XAHPZAIWuwoa', branch 'WyRUvkUkYXwn_XAHPZAIWuwoa' of type 'text', mime 'text/html'
+20:10:43.806 Created new note 'q8FB1KBnjfZ4', branch 'WyRUvkUkYXwn_q8FB1KBnjfZ4' of type 'text', mime 'text/html'
+20:10:43.809 Created new note 'p2vsptRAoJh4', branch 'Czyr19eDCdCe_p2vsptRAoJh4' of type 'text', mime 'text/html'
+20:10:43.811 Created new note 'e2Hten4D7N2L', branch 'p2vsptRAoJh4_e2Hten4D7N2L' of type 'text', mime 'text/html'
+20:10:43.813 Created new note 'E0eZOchnSa7H', branch 'e2Hten4D7N2L_E0eZOchnSa7H' of type 'text', mime 'text/html'
+20:10:43.816 Created new note '1Ft4GxeSEeo0', branch 'E0eZOchnSa7H_1Ft4GxeSEeo0' of type 'text', mime 'text/html'
+20:10:43.820 Created new note 'IefTAdXbgzVh', branch '1Ft4GxeSEeo0_IefTAdXbgzVh' of type 'text', mime 'text/html'
+20:10:43.823 Created new note 'a3iv8CrAPcXA', branch '1Ft4GxeSEeo0_a3iv8CrAPcXA' of type 'text', mime 'text/html'
+20:10:43.826 Created new note '6jrYVmfXbm4g', branch '1Ft4GxeSEeo0_6jrYVmfXbm4g' of type 'text', mime 'text/html'
+20:10:43.828 Created new note '1ctKFe3DcRft', branch 'e2Hten4D7N2L_1ctKFe3DcRft' of type 'text', mime 'text/html'
+20:10:43.831 Created new note 'CS0BCiGEm8jh', branch '1ctKFe3DcRft_CS0BCiGEm8jh' of type 'text', mime 'text/html'
+20:10:43.834 Created new note 'vQVwO34vsRDZ', branch 'CS0BCiGEm8jh_vQVwO34vsRDZ' of type 'text', mime 'text/html'
+20:10:43.836 Created new note 'XIL3cUXh3f5s', branch 'CS0BCiGEm8jh_XIL3cUXh3f5s' of type 'book', mime 'text/html'
+20:10:43.840 Created new note '4fafh9ud1aYS', branch 'XIL3cUXh3f5s_4fafh9ud1aYS' of type 'image', mime 'image/jpg'
+20:10:43.844 Created new note '9wQvggITrp9y', branch 'XIL3cUXh3f5s_9wQvggITrp9y' of type 'image', mime 'image/jpg'
+20:10:43.851 Created new note 'p8bmFF56WLL4', branch 'XIL3cUXh3f5s_p8bmFF56WLL4' of type 'image', mime 'image/jpg'
+20:10:43.857 Created new note 'ZvrUVD6pel2H', branch 'XIL3cUXh3f5s_ZvrUVD6pel2H' of type 'image', mime 'image/jpg'
+20:10:43.861 Created new note 'NXD25q8ZTbSF', branch 'XIL3cUXh3f5s_NXD25q8ZTbSF' of type 'image', mime 'image/jpg'
+20:10:43.869 Created new note 'YtvMoX2ZP5fL', branch 'XIL3cUXh3f5s_YtvMoX2ZP5fL' of type 'image', mime 'image/jpg'
+20:10:43.874 Created new note 'ZT9Fr2Idxrzq', branch 'XIL3cUXh3f5s_ZT9Fr2Idxrzq' of type 'image', mime 'image/jpg'
+20:10:43.880 Created new note '6FQkIl1yNCZ9', branch 'XIL3cUXh3f5s_6FQkIl1yNCZ9' of type 'image', mime 'image/jpg'
+20:10:43.885 Created new note 'tLSqiCBejAjV', branch 'XIL3cUXh3f5s_tLSqiCBejAjV' of type 'image', mime 'image/jpg'
+20:10:43.890 Created new note 'l78UwVP3vvCy', branch 'XIL3cUXh3f5s_l78UwVP3vvCy' of type 'image', mime 'image/jpg'
+20:10:43.898 Created new note 'oYWDJhYd26DG', branch 'XIL3cUXh3f5s_oYWDJhYd26DG' of type 'image', mime 'image/jpg'
+20:10:43.903 Created new note 'e6HfS5gjheU9', branch 'XIL3cUXh3f5s_e6HfS5gjheU9' of type 'image', mime 'image/jpg'
+20:10:43.909 Created new note '2oAaOxCynQ6S', branch 'CS0BCiGEm8jh_2oAaOxCynQ6S' of type 'text', mime 'text/html'
+20:10:43.948 Created new note 'AlB5zQKAVxUM', branch '1ctKFe3DcRft_AlB5zQKAVxUM' of type 'text', mime 'text/html'
+20:10:43.958 Created new note 'AC6jf2F1IRkt', branch 'AlB5zQKAVxUM_AC6jf2F1IRkt' of type 'text', mime 'text/html'
+20:10:43.960 Created new note 'yN4BZdHTr2po', branch '1ctKFe3DcRft_yN4BZdHTr2po' of type 'text', mime 'text/html'
+20:10:43.962 Created new note 'AZ7BjXp8dawt', branch '1ctKFe3DcRft_AZ7BjXp8dawt' of type 'text', mime 'text/html'
+20:10:43.965 Created new note 'zoLMl8GKV9gO', branch 'AZ7BjXp8dawt_zoLMl8GKV9gO' of type 'text', mime 'text/html'
+20:10:43.967 Created new note 'XtZxF9bR43IX', branch 'AZ7BjXp8dawt_XtZxF9bR43IX' of type 'text', mime 'text/html'
+20:10:43.969 Created new note 'WVrNhcYLm05j', branch '1ctKFe3DcRft_WVrNhcYLm05j' of type 'text', mime 'text/html'
+20:10:43.972 Created new note 'XpriwSQhTZ6U', branch 'WVrNhcYLm05j_XpriwSQhTZ6U' of type 'text', mime 'text/html'
+20:10:43.975 Created new note '7t9bzD0AUg5Z', branch 'WVrNhcYLm05j_7t9bzD0AUg5Z' of type 'text', mime 'text/html'
+20:10:43.977 Created new note '7nCyL2PfSBjU', branch '7t9bzD0AUg5Z_7nCyL2PfSBjU' of type 'text', mime 'text/html'
+20:10:43.980 Created new note 'c0X9AfjroMy2', branch '1ctKFe3DcRft_c0X9AfjroMy2' of type 'text', mime 'text/html'
+20:10:43.982 Created new note '7NaB1YLJ44bW', branch '1ctKFe3DcRft_7NaB1YLJ44bW' of type 'text', mime 'text/html'
+20:10:43.985 Created new note 'v7KHvsW9KDZo', branch '7NaB1YLJ44bW_v7KHvsW9KDZo' of type 'text', mime 'text/html'
+20:10:43.989 Created new note 'IKBMeBhqvHDl', branch '7NaB1YLJ44bW_IKBMeBhqvHDl' of type 'text', mime 'text/html'
+20:10:43.991 Created new note '4DDPJvT2F0bY', branch '1ctKFe3DcRft_4DDPJvT2F0bY' of type 'text', mime 'text/html'
+20:10:43.995 Created new note 'T8Hoqy5JNgn3', branch 'e2Hten4D7N2L_T8Hoqy5JNgn3' of type 'text', mime 'text/html'
+20:10:43.997 Created new note 'xcmPm7eU5rMu', branch 'T8Hoqy5JNgn3_xcmPm7eU5rMu' of type 'text', mime 'text/html'
+20:10:44.000 Created new note 'OWpEAWI7SZc3', branch 'xcmPm7eU5rMu_OWpEAWI7SZc3' of type 'text', mime 'text/html'
+20:10:44.002 Created new note 'GfQ2XiOJCUEy', branch 'xcmPm7eU5rMu_GfQ2XiOJCUEy' of type 'text', mime 'text/html'
+20:10:44.004 Created new note '058uxasUUd4R', branch 'xcmPm7eU5rMu_058uxasUUd4R' of type 'text', mime 'text/html'
+20:10:44.008 Created new note 'n9oHdryV6mDI', branch 'T8Hoqy5JNgn3_n9oHdryV6mDI' of type 'text', mime 'text/html'
+20:10:44.010 Created new note 'yobjtEziWZ8U', branch 'p2vsptRAoJh4_yobjtEziWZ8U' of type 'text', mime 'text/html'
+20:10:44.012 Created new note 'phVs12tWPgu6', branch 'Czyr19eDCdCe_phVs12tWPgu6' of type 'text', mime 'text/html'
+20:10:44.014 Created new note 'MhBGNZ1Gte4J', branch 'phVs12tWPgu6_MhBGNZ1Gte4J' of type 'text', mime 'text/html'
+20:10:44.017 Created new note 'h3de4RGnUkVm', branch 'phVs12tWPgu6_h3de4RGnUkVm' of type 'text', mime 'text/html'
+20:10:44.020 Created new note 'DyhukdRqbM9p', branch 'h3de4RGnUkVm_DyhukdRqbM9p' of type 'text', mime 'text/html'
+20:10:44.023 Created new note 'cOBpJ2ow0j65', branch 'h3de4RGnUkVm_cOBpJ2ow0j65' of type 'text', mime 'text/html'
+20:10:44.025 Created new note 't2P5gdYEn21L', branch 'cOBpJ2ow0j65_t2P5gdYEn21L' of type 'text', mime 'text/html'
+20:10:44.029 Created new note '85BlSmrRK7n0', branch 'cOBpJ2ow0j65_85BlSmrRK7n0' of type 'text', mime 'text/html'
+20:10:44.031 Created new note 'Jsw60hDyPSC1', branch 'h3de4RGnUkVm_Jsw60hDyPSC1' of type 'text', mime 'text/html'
+20:10:44.034 Created new note 'irfQEGS0UlRs', branch 'Jsw60hDyPSC1_irfQEGS0UlRs' of type 'text', mime 'text/html'
+20:10:44.035 Created new note 'S3JKwmaCQN7b', branch 'phVs12tWPgu6_S3JKwmaCQN7b' of type 'text', mime 'text/html'
+20:10:44.037 Created new note 'dcBKoNXoXugx', branch 'S3JKwmaCQN7b_dcBKoNXoXugx' of type 'text', mime 'text/html'
+20:10:44.040 Created new note '2a861bzz8Ajc', branch 'phVs12tWPgu6_2a861bzz8Ajc' of type 'book', mime 'text/html'
+20:10:44.043 Created new note 'yWKt2Hlpa1hi', branch '2a861bzz8Ajc_yWKt2Hlpa1hi' of type 'text', mime 'text/html'
+20:10:44.045 Created new note 'owWTJ6oarQ2X', branch '2a861bzz8Ajc_owWTJ6oarQ2X' of type 'text', mime 'text/html'
+20:10:44.048 Created new note 'H5CojU9qdfVU', branch 'owWTJ6oarQ2X_H5CojU9qdfVU' of type 'text', mime 'text/html'
+20:10:44.051 Created new note 'ej1VLtyWZipy', branch 'owWTJ6oarQ2X_ej1VLtyWZipy' of type 'text', mime 'text/html'
+20:10:44.053 Created new note 'ljfBFLlNRShi', branch 'owWTJ6oarQ2X_ljfBFLlNRShi' of type 'text', mime 'text/html'
+20:10:44.056 Created new note 'Odd1WfFfCO3Y', branch '2a861bzz8Ajc_Odd1WfFfCO3Y' of type 'text', mime 'text/html'
+20:10:44.059 Created new note 'RUCS2HVtnBWR', branch 'Czyr19eDCdCe_RUCS2HVtnBWR' of type 'canvas', mime 'application/json'
+20:10:44.063 Created new note 'qVlf09Ds8toE', branch 'Czyr19eDCdCe_qVlf09Ds8toE' of type 'book', mime ''
+20:10:44.066 Created new note 'GbmGGM9RpfGd', branch 'qVlf09Ds8toE_GbmGGM9RpfGd' of type 'mermaid', mime 'text/mermaid'
+20:10:44.099 Created new note 'ehOKFn6fexfd', branch 'qVlf09Ds8toE_ehOKFn6fexfd' of type 'mermaid', mime 'text/mermaid'
+20:10:44.103 Created new note 'YHy8xf2iAbn4', branch 'qVlf09Ds8toE_YHy8xf2iAbn4' of type 'mermaid', mime 'text/plain'
+20:10:44.107 Created new note 'cKKWtVkw7qwh', branch 'qVlf09Ds8toE_cKKWtVkw7qwh' of type 'mermaid', mime 'text/plain'
+20:10:44.111 Created new note 'gsiARKTUmxnf', branch 'qVlf09Ds8toE_gsiARKTUmxnf' of type 'mermaid', mime 'text/plain'
+20:10:44.115 Created new note 't2VuRElJIatS', branch 'qVlf09Ds8toE_t2VuRElJIatS' of type 'mermaid', mime 'text/mermaid'
+20:10:44.119 Created new note 'MEPgYKFrxNgB', branch 'qVlf09Ds8toE_MEPgYKFrxNgB' of type 'mermaid', mime 'text/plain'
+20:10:44.123 Created new note 'aK6Sjh8xr6OA', branch 'qVlf09Ds8toE_aK6Sjh8xr6OA' of type 'mermaid', mime 'text/plain'
+20:10:44.127 Created new note 'kNIOLihsFy7B', branch 'qVlf09Ds8toE_kNIOLihsFy7B' of type 'mermaid', mime 'text/plain'
+20:10:44.130 Created new note 'StQeU8CEaVOg', branch 'qVlf09Ds8toE_StQeU8CEaVOg' of type 'mermaid', mime 'text/plain'
+20:10:44.135 Created new note '649S66iH0Is2', branch 'qVlf09Ds8toE_649S66iH0Is2' of type 'mermaid', mime 'text/mermaid'
+20:10:44.138 Created new note 'N5ghUd9it9CD', branch 'qVlf09Ds8toE_N5ghUd9it9CD' of type 'mermaid', mime 'text/plain'
+20:10:44.142 Created new note 'Z7KtQv0Oab4X', branch 'Czyr19eDCdCe_Z7KtQv0Oab4X' of type 'text', mime 'text/html'
+20:10:44.145 Created new note 'xmHwNYCt26in', branch 'Z7KtQv0Oab4X_xmHwNYCt26in' of type 'text', mime 'text/html'
+20:10:44.147 Created new note 'AuLmxInl5SK5', branch 'Z7KtQv0Oab4X_AuLmxInl5SK5' of type 'text', mime 'text/html'
+20:10:44.150 Created new note 'qtP3VbSzWggl', branch 'AuLmxInl5SK5_qtP3VbSzWggl' of type 'text', mime 'text/html'
+20:10:44.152 Created new note '4R04c6ckf1n2', branch 'Z7KtQv0Oab4X_4R04c6ckf1n2' of type 'text', mime 'text/html'
+20:10:44.155 Created new note 'WmaO9FpuQCST', branch 'Czyr19eDCdCe_WmaO9FpuQCST' of type 'text', mime 'text/html'
+20:10:44.157 Created new note 'wIt1FY486NW9', branch 'WmaO9FpuQCST_wIt1FY486NW9' of type 'text', mime 'text/html'
+20:10:44.159 Created new note 'DAtvpAajsnxx', branch 'WmaO9FpuQCST_DAtvpAajsnxx' of type 'text', mime 'text/html'
+20:10:44.162 Created new note 'PlZyGGglDHDq', branch 'WmaO9FpuQCST_PlZyGGglDHDq' of type 'text', mime 'text/html'
+20:10:44.164 Created new note 'lZtGernq3GSx', branch 'Czyr19eDCdCe_lZtGernq3GSx' of type 'code', mime 'text/css'
+20:10:44.169 Created new note 'XjF5CWqxoaQ7', branch 'lZtGernq3GSx_XjF5CWqxoaQ7' of type 'file', mime 'application/octet-stream'
+20:10:44.173 Created new note 'NWpGAKcdZOYX', branch 'lZtGernq3GSx_NWpGAKcdZOYX' of type 'file', mime 'application/octet-stream'
+20:10:44.175 Created new note 'GkgaEgKmDzf4', branch 'Czyr19eDCdCe_GkgaEgKmDzf4' of type 'text', mime 'text/html'
+20:10:44.177 Created new note 'RFY3Gmvwr9Jg', branch 'GkgaEgKmDzf4_RFY3Gmvwr9Jg' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.179 Created new note 'IAnYXKdmgOTx', branch 'GkgaEgKmDzf4_IAnYXKdmgOTx' of type 'render', mime 'text/html'
+20:10:44.181 Created new note 'Br9K2zU1I9bC', branch 'IAnYXKdmgOTx_Br9K2zU1I9bC' of type 'code', mime 'text/html'
+20:10:44.184 Created new note 'mreqDAWOvpoZ', branch 'Br9K2zU1I9bC_mreqDAWOvpoZ' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.191 Created new note '5mHSd6Mvdmyx', branch 'mreqDAWOvpoZ_5mHSd6Mvdmyx' of type 'file', mime 'text/javascript'
+20:10:44.194 Created new note 'RVCpVpa9hM2E', branch 'GkgaEgKmDzf4_RVCpVpa9hM2E' of type 'book', mime ''
+20:10:44.195 Created new note 'NVuPS1AZ8OYy', branch 'RVCpVpa9hM2E_NVuPS1AZ8OYy' of type 'render', mime ''
+20:10:44.221 Created new note 'qevM9RZC9AoM', branch 'NVuPS1AZ8OYy_qevM9RZC9AoM' of type 'code', mime 'text/html'
+20:10:44.230 Created new note 'r56qcjqFToHB', branch 'qevM9RZC9AoM_r56qcjqFToHB' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.232 Created new note 'tZgkuHg7m8MP', branch 'r56qcjqFToHB_tZgkuHg7m8MP' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.235 Created new note 'nbre2b14ZUVZ', branch 'tZgkuHg7m8MP_nbre2b14ZUVZ' of type 'file', mime 'text/javascript'
+20:10:44.240 Created new note 'dZw1fvC7Ogtn', branch 'r56qcjqFToHB_dZw1fvC7Ogtn' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.242 Created new note 'S8W2e1JAGcnh', branch 'RVCpVpa9hM2E_S8W2e1JAGcnh' of type 'render', mime ''
+20:10:44.246 Created new note 'u3oWsG0Dx6pZ', branch 'S8W2e1JAGcnh_u3oWsG0Dx6pZ' of type 'code', mime 'text/html'
+20:10:44.251 Created new note 'TTm9PStUU6AD', branch 'u3oWsG0Dx6pZ_TTm9PStUU6AD' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.253 Created new note 'KOfr2YedaAr8', branch 'RVCpVpa9hM2E_KOfr2YedaAr8' of type 'render', mime ''
+20:10:44.257 Created new note 'NgJ9WisTsxQM', branch 'KOfr2YedaAr8_NgJ9WisTsxQM' of type 'code', mime 'text/html'
+20:10:44.261 Created new note '5ZFobaN9oPK6', branch 'NgJ9WisTsxQM_5ZFobaN9oPK6' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.268 Created new note '2P8CZE8y3CjR', branch 'RVCpVpa9hM2E_2P8CZE8y3CjR' of type 'render', mime ''
+20:10:44.271 Created new note 'ilIonVHXR8PZ', branch '2P8CZE8y3CjR_ilIonVHXR8PZ' of type 'code', mime 'text/html'
+20:10:44.274 Created new note 'B2M8ur67P14j', branch 'ilIonVHXR8PZ_B2M8ur67P14j' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.276 Created new note 'kLgtdd55KPup', branch 'RVCpVpa9hM2E_kLgtdd55KPup' of type 'render', mime ''
+20:10:44.278 Created new note 'dcksU70r1tFM', branch 'kLgtdd55KPup_dcksU70r1tFM' of type 'code', mime 'text/html'
+20:10:44.281 Created new note 'pK8OuD9xMIAL', branch 'dcksU70r1tFM_pK8OuD9xMIAL' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.283 Created new note 'yyRDO1NeNG35', branch 'pK8OuD9xMIAL_yyRDO1NeNG35' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.285 Created new note 'tleYchg5tvVb', branch 'RVCpVpa9hM2E_tleYchg5tvVb' of type 'render', mime ''
+20:10:44.287 Created new note 'e2F8yPf4lqmA', branch 'tleYchg5tvVb_e2F8yPf4lqmA' of type 'code', mime 'text/html'
+20:10:44.290 Created new note '9rsTtMCj40rv', branch 'e2F8yPf4lqmA_9rsTtMCj40rv' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.292 Created new note 'ZJmYqDDsxdYc', branch 'GkgaEgKmDzf4_ZJmYqDDsxdYc' of type 'code', mime 'application/javascript;env=backend'
+20:10:44.295 Created new note 'ImlIt6EIlJAT', branch 'GkgaEgKmDzf4_ImlIt6EIlJAT' of type 'text', mime 'text/html'
+20:10:44.297 Created new note 'LDjTbGLCj0sO', branch 'ImlIt6EIlJAT_LDjTbGLCj0sO' of type 'text', mime 'text/html'
+20:10:44.299 Created new note 'AuYYNJdNI0nz', branch 'LDjTbGLCj0sO_AuYYNJdNI0nz' of type 'text', mime 'text/html'
+20:10:44.301 Created new note '1t2VORfJ6UNz', branch 'LDjTbGLCj0sO_1t2VORfJ6UNz' of type 'text', mime 'text/html'
+20:10:44.303 Created new note '55JMaVcuviD5', branch '1t2VORfJ6UNz_55JMaVcuviD5' of type 'text', mime 'text/html'
+20:10:44.305 Created new note 'wufTXmnZf4Xz', branch 'LDjTbGLCj0sO_wufTXmnZf4Xz' of type 'text', mime 'text/html'
+20:10:44.306 Created new note 'E4XVhhpT5Dva', branch 'wufTXmnZf4Xz_E4XVhhpT5Dva' of type 'text', mime 'text/html'
+20:10:44.308 Created new note 'vMCkzYkO1qrp', branch 'LDjTbGLCj0sO_vMCkzYkO1qrp' of type 'text', mime 'text/html'
+20:10:44.310 Created new note 'cmSONVt1QPLY', branch 'vMCkzYkO1qrp_cmSONVt1QPLY' of type 'text', mime 'text/html'
+20:10:44.313 Created new note 'uEUHfaEfJRFP', branch 'cmSONVt1QPLY_uEUHfaEfJRFP' of type 'text', mime 'text/html'
+20:10:44.315 Created new note 'BwVgpOt9Grpf', branch 'ImlIt6EIlJAT_BwVgpOt9Grpf' of type 'text', mime 'text/html'
+20:10:44.318 Created new note 'yb3R6bC7tnXS', branch 'BwVgpOt9Grpf_yb3R6bC7tnXS' of type 'text', mime 'text/html'
+20:10:44.321 Created new note 'lRqvynQRp5fo', branch 'BwVgpOt9Grpf_lRqvynQRp5fo' of type 'text', mime 'text/html'
+20:10:44.325 Created new note 'gtLWRFPKwu1d', branch 'BwVgpOt9Grpf_gtLWRFPKwu1d' of type 'text', mime 'text/html'
+20:10:44.327 Created new note 'wce65H6eb1zD', branch 'ImlIt6EIlJAT_wce65H6eb1zD' of type 'text', mime 'text/html'
+20:10:44.332 Created new note 'ov6lONe1pVau', branch 'ImlIt6EIlJAT_ov6lONe1pVau' of type 'text', mime 'text/html'
+20:10:44.334 Created new note 'BzkhaqpmRYsL', branch 'ov6lONe1pVau_BzkhaqpmRYsL' of type 'code', mime 'application/javascript;env=backend'
+20:10:44.337 Created new note 'YwDbeOAkCohM', branch 'BzkhaqpmRYsL_YwDbeOAkCohM' of type 'code', mime 'application/javascript;env=backend'
+20:10:44.368 Created new note 'oQ1o0ykm4Kym', branch 'ov6lONe1pVau_oQ1o0ykm4Kym' of type 'code', mime 'text/css'
+20:10:44.377 Created new note '1dDpK56KEuoF', branch 'ov6lONe1pVau_1dDpK56KEuoF' of type 'text', mime 'text/html'
+20:10:44.379 Created new note 'YBzaasmeLVsi', branch 'ov6lONe1pVau_YBzaasmeLVsi' of type 'code', mime 'application/javascript;env=frontend'
+20:10:44.381 Created new note 'uOtDMqRzNamN', branch 'ImlIt6EIlJAT_uOtDMqRzNamN' of type 'text', mime 'text/html'
+20:10:44.383 Created new note 'G4le2ZtVzYaP', branch 'uOtDMqRzNamN_G4le2ZtVzYaP' of type 'text', mime 'text/html'
+20:10:44.385 Created new note 'iqFyuet6djhz', branch 'uOtDMqRzNamN_iqFyuet6djhz' of type 'text', mime 'text/html'
+20:10:44.391 Created new note '5mLTYlGaZRhY', branch 'uOtDMqRzNamN_5mLTYlGaZRhY' of type 'text', mime 'text/html'
+20:10:44.394 Created new note 'SfZAj8xMkI2z', branch 'uOtDMqRzNamN_SfZAj8xMkI2z' of type 'text', mime 'text/html'
+20:10:44.397 Created new note 'xc7mXja4u7d4', branch 'ImlIt6EIlJAT_xc7mXja4u7d4' of type 'code', mime 'application/javascript;env=backend'
+20:10:44.566 [Script BzkhaqpmRYsL] Schema and initial content generated.
+20:10:44.572 Becca (note cache) load took 6ms
+20:10:44.574 Created new note '_hidden', branch 'root__hidden' of type 'doc', mime ''
+20:10:44.579 Created new note '_search', branch '_hidden__search' of type 'doc', mime ''
+20:10:44.581 Created new note '_globalNoteMap', branch '_hidden__globalNoteMap' of type 'noteMap', mime ''
+20:10:44.583 Created new note '_sqlConsole', branch '_hidden__sqlConsole' of type 'doc', mime ''
+20:10:44.584 Created new note '_share', branch '_hidden__share' of type 'doc', mime ''
+20:10:44.586 Created new note '_bulkAction', branch '_hidden__bulkAction' of type 'doc', mime ''
+20:10:44.587 Created new note '_backendLog', branch '_hidden__backendLog' of type 'contentWidget', mime ''
+20:10:44.590 Created new note '_userHidden', branch '_hidden__userHidden' of type 'doc', mime ''
+20:10:44.592 Created new note '_lbTplRoot', branch '_hidden__lbTplRoot' of type 'doc', mime ''
+20:10:44.593 Created new note '_lbTplBase', branch '_lbTplRoot__lbTplBase' of type 'doc', mime ''
+20:10:44.595 Created new note '_lbTplCommandLauncher', branch '_lbTplRoot__lbTplCommandLauncher' of type 'doc', mime ''
+20:10:44.598 Created new note '_lbTplNoteLauncher', branch '_lbTplRoot__lbTplNoteLauncher' of type 'doc', mime ''
+20:10:44.602 Created new note '_lbTplScriptLauncher', branch '_lbTplRoot__lbTplScriptLauncher' of type 'doc', mime ''
+20:10:44.605 Created new note '_lbTplBuiltinWidget', branch '_lbTplRoot__lbTplBuiltinWidget' of type 'doc', mime ''
+20:10:44.608 Created new note '_lbTplSpacer', branch '_lbTplRoot__lbTplSpacer' of type 'doc', mime ''
+20:10:44.640 Created new note '_lbTplCustomWidget', branch '_lbTplRoot__lbTplCustomWidget' of type 'doc', mime ''
+20:10:44.643 Created new note '_lbRoot', branch '_hidden__lbRoot' of type 'doc', mime ''
+20:10:44.645 Created new note '_lbAvailableLaunchers', branch '_lbRoot__lbAvailableLaunchers' of type 'doc', mime ''
+20:10:44.648 Created new note '_lbBackInHistory', branch '_lbAvailableLaunchers__lbBackInHistory' of type 'launcher', mime ''
+20:10:44.651 Created new note '_lbForwardInHistory', branch '_lbAvailableLaunchers__lbForwardInHistory' of type 'launcher', mime ''
+20:10:44.655 Created new note '_lbBackendLog', branch '_lbAvailableLaunchers__lbBackendLog' of type 'launcher', mime ''
+20:10:44.658 Created new note '_lbVisibleLaunchers', branch '_lbRoot__lbVisibleLaunchers' of type 'doc', mime ''
+20:10:44.661 Created new note '_lbNewNote', branch '_lbVisibleLaunchers__lbNewNote' of type 'launcher', mime ''
+20:10:44.663 Created new note '_lbSearch', branch '_lbVisibleLaunchers__lbSearch' of type 'launcher', mime ''
+20:10:44.666 Created new note '_lbJumpTo', branch '_lbVisibleLaunchers__lbJumpTo' of type 'launcher', mime ''
+20:10:44.670 Created new note '_lbNoteMap', branch '_lbVisibleLaunchers__lbNoteMap' of type 'launcher', mime ''
+20:10:44.673 Created new note '_lbCalendar', branch '_lbVisibleLaunchers__lbCalendar' of type 'launcher', mime ''
+20:10:44.676 Created new note '_lbRecentChanges', branch '_lbVisibleLaunchers__lbRecentChanges' of type 'launcher', mime ''
+20:10:44.679 Created new note '_lbSpacer1', branch '_lbVisibleLaunchers__lbSpacer1' of type 'launcher', mime ''
+20:10:44.682 Created new note '_lbBookmarks', branch '_lbVisibleLaunchers__lbBookmarks' of type 'launcher', mime ''
+20:10:44.687 Created new note '_lbToday', branch '_lbVisibleLaunchers__lbToday' of type 'launcher', mime ''
+20:10:44.690 Created new note '_lbSpacer2', branch '_lbVisibleLaunchers__lbSpacer2' of type 'launcher', mime ''
+20:10:44.721 Created new note '_lbProtectedSession', branch '_lbVisibleLaunchers__lbProtectedSession' of type 'launcher', mime ''
+20:10:44.724 Created new note '_lbSyncStatus', branch '_lbVisibleLaunchers__lbSyncStatus' of type 'launcher', mime ''
+20:10:44.726 Created new note '_options', branch '_hidden__options' of type 'book', mime ''
+20:10:44.727 Created new note '_optionsAppearance', branch '_options__optionsAppearance' of type 'contentWidget', mime ''
+20:10:44.729 Created new note '_optionsShortcuts', branch '_options__optionsShortcuts' of type 'contentWidget', mime ''
+20:10:44.732 Created new note '_optionsTextNotes', branch '_options__optionsTextNotes' of type 'contentWidget', mime ''
+20:10:44.733 Created new note '_optionsCodeNotes', branch '_options__optionsCodeNotes' of type 'contentWidget', mime ''
+20:10:44.735 Created new note '_optionsImages', branch '_options__optionsImages' of type 'contentWidget', mime ''
+20:10:44.738 Created new note '_optionsSpellcheck', branch '_options__optionsSpellcheck' of type 'contentWidget', mime ''
+20:10:44.740 Created new note '_optionsPassword', branch '_options__optionsPassword' of type 'contentWidget', mime ''
+20:10:44.742 Created new note '_optionsEtapi', branch '_options__optionsEtapi' of type 'contentWidget', mime ''
+20:10:44.744 Created new note '_optionsBackup', branch '_options__optionsBackup' of type 'contentWidget', mime ''
+20:10:44.746 Created new note '_optionsSync', branch '_options__optionsSync' of type 'contentWidget', mime ''
+20:10:44.747 Created new note '_optionsOther', branch '_options__optionsOther' of type 'contentWidget', mime ''
+20:10:44.749 Created new note '_optionsAdvanced', branch '_options__optionsAdvanced' of type 'contentWidget', mime ''
+20:10:44.750 Slow 204 POST /api/setup/new-document with 0 bytes took 1091ms
+20:10:48.577 Table counts: notes: 207, revisions: 0, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 123
+20:10:48.586 All consistency checks passed with no errors detected (took 10ms)
+20:10:55.196 Generated CSRF token uaAC8XLG--yK83rLI--z5UpfpjMV0-wtCdu4 with secret _csrf=keo86BmBFS4FwbjXFM_j_x0R; Path=/
+20:10:58.164 200 GET /api/options with 6236 bytes took 1ms
+20:10:58.174 200 GET /api/tree with 13353 bytes took 3ms
+20:10:58.181 200 GET /api/keyboard-actions with 13999 bytes took 3ms
+20:10:58.184 200 GET /api/script/widgets with 2 bytes took 1ms
+20:10:58.339 200 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+20:10:58.344 200 POST /api/tree/load with 5506 bytes took 1ms
+20:10:58.345 200 POST /api/tree/load with 42 bytes took 1ms
+20:10:58.378 200 POST /api/tree/load with 18448 bytes took 1ms
+20:10:59.394 200 GET /api/notes/root/blob with 155 bytes took 1ms
+20:10:59.425 200 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+20:10:59.828 200 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+20:11:00.313 200 GET /api/script/startup with 2 bytes took 1ms
+20:11:01.028 304 GET /api/notes/root/blob with 155 bytes took 1ms
+20:11:02.462 204 PUT /api/options with 0 bytes took 2ms
+20:11:02.463 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 0ms
+20:11:02.465 200 GET /api/note-map/Czyr19eDCdCe/backlink-count with 11 bytes took 1ms
+20:11:03.856 204 PUT /api/options with 0 bytes took 1ms
+20:11:03.857 200 GET /api/notes/30GS4UW3pe87/blob with 1077 bytes took 1ms
+20:11:03.858 200 GET /api/note-map/30GS4UW3pe87/backlink-count with 11 bytes took 1ms
+20:11:03.967 200 POST /api/tree/load with 4167 bytes took 0ms
+20:11:03.986 200 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 1ms
+20:11:04.013 200 GET /api/notes/H3OumRDc2ptz/blob with 1796 bytes took 1ms
+20:11:04.035 200 GET /api/notes/aIwIqy9Hp7NS/blob with 2119 bytes took 1ms
+20:12:06.830 200 GET /api/options with 6370 bytes took 1ms
+20:12:07.088 200 POST /api/tree/load with 5506 bytes took 1ms
+20:12:07.089 200 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 0ms
+20:12:07.208 Error: Router not found for request GET /;kjllkj
+20:12:07.214 200 POST /api/tree/load with 18448 bytes took 2ms
+20:23:47.957 DB size: 1921 KB
+20:23:48.542 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-16T18:23:47.799Z"
+}
+20:23:48.544 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2199 Mhz
+20:23:48.544 Trusted reverse proxy: false
+20:23:48.544 App HTTP server starting up at port 8080
+20:23:48.549 Listening on port 8080
+20:23:48.560 Becca (note cache) load took 10ms
+20:23:48.883 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:23:52.598 Table counts: notes: 207, revisions: 0, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 123
+20:23:52.608 All consistency checks passed with no errors detected (took 10ms)
+20:24:27.393 DB size: 1921 KB
+20:24:27.989 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-16T18:24:27.233Z"
+}
+20:24:27.991 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+20:24:27.991 Trusted reverse proxy: false
+20:24:27.992 App HTTP server starting up at port 8080
+20:24:27.996 Listening on port 8080
+20:24:28.009 Becca (note cache) load took 12ms
+20:24:28.340 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+20:24:32.041 Table counts: notes: 207, revisions: 0, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 123
+20:24:32.051 All consistency checks passed with no errors detected (took 11ms)
+20:24:38.041 Error: Router not found for request GET /;kjllkj
+20:24:41.075 Generated CSRF token 1P21Lfti-ut40ZbsZZd7T_0T3C8SJz5Kwlog with secret undefined
+20:24:44.034 200 GET /api/options with 6236 bytes took 2ms
+20:24:44.036 304 GET /api/tree with 13353 bytes took 2ms
+20:24:44.038 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+20:24:44.039 304 GET /api/script/widgets with 2 bytes took 0ms
+20:24:44.227 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+20:24:44.229 200 POST /api/tree/load with 5506 bytes took 2ms
+20:24:44.230 200 POST /api/tree/load with 42 bytes took 1ms
+20:24:44.381 200 POST /api/tree/load with 18448 bytes took 1ms
+20:24:45.254 304 GET /api/notes/root/blob with 155 bytes took 1ms
+20:24:45.256 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+20:24:45.697 200 GET /api/search/%23workspace%20%23!template with 2 bytes took 2ms
+20:24:45.797 204 PUT /api/options with 0 bytes took 2ms
+20:24:45.798 304 GET /api/notes/30GS4UW3pe87/blob with 1077 bytes took 0ms
+20:24:45.799 304 GET /api/note-map/30GS4UW3pe87/backlink-count with 11 bytes took 0ms
+20:24:46.149 200 POST /api/tree/load with 4167 bytes took 1ms
+20:24:46.174 304 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 0ms
+20:24:46.180 304 GET /api/script/startup with 2 bytes took 1ms
+20:24:46.198 304 GET /api/notes/H3OumRDc2ptz/blob with 1796 bytes took 1ms
+20:24:46.232 304 GET /api/notes/aIwIqy9Hp7NS/blob with 2119 bytes took 0ms
+21:20:40.813 DB size: 1921 KB
+21:20:41.407 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-16T19:20:40.659Z"
+}
+21:20:41.409 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+21:20:41.410 Trusted reverse proxy: false
+21:20:41.410 App HTTP server starting up at port 8080
+21:20:41.415 Listening on port 8080
+21:20:41.426 Becca (note cache) load took 10ms
+21:20:41.743 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:20:45.457 Table counts: notes: 207, revisions: 0, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 123
+21:20:45.467 All consistency checks passed with no errors detected (took 11ms)
+21:46:17.029 DB size: 1921 KB
+21:46:17.621 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-16T19:46:16.875Z"
+}
+21:46:17.623 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+21:46:17.623 Trusted reverse proxy: false
+21:46:17.624 App HTTP server starting up at port 8080
+21:46:17.628 Listening on port 8080
+21:46:17.640 Becca (note cache) load took 11ms
+21:46:17.959 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:46:21.671 Table counts: notes: 207, revisions: 0, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 123
+21:46:21.684 All consistency checks passed with no errors detected (took 13ms)
+21:46:30.307 Generated CSRF token 0Es94dMn-FzFmIwyXs6cixnSbr-2SS0oanes with secret undefined
+21:46:33.212 200 GET /api/options with 6236 bytes took 2ms
+21:46:33.217 304 GET /api/tree with 13353 bytes took 2ms
+21:46:33.223 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+21:46:33.224 304 GET /api/script/widgets with 2 bytes took 1ms
+21:46:33.456 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+21:46:33.468 200 POST /api/tree/load with 5506 bytes took 1ms
+21:46:33.469 200 POST /api/tree/load with 42 bytes took 1ms
+21:46:33.616 200 POST /api/tree/load with 18448 bytes took 1ms
+21:46:34.492 304 GET /api/notes/root/blob with 155 bytes took 1ms
+21:46:34.495 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+21:46:34.874 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+21:46:35.426 304 GET /api/script/startup with 2 bytes took 1ms
+21:48:37.468 DB size: 1921 KB
+21:48:38.047 {
+  "appVersion": "0.63.1-beta",
+  "dbVersion": 228,
+  "nodeVersion": "v18.18.2",
+  "syncVersion": 32,
+  "buildDate": "2024-01-21T23:49:23+01:00",
+  "buildRevision": "4f8073daa7cff1b8b6737ae45792b2e87c2adf33",
+  "dataDirectory": "./data",
+  "clipperProtocolVersion": "1.0",
+  "utcDateTime": "2024-02-16T19:48:37.312Z"
+}
+21:48:38.049 CPU model: AMD Ryzen 9 3900X 12-Core Processor, logical cores: 24 freq: 2200 Mhz
+21:48:38.049 Trusted reverse proxy: false
+21:48:38.050 App HTTP server starting up at port 8080
+21:48:38.055 Listening on port 8080
+21:48:38.069 Becca (note cache) load took 13ms
+21:48:38.376 Sending message to all clients: {"type":"reload-frontend","reason":"source code change"}
+21:48:38.379 JS Info: Frontend app reload: received request from backend to reload frontend
+21:48:38.380 JS Info: Frontend app reload: received request from backend to reload frontend
+21:48:38.447 Generated CSRF token S7LM4iDG-J7FK_Ke82oJVfPx_Oz510EUzNIY with secret undefined
+21:48:38.483 Generated CSRF token 1lJSWxgW-Xhw32K1jvXo-7PWnyaxeMI0xu7M with secret undefined
+21:48:41.645 304 GET /api/options with 6236 bytes took 2ms
+21:48:41.653 304 GET /api/tree with 13353 bytes took 2ms
+21:48:41.664 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+21:48:41.673 304 GET /api/script/widgets with 2 bytes took 1ms
+21:48:41.864 200 POST /api/tree/load with 5506 bytes took 1ms
+21:48:41.874 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+21:48:41.882 200 POST /api/tree/load with 42 bytes took 0ms
+21:48:41.933 200 POST /api/tree/load with 18448 bytes took 1ms
+21:48:42.088 Table counts: notes: 207, revisions: 0, attachments: 16, branches: 221, attributes: 324, etapi_tokens: 0, blobs: 123
+21:48:42.098 All consistency checks passed with no errors detected (took 10ms)
+21:48:42.912 200 GET /api/notes/root/blob with 155 bytes took 1ms
+21:48:42.922 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+21:48:43.405 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 1ms
+21:48:43.709 304 GET /api/note-map/root/backlink-count with 11 bytes took 0ms
+21:48:43.721 204 PUT /api/options with 0 bytes took 3ms
+21:48:43.738 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 0ms
+21:48:43.823 304 GET /api/script/startup with 2 bytes took 1ms
+21:48:44.063 200 GET /api/options with 6631 bytes took 1ms
+21:48:44.066 304 GET /api/tree with 13353 bytes took 1ms
+21:48:44.070 304 GET /api/keyboard-actions with 13999 bytes took 1ms
+21:48:44.072 304 GET /api/script/widgets with 2 bytes took 1ms
+21:48:44.275 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+21:48:44.277 200 POST /api/tree/load with 5506 bytes took 1ms
+21:48:44.825 200 POST /api/tree/load with 18448 bytes took 1ms
+21:48:46.985 304 GET /api/notes/root/blob with 155 bytes took 1ms
+21:48:46.986 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+21:48:49.224 304 GET /api/script/startup with 2 bytes took 1ms
+21:48:50.273 304 GET /api/search/%23workspace%20%23!template with 2 bytes took 1ms
+21:48:50.373 304 GET /api/notes/30GS4UW3pe87/blob with 1077 bytes took 1ms
+21:48:50.374 304 GET /api/note-map/30GS4UW3pe87/backlink-count with 11 bytes took 1ms
+21:48:51.280 204 PUT /api/options with 0 bytes took 2ms
+21:48:54.562 200 POST /api/tree/load with 4167 bytes took 1ms
+21:48:54.584 304 GET /api/notes/Z8KOZqH2gl6A/blob with 1198 bytes took 1ms
+21:48:54.606 304 GET /api/notes/H3OumRDc2ptz/blob with 1796 bytes took 1ms
+21:48:54.629 304 GET /api/notes/aIwIqy9Hp7NS/blob with 2119 bytes took 1ms
+21:48:57.083 304 GET /api/notes/root/blob with 155 bytes took 1ms
+21:49:03.622 304 GET /api/notes/root/blob with 155 bytes took 1ms
+21:49:03.920 Generated CSRF token wgunXjuT-VXefXn3oN5j-JHf3N1q9kHktMWM with secret undefined
+21:49:06.798 200 GET /api/options with 6875 bytes took 1ms
+21:49:06.800 304 GET /api/tree with 13353 bytes took 1ms
+21:49:06.804 304 GET /api/keyboard-actions with 13999 bytes took 2ms
+21:49:06.805 304 GET /api/script/widgets with 2 bytes took 1ms
+21:49:07.118 200 POST /api/tree/load with 5506 bytes took 2ms
+21:49:07.119 304 GET /api/keyboard-shortcuts-for-notes with 2 bytes took 1ms
+21:49:07.969 200 POST /api/tree/load with 18448 bytes took 1ms
+21:49:08.284 304 GET /api/notes/30GS4UW3pe87/blob with 1077 bytes took 1ms
+21:49:08.287 304 GET /api/note-map/30GS4UW3pe87/backlink-count with 11 bytes took 1ms
+21:49:08.567 304 GET /api/notes/root/blob with 155 bytes took 1ms
+21:49:08.569 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+21:49:08.829 204 PUT /api/options with 0 bytes took 3ms
+21:49:08.830 304 GET /api/note-map/root/backlink-count with 11 bytes took 1ms
+21:49:08.886 304 GET /api/notes/Czyr19eDCdCe/blob with 2482 bytes took 1ms
+21:49:08.949 304 GET /api/script/startup with 2 bytes took 0ms
