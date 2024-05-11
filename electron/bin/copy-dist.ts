@@ -33,19 +33,16 @@ async function copyFiles() {
 }
 
 async function copyDirs() {
-  const dirsToCopy = ["../common/images", "../client/libraries", "../server/db"];
+  const dirsToCopy = [
+      "../common/images",
+      "../client/src",
+      "../client/libraries",
+      "../server/src/views",
+      "../server/db"];
   for (const dir of dirsToCopy) {
     const destPath = path.join(DEST_DIR, trimRelativePath(dir));
     console.log(`Copying ${dir} -> ${destPath}`);
     await fs.copy(dir, destPath);
-  }
-}
-
-async function copyClient() {
-  const srcDirsToCopy = ["../client/src", "../server/src/views"];
-  for (const dir of srcDirsToCopy) {
-    console.log(`Copying ${dir}`);
-    await fs.copy(dir, path.join(DEST_DIR_SRC, trimRelativePath(dir)));
   }
 }
 
@@ -100,7 +97,6 @@ async function copyServerNodeModules() {
 try {
   copyFiles();
   copyDirs();
-  copyClient();
   copyNodeModules();
   copyServerNodeModules();
   console.log("Copying complete!");
