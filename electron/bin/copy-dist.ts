@@ -58,7 +58,7 @@ async function copyNodeModules() {
     await copyNodeModuleFileOrFolder(file);
   }
   
-  const nodeModulesFolder = [
+  const nodeModulesFolder = [    
     "../client/node_modules/@excalidraw/excalidraw/dist/",
     "../client/node_modules/katex/dist/",
     "../client/node_modules/dayjs/",
@@ -78,11 +78,25 @@ async function copyNodeModules() {
   }
 }
 
+async function copyServerNodeModules() {
+  const ignoredNodeModules = [
+    "better-sqlite3"
+  ];
+
+  const baseDir = "../server/node_modules";
+  for (const folder of fs.readdirSync(baseDir)) {
+    if (!ignoredNodeModules.includes(folder)) {
+      await copyNodeModuleFileOrFolder(path.join(baseDir, folder));
+    }
+  }
+}
+
 try {
   copyFiles();
   copyDirs();
   copyClient();
   copyNodeModules();
+  copyServerNodeModules();
   console.log("Copying complete!");
 } catch (err: unknown) {
   console.error("Error during copy:", err);
