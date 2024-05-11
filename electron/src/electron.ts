@@ -1,10 +1,10 @@
 "use strict";
 
 import electron = require("electron");
-import sqlInit = require("../server/src/services/sql_init");
-import appIconService = require("../server/src/services/app_icon");
-import windowService = require("../server/src/services/window");
-import tray = require("../server/src/services/tray");
+import sqlInit = require("../../server/src/services/sql_init");
+import appIconService = require("./services/app_icon");
+import windowService = require("./services/window");
+import tray = require("./services/tray");
 
 // Adds debug features like hotkeys for triggering dev tools and reload
 require("electron-debug")();

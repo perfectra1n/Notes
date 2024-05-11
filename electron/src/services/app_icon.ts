@@ -1,12 +1,12 @@
 "use strict";
 
 import path = require('path');
-import resourceDir = require('./resource_dir');
-import log = require('./log');
+import resourceDir = require('../../../server/src/services/resource_dir');
+import log = require('../../../server/src/services/log');
 import os = require('os');
 import fs = require('fs');
-import config = require('./config');
-import utils = require('./utils');
+import config = require('../../../server/src/services/config');
+import utils = require('../../../server/src/services/utils');
 
 const template = `[Desktop Entry]
 Type=Application

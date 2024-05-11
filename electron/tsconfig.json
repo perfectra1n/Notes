@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+      "moduleResolution": "Node",
+	  "declaration": false,
+	  "sourceMap": true,
+	  "outDir": "./dist",
+	  "strict": true,
+	  "noImplicitAny": true,
+	  "resolveJsonModule": true,
+	  "lib": ["ES2022"],
+	  "downlevelIteration": true,
+	  "skipLibCheck": true
+	},
+	"include": [
+      "../server/src/**/*.js",
+	  "../server/src/**/*.ts",
+	  "bin/**/*.ts",
+      "src/**/*.ts"
+	],
+	"exclude": ["./node_modules/**/*"],
+	"ts-node": {
+		"files": true
+	},
+	"files": [
+		"../server/src/types.d.ts"
+	]
+  }
