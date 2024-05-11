@@ -3,6 +3,7 @@ import path = require("path");
 import express = require("express");
 import env = require('../services/env');
 import serveStatic = require('serve-static');
+import utils = require('../services/utils');
 
 const persistentCacheStatic = (root: string, options?: serveStatic.ServeStaticOptions<express.Response<any, Record<string, any>>>) => {
     if (!env.isDev()) {
@@ -15,9 +16,16 @@ const persistentCacheStatic = (root: string, options?: serveStatic.ServeStaticOp
 };
 
 function register(app: express.Application) {
-    const root = path.join(__dirname, '..', '..', '..');
+    let root: string;
+    if (!utils.isElectron()) {
+      root = path.join(__dirname, '..', '..', '..');
+    } else {
+      root = path.join(__dirname, '..', '..', '..', '..', '..');
+    }
+
+    console.log("Asset root path is", path.resolve(root));
     const clientRoot = path.join(root, 'client');
-    const commonRoot = path.join(root, 'common');
+    const commonRoot = path.join(root, 'common');    
 
     app.use(`/${assetPath}/app`, persistentCacheStatic(path.join(clientRoot, 'src')));
     app.use(`/${assetPath}/app-dist`, persistentCacheStatic(path.join(clientRoot, 'src-dist')));
