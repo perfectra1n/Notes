@@ -14,15 +14,21 @@ async function copyNodeModuleFileOrFolder(source: string) {
   await fs.copy(source, destination);
 }
 
+/**
+ * Removes all "../" components from a given path.
+ * 
+ * @param path the path with relative components
+ * @returns the modified path.
+ */
 function trimRelativePath(path: string) {
   return path.replace(/\.\.\//g, "")
 }
 
 async function copyFiles() {
-  const filesToCopy = ["config-sample.ini"];
+  const filesToCopy = ["../server/config-sample.ini"];
   for (const file of filesToCopy) {
     console.log(`Copying ${file}`);
-    await fs.copy(file, path.join(DEST_DIR, file));
+    await fs.copy(file, path.join(DEST_DIR, trimRelativePath(file)));
   }
 }
 
