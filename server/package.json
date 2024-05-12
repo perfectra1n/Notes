@@ -2,11 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "start-server": "cross-env TRILIUM_SAFE_MODE=1 TRILIUM_DATA_DIR=./data TRILIUM_ENV=dev TRILIUM_SYNC_SERVER_HOST=http://tsyncserver:4000 nodemon src/www.ts",
-    "start-server-no-dir": "cross-env TRILIUM_SAFE_MODE=1 TRILIUM_ENV=dev TRILIUM_SYNC_SERVER_HOST=http://tsyncserver:4000 nodemon src/www.ts",
-    "qstart-server": "npm run qswitch-server && TRILIUM_SAFE_MODE=1 TRILIUM_DATA_DIR=./data TRILIUM_ENV=dev TRILIUM_SYNC_SERVER_HOST=http://tsyncserver:4000 nodemon src/www.ts"
+    "start-server": "cross-env TRILIUM_SAFE_MODE=1 TRILIUM_DATA_DIR=./data TRILIUM_ENV=dev TRILIUM_SYNC_SERVER_HOST=http://tsyncserver:4000 nodemon .",
+    "start-server-no-dir": "cross-env TRILIUM_SAFE_MODE=1 TRILIUM_ENV=dev TRILIUM_SYNC_SERVER_HOST=http://tsyncserver:4000 nodemon .",
+    "qstart-server": "npm run qswitch-server && TRILIUM_SAFE_MODE=1 TRILIUM_DATA_DIR=./data TRILIUM_ENV=dev TRILIUM_SYNC_SERVER_HOST=http://tsyncserver:4000 nodemon ."
   },
   "dependencies": {
     "@braintree/sanitize-url": "6.0.4",

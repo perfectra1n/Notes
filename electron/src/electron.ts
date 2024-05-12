@@ -6,6 +6,8 @@ import appIconService = require("./services/app_icon");
 import windowService = require("./services/window");
 import tray = require("./services/tray");
 
+import startTrilium = require("../../server/src/www.js");
+
 // Adds debug features like hotkeys for triggering dev tools and reload
 require("electron-debug")();
 
@@ -60,4 +62,4 @@ electron.app.on("will-quit", () => {
 // this is to disable electron warning spam in the dev console (local development only)
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 
-require("../../server/src/www.js"); // path is relative to dist/electron/src as defined in package.lock main
+startTrilium();

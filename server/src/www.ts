@@ -32,14 +32,12 @@ import port = require('./services/port');
 import host = require('./services/host');
 import semver = require('semver');
 
-if (!semver.satisfies(process.version, ">=10.5.0")) {
-    console.error("Trilium only supports node.js 10.5 and later");
-    process.exit(1);
-}
-
-startTrilium();
-
 function startTrilium() {
+    if (!semver.satisfies(process.version, ">=10.5.0")) {
+        console.error("Trilium only supports node.js 10.5 and later");
+        process.exit(1);
+    }
+
     /**
      * The intended behavior is to detect when a second instance is running, in that case open the old instance
      * instead of the new one. This is complicated by the fact that it is possible to run multiple instances of Trilium
@@ -156,3 +154,5 @@ function startHttpServer() {
 
     return httpServer;
 }
+
+export = startTrilium;
