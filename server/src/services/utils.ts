@@ -1,19 +1,21 @@
 "use strict";
 
 import crypto = require('crypto');
-const randtoken = require('rand-token').generator({source: 'crypto'});
+import randtoken = require('rand-token');
 import unescape = require('unescape');
 import escape = require('escape-html');
 import sanitize = require("sanitize-filename");
 import mimeTypes = require('mime-types');
 import path = require('path');
 
+const randtokenGenerator = randtoken.generator({source: 'crypto'});
+
 function newEntityId() {
     return randomString(12);
 }
 
 function randomString(length: number): string {
-    return randtoken.generate(length);
+    return randtokenGenerator.generate(length);
 }
 
 function randomSecureToken(bytes = 32) {
