@@ -8,6 +8,7 @@ import appInfo = require('./app_info');
 import utils = require('./utils');
 import becca = require('../becca/becca');
 import { SetupStatusResponse, SetupSyncSeedResponse } from './api-interface';
+import { InitDbOptions } from '../types';
 
 async function hasSyncServerSchemaAndSeed() {
     const response = await requestToSyncServer<SetupStatusResponse>('GET', '/api/setup/status');
@@ -56,7 +57,7 @@ async function requestToSyncServer<T>(method: string, path: string, body?: strin
     }), timeout) as T;
 }
 
-async function setupSyncFromSyncServer(syncServerHost: string, syncProxy: string, password: string) {
+async function setupSyncFromSyncServer(syncServerHost: string, syncProxy: string, password: string, initOptions: InitDbOptions) {
     if (sqlInit.isDbInitialized()) {
         return {
             result: 'failure',
@@ -87,7 +88,7 @@ async function setupSyncFromSyncServer(syncServerHost: string, syncProxy: string
             }
         }
 
-        sqlInit.createDatabaseForSync(resp.options, syncServerHost, syncProxy);
+        sqlInit.createDatabaseForSync(resp.options, initOptions, syncServerHost, syncProxy);
 
         triggerSync();
 

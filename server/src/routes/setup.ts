@@ -5,7 +5,7 @@ import setupService = require('../services/setup');
 import assetPath = require('../services/asset_path');
 import appPath = require('../services/app_path');
 import { Request, Response } from 'express';
-import { SetupCompleteCallback } from './types';
+import { SetupCompleteCallback } from '../types';
 
 function buildSetupRoute(setupCompleteCallback: SetupCompleteCallback) {
     return (req: Request, res: Response) => {

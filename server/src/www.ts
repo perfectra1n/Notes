@@ -31,9 +31,9 @@ import port = require('./services/port');
 import host = require('./services/host');
 import semver = require('semver');
 import type { Express } from "express";
-import { RouteConfig } from './routes/types';
+import { AppConfig } from './types';
 
-function startTrilium(routeConfig: RouteConfig) {
+function startTrilium(appConfig: AppConfig) {
     if (!semver.satisfies(process.version, ">=10.5.0")) {
         console.error("Trilium only supports node.js 10.5 and later");
         process.exit(1);
@@ -41,7 +41,7 @@ function startTrilium(routeConfig: RouteConfig) {
 
     log.info(JSON.stringify(appInfo, null, 2));
 
-    const app = buildApp(routeConfig);
+    const app = buildApp(appConfig);
 
     const cpuInfos = require('os').cpus();
     if (cpuInfos && cpuInfos[0] !== undefined) { // https://github.com/zadam/trilium/pull/3957

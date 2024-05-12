@@ -5,6 +5,7 @@ import log = require('./log');
 import dateUtils = require('./date_utils');
 import keyboardActions = require('./keyboard_actions');
 import { KeyboardShortcutWithRequiredActionName } from './keyboard_actions_interface';
+import { InitDbOptions } from '../types';
 
 function initDocumentOptions() {
     optionService.createOption('documentId', utils.randomSecureToken(16), false);
@@ -16,7 +17,7 @@ interface NotSyncedOpts {
     syncProxy?: string;
 }
 
-function initNotSyncedOptions(initialized: boolean, opts: NotSyncedOpts = {}) {
+function initNotSyncedOptions(initialized: boolean, opts: NotSyncedOpts = {}, initOptions: InitDbOptions) {
     optionService.createOption('openNoteContexts', JSON.stringify([
         {
             notePath: 'root',
@@ -32,17 +33,9 @@ function initNotSyncedOptions(initialized: boolean, opts: NotSyncedOpts = {}) {
     optionService.createOption('initialized', initialized ? 'true' : 'false', false);
 
     optionService.createOption('lastSyncedPull', '0', false);
-    optionService.createOption('lastSyncedPush', '0', false);
+    optionService.createOption('lastSyncedPush', '0', false);    
 
-    let theme = 'dark'; // default based on the poll in https://github.com/zadam/trilium/issues/2516
-
-    if (utils.isElectron()) {
-        const {nativeTheme} = require('electron');
-
-        theme = nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
-    }
-
-    optionService.createOption('theme', theme, false);
+    optionService.createOption('theme', initOptions.getInitialTheme(), false);
 
     optionService.createOption('syncServerHost', opts.syncServerHost || '', false);
     optionService.createOption('syncServerTimeout', '120000', false);

@@ -11,6 +11,8 @@ import migrationService = require('./migration');
 import cls = require('./cls');
 import config = require('./config');
 import { OptionRow } from '../becca/entities/rows';
+import optionsInitService = require("./options_init");
+import { InitDbOptions } from '../types';
 
 const dbReady = utils.deferred<void>();
 
@@ -46,7 +48,7 @@ async function initDbConnection() {
     dbReady.resolve();
 }
 
-async function createInitialDatabase() {
+async function createInitialDatabase(initOptions: InitDbOptions) {
     if (isDbInitialized()) {
         throw new Error("DB is already initialized");
     }
@@ -84,10 +86,8 @@ async function createInitialDatabase() {
             notePosition: 10
         }).save();
 
-        const optionsInitService = require('./options_init');
-
         optionsInitService.initDocumentOptions();
-        optionsInitService.initNotSyncedOptions(true, {});
+        optionsInitService.initNotSyncedOptions(true, {}, initOptions);
         optionsInitService.initStartupOptions();
         require('./encryption/password').resetPassword();
     });
@@ -120,7 +120,7 @@ async function createInitialDatabase() {
     initDbConnection();
 }
 
-function createDatabaseForSync(options: OptionRow[], syncServerHost = '', syncProxy = '') {
+function createDatabaseForSync(options: OptionRow[], initOptions: InitDbOptions, syncServerHost = '', syncProxy = '') {
     log.info("Creating database for sync");
 
     if (isDbInitialized()) {
@@ -132,7 +132,7 @@ function createDatabaseForSync(options: OptionRow[], syncServerHost = '', syncPr
     sql.transactional(() => {
         sql.executeScript(schema);
 
-        require('./options_init').initNotSyncedOptions(false,  { syncServerHost, syncProxy });
+        optionsInitService.initNotSyncedOptions(false, { syncServerHost, syncProxy }, initOptions);
 
         // document options required for sync to kick off
         for (const opt of options) {

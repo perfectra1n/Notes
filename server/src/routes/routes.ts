@@ -38,7 +38,7 @@ import recentNotesRoute = require('./api/recent_notes');
 import appInfoRoute = require('./api/app_info');
 import exportRoute = require('./api/export');
 import importRoute = require('./api/import');
-import setupApiRoute = require('./api/setup');
+import buildSetupRoute = require('./api/setup');
 import sqlRoute = require('./api/sql');
 import databaseRoute = require('./api/database');
 import imageRoute = require('./api/image');
@@ -71,7 +71,7 @@ import etapiSpecialNoteRoutes = require('../etapi/special_notes');
 import etapiSpecRoute = require('../etapi/spec');
 import etapiBackupRoute = require('../etapi/backup');
 import { AppRequest, AppRequestHandler } from './route-interface';
-import { RouteConfig } from './types';
+import { AppConfig } from '../types';
 
 const csrfMiddleware = csurf({
     cookie: {
@@ -102,7 +102,7 @@ const uploadMiddlewareWithErrorHandling = function (req: express.Request, res: e
     });
 };
 
-function register(app: express.Application, config: RouteConfig) {
+function register(app: express.Application, appConfig: AppConfig) {
     route(GET, '/', [auth.checkAuth, csrfMiddleware], indexRoute.index);
     route(GET, '/login', [auth.checkAppInitialized, auth.checkPasswordSet], loginRoute.loginPage);
     route(GET, '/set-password', [auth.checkAppInitialized, auth.checkPasswordNotSet], loginRoute.setPasswordPage);
@@ -116,7 +116,7 @@ function register(app: express.Application, config: RouteConfig) {
     route(PST, '/login', [loginRateLimiter], loginRoute.login);
     route(PST, '/logout', [csrfMiddleware, auth.checkAuth], loginRoute.logout);
     route(PST, '/set-password', [auth.checkAppInitialized, auth.checkPasswordNotSet], loginRoute.setPassword);
-    route(GET, '/setup', [], setupRoute.buildSetupRoute(config.setupCompleteCallback));
+    route(GET, '/setup', [], setupRoute.buildSetupRoute(appConfig.setupCompleteCallback));
 
     apiRoute(GET, '/api/tree', treeApiRoute.getTree);
     apiRoute(PST, '/api/tree/load', treeApiRoute.load);
@@ -241,6 +241,7 @@ function register(app: express.Application, config: RouteConfig) {
     route(GET, '/api/health-check', [], () => ({ "status": "ok" }), apiResultHandler);
 
     // group of the services below are meant to be executed from the outside
+    const setupApiRoute = buildSetupRoute(appConfig);
     route(GET, '/api/setup/status', [], setupApiRoute.getStatus, apiResultHandler);
     route(PST, '/api/setup/new-document', [auth.checkAppNotInitialized], setupApiRoute.setupNewDocument, apiResultHandler, false);
     route(PST, '/api/setup/sync-from-server', [auth.checkAppNotInitialized], setupApiRoute.setupSyncFromServer, apiResultHandler, false);

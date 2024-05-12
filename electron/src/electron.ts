@@ -81,6 +81,10 @@ const app = startTrilium({
   setupCompleteCallback: () => {
     windowService.createMainWindow(electron.app);
     windowService.closeSetupWindow();
+  },
+
+  getInitialTheme() {
+    return electron.nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
   }
 });
 electronRouting(app);

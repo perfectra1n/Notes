@@ -6,9 +6,9 @@ import helmet = require('helmet');
 import compression = require('compression');
 import sessionParser = require('./routes/session_parser');
 import utils = require('./services/utils');
-import { RouteConfig } from './routes/types';
+import { AppConfig } from './types';
 
-function buildApp(routeConfig: RouteConfig) {
+function buildApp(appConfig: AppConfig) {
     require('./services/handlers');
     require('./becca/becca_loader');
     
@@ -40,7 +40,7 @@ function buildApp(routeConfig: RouteConfig) {
     app.use(favicon(`${__dirname}/../../common/images/app-icons/win/icon.ico`));
     
     require('./routes/assets').register(app);
-    require('./routes/routes').register(app, routeConfig);
+    require('./routes/routes').register(app, appConfig);
     require('./routes/custom').register(app);
     require('./routes/error_handlers').register(app);
     
