@@ -23,6 +23,8 @@ interface CustomGlobals {
     activeDialog: JQuery<HTMLElement> | null;
 }
 
+type RequireMethod = (moduleName: string) => any;
+
 declare global {
     interface Window {
         logError(message: string);
@@ -39,4 +41,6 @@ declare global {
     declare var logError: (message: string) => void;
     declare var logInfo: (message: string) => void;
     declare var glob: CustomGlobals;
+    declare var require: RequireMethod;
+    declare var __non_webpack_require__: RequireMethod | undefined;
 }
