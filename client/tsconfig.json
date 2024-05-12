@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-	  "module": "ES2020",
+	  "module": "NodeNext",
 	  "declaration": false,
 	  "sourceMap": true,
 	  "outDir": "./dist",

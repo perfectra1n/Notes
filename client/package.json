@@ -27,6 +27,7 @@
     "split.js": "1.6.5"
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
     "@types/jquery": "^3.5.30"
   }
 }
