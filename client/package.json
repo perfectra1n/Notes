@@ -1,10 +1,14 @@
 {
-  "name": "client",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "trilium-client",
+  "version": "0.63.5",
+  "license": "AGPL-3.0-only",
+  "description": "Trilium Notes Client",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TriliumNext/Notes"
   },
   "dependencies": {
     "@excalidraw/excalidraw": "0.17.3",
@@ -21,8 +25,5 @@
     "react-dom": "18.2.0",
     "react": "18.2.0",
     "split.js": "1.6.5"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

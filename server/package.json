@@ -1,7 +1,8 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
+  "name": "trilium-server",
+  "version": "0.63.5",
+  "license": "AGPL-3.0-only",
+  "description": "Trilium Notes Server",
   "main": "src/index.ts",
   "scripts": {
     "start-server": "cross-env TRILIUM_SAFE_MODE=1 TRILIUM_DATA_DIR=./data TRILIUM_ENV=dev TRILIUM_SYNC_SERVER_HOST=http://tsyncserver:4000 nodemon .",
@@ -96,8 +97,5 @@
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
