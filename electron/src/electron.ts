@@ -85,6 +85,10 @@ const app = startTrilium({
 
   getInitialTheme() {
     return electron.nativeTheme.shouldUseDarkColors ? 'dark' : 'light';
-  }
+  },
+
+  registerAdditionalMiddleware(app) {
+    // No additional express middleware required on Electron.
+  },
 });
 electronRouting(app);

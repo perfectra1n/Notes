@@ -1,4 +1,5 @@
 import { Response } from "express";
+import type { Express } from "express";
 
 export type InitialThemeCallback = () => "dark" | "light";
 
@@ -18,6 +19,13 @@ export interface InitDbOptions {
  * Handles differences between clients, for example allowing different behaviour when running from the web server versus the desktop application.
  */
 export interface AppConfig extends InitDbOptions {
+    /**
+     * Called when the express app is built, in order to define additional middleware that might be specific to a web or desktop application.
+     * 
+     * @param app the express app to add the middleware on.
+     */
+    registerAdditionalMiddleware: (app: Express) => void;
+
     /** Callback to be invoked when first setup is complete. */
     setupCompleteCallback: SetupCompleteCallback;            
 }

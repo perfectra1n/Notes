@@ -33,11 +33,10 @@ function buildApp(appConfig: AppConfig) {
     app.use(express.raw({ limit: '500mb' }));
     app.use(express.urlencoded({ extended: false }));
     app.use(cookieParser());
-    app.use(express.static(path.join(__dirname, 'public/root')));
-    app.use(`/manifest.webmanifest`, express.static(path.join(__dirname, 'public/manifest.webmanifest')));
-    app.use(`/robots.txt`, express.static(path.join(__dirname, 'public/robots.txt')));
+    app.use(express.static(path.join(__dirname, 'public/root')));    
     app.use(sessionParser);
     app.use(favicon(`${__dirname}/../../common/images/app-icons/win/icon.ico`));
+    appConfig.registerAdditionalMiddleware(app);
     
     require('./routes/assets').register(app);
     require('./routes/routes').register(app, appConfig);
