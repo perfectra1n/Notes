@@ -77,5 +77,10 @@ process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
  */
 electron.app.requestSingleInstanceLock();
 
-const app = startTrilium();
+const app = startTrilium({
+  setupCompleteCallback: () => {
+    windowService.createMainWindow(electron.app);
+    windowService.closeSetupWindow();
+  }
+});
 electronRouting(app);

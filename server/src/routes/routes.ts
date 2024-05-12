@@ -71,6 +71,7 @@ import etapiSpecialNoteRoutes = require('../etapi/special_notes');
 import etapiSpecRoute = require('../etapi/spec');
 import etapiBackupRoute = require('../etapi/backup');
 import { AppRequest, AppRequestHandler } from './route-interface';
+import { RouteConfig } from './types';
 
 const csrfMiddleware = csurf({
     cookie: {
@@ -101,7 +102,7 @@ const uploadMiddlewareWithErrorHandling = function (req: express.Request, res: e
     });
 };
 
-function register(app: express.Application) {
+function register(app: express.Application, config: RouteConfig) {
     route(GET, '/', [auth.checkAuth, csrfMiddleware], indexRoute.index);
     route(GET, '/login', [auth.checkAppInitialized, auth.checkPasswordSet], loginRoute.loginPage);
     route(GET, '/set-password', [auth.checkAppInitialized, auth.checkPasswordNotSet], loginRoute.setPasswordPage);
@@ -115,7 +116,7 @@ function register(app: express.Application) {
     route(PST, '/login', [loginRateLimiter], loginRoute.login);
     route(PST, '/logout', [csrfMiddleware, auth.checkAuth], loginRoute.logout);
     route(PST, '/set-password', [auth.checkAppInitialized, auth.checkPasswordNotSet], loginRoute.setPassword);
-    route(GET, '/setup', [], setupRoute.setupPage);
+    route(GET, '/setup', [], setupRoute.buildSetupRoute(config.setupCompleteCallback));
 
     apiRoute(GET, '/api/tree', treeApiRoute.getTree);
     apiRoute(PST, '/api/tree/load', treeApiRoute.load);

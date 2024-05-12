@@ -1,3 +1,7 @@
 import startTrilium = require("./www");
 
-startTrilium();
+startTrilium({
+    setupCompleteCallback: (res) => {
+        res.redirect('.');
+    }
+});
