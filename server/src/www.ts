@@ -18,7 +18,7 @@ function exit() {
 process.on('SIGINT', exit);
 process.on('SIGTERM', exit);
 
-import app = require('./app');
+import buildApp = require('./app');
 import sessionParser = require('./routes/session_parser');
 import fs = require('fs');
 import http = require('http');
@@ -27,10 +27,10 @@ import config = require('./services/config');
 import log = require('./services/log');
 import appInfo = require('./services/app_info');
 import ws = require('./services/ws');
-import utils = require('./services/utils');
 import port = require('./services/port');
 import host = require('./services/host');
 import semver = require('semver');
+import type { Express } from "express";
 
 function startTrilium() {
     if (!semver.satisfies(process.version, ">=10.5.0")) {
@@ -40,19 +40,21 @@ function startTrilium() {
 
     log.info(JSON.stringify(appInfo, null, 2));
 
+    const app = buildApp();
+
     const cpuInfos = require('os').cpus();
     if (cpuInfos && cpuInfos[0] !== undefined) { // https://github.com/zadam/trilium/pull/3957
         log.info(`CPU model: ${cpuInfos[0].model}, logical cores: ${cpuInfos.length} freq: ${cpuInfos[0].speed} Mhz`); // for perf. issues it's good to know the rough configuration
     }
 
-    const httpServer = startHttpServer();
+    const httpServer = startHttpServer(app);
 
     ws.init(httpServer, sessionParser as any); // TODO: Not sure why session parser is incompatible.
 
     return app;    
 }
 
-function startHttpServer() {
+function startHttpServer(app: Express) {
     app.set('port', port);
     app.set('host', host);
 
