@@ -38,23 +38,6 @@ function startTrilium() {
         process.exit(1);
     }
 
-    /**
-     * The intended behavior is to detect when a second instance is running, in that case open the old instance
-     * instead of the new one. This is complicated by the fact that it is possible to run multiple instances of Trilium
-     * if port and data dir are configured separately. This complication is the source of the following weird usage.
-     *
-     * The line below makes sure that the "second-instance" (process in window.ts) is fired. Normally it returns a boolean
-     * indicating whether another instance is running or not, but we ignore that and kill the app only based on the port conflict.
-     *
-     * A bit weird is that "second-instance" is triggered also on the valid usecases (different port/data dir) and
-     * focuses the existing window. But the new process is start as well and will steal the focus too, it will win, because
-     * its startup is slower than focusing the existing process/window. So in the end, it works out without having
-     * to do a complex evaluation.
-     */
-    if (utils.isElectron()) {
-        require("electron").app.requestSingleInstanceLock();
-    }
-
     log.info(JSON.stringify(appInfo, null, 2));
 
     const cpuInfos = require('os').cpus();
@@ -66,10 +49,7 @@ function startTrilium() {
 
     ws.init(httpServer, sessionParser as any); // TODO: Not sure why session parser is incompatible.
 
-    if (utils.isElectron()) {
-        const electronRouting = require('./routes/electron');
-        electronRouting(app);
-    }
+    return app;    
 }
 
 function startHttpServer() {
