@@ -7,6 +7,7 @@ interface ElectronProcess {
 interface CustomGlobals {
     isDesktop: boolean;
     isMobile: boolean;
+    isDev: boolean;
     device: "mobile" | "desktop";
     getComponentsByEl: (el: unknown) => unknown;
     getHeaders: Promise<Record<string, string>>;
@@ -25,6 +26,8 @@ interface CustomGlobals {
     csrfToken: string;
     baseApiUrl: string;
     isProtectedSessionAvailable: boolean;
+    maxEntityChangeIdAtLoad: number;
+    maxEntityChangeSyncIdAtLoad: number;
 }
 
 type RequireMethod = (moduleName: string) => any;
