@@ -22,7 +22,6 @@
     "start-test-server": "npm run qswitch-server; rm -rf ./data-test; cross-env TRILIUM_SAFE_MODE=1 TRILIUM_DATA_DIR=./data-test TRILIUM_SYNC_SERVER_HOST=http://tsyncserver:4000 TRILIUM_ENV=dev TRILIUM_PORT=9999 ts-node src/www.ts",
     "switch-server": "rm -rf ./node_modules/better-sqlite3 && npm install",
     "switch-electron": "./node_modules/.bin/electron-rebuild",
-    "rebuild": "electron-rebuild",
     "qswitch-server": "rm -rf ./node_modules/better-sqlite3/bin ; mkdir -p ./node_modules/better-sqlite3/build ; cp ./bin/better-sqlite3/linux-server-better_sqlite3.node ./node_modules/better-sqlite3/build/better_sqlite3.node",
     "qswitch-electron": "rm -rf ./node_modules/better-sqlite3/bin ; mkdir -p ./node_modules/better-sqlite3/build ; cp ./bin/better-sqlite3/linux-desktop-better_sqlite3.node ./node_modules/better-sqlite3/build/better_sqlite3.node",
     "build-backend-docs": "rm -rf ./docs/backend_api && ./node_modules/.bin/jsdoc -c jsdoc-conf.json -d ./docs/backend_api src/becca/entities/*.js src/services/backend_script_api.js src/services/sql.js",
@@ -32,7 +31,7 @@
     "test-jasmine": "TRILIUM_DATA_DIR=~/trilium/data-test jasmine",
     "test-es6": "node -r esm spec-es6/attribute_parser.spec.js ",
     "test": "npm run test-jasmine && npm run test-es6",
-    "postinstall": "rimraf ./node_modules/canvas && npm run rebuild"
+    "postinstall": "rimraf ./node_modules/canvas"
   },
   "dependencies": {
     "@braintree/sanitize-url": "6.0.4",
