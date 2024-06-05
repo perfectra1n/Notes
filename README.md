@@ -1,21 +1,32 @@
-# TriliumNext Notes
+# Trilium Notes
 
-[English](https://github.com/zadam/trilium/blob/master/README.md) | [Chinese](https://github.com/zadam/trilium/blob/master/README-ZH_CN.md) | [Russian](https://github.com/zadam/trilium/blob/master/README.ru.md) | [Japanese](https://github.com/zadam/trilium/blob/master/README.ja.md) | [Italian](https://github.com/zadam/trilium/blob/master/README.it.md)
+## Trilium is in maintenance mode - see details in https://github.com/zadam/trilium/issues/4620
 
-TriliumNext Notes is a hierarchical note taking application with focus on building large personal knowledge bases. 
+Preliminary disccusions on the successor organization are taking place in [Trilium Next discussions](https://github.com/orgs/TriliumNext/discussions).
+
+[English](https://github.com/TriliumNext/Notes/blob/master/README.md) | [Chinese](https://github.com/TriliumNext/Notes/blob/master/README-ZH_CN.md) | [Russian](https://github.com/TriliumNext/Notes/blob/master/README.ru.md) | [Japanese](https://github.com/TriliumNext/Notes/blob/master/README.ja.md) | [Italian](https://github.com/TriliumNext/Notes/blob/master/README.it.md)
+
+Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases.
+
+## Discuss with us
+
+Feel free to join our discussions.
+
+- [XMPP](https://joinjabber.org/): [xmpp:discuss@trilium.thisgreat.party?join](xmpp:discuss@trilium.thisgreat.party?join) ([web link](https://anonymous.cheogram.com/discuss@trilium.thisgreat.party))
+- [Matrix](https://matrix.org/try-matrix/): #trilium:matrix.org ([web link](https://app.element.io/#/room/#trilium:matrix.org))
+
+The two rooms are mirrored, so you can use the protocol of your choice, from the client you prefer, on pretty much any platform under the sun!
+
+See [screenshots](https://github.com/zadam/trilium/wiki/Screenshot-tour) for quick overview:
 
 <a href="https://github.com/zadam/trilium/wiki/Screenshot-tour"><img src="https://raw.githubusercontent.com/wiki/zadam/trilium/images/screenshot.png" alt="Trilium Screenshot" width="1000"></a>
 
-## ⚠️ Why TriliumNext?
+Ukraine is currently defending itself from Russian aggression, please consider [donating to Ukrainian Army or humanitarian charities](https://standforukraine.com/).
 
-[The original Trilium project is in maintenance mode](https://github.com/zadam/trilium/issues/4620)
-Note: some links below will link to the original Trilium repository until TriliumNext is fully functional.
-
-## 📢 Discuss with us
-
-- [Matrix](https://matrix.to/#/#triliumnext:matrix.org) (For synchronous discussions)
-- [Github Discussions](https://github.com/TriliumNext/Notes/discussions) (For Asynchronous discussions)
-- [Wiki](https://github.com/zadam/trilium/wiki) (For common how-to questions and user guides)
+<p float="left">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" alt="drawing" width="400"/>
+  <img src="https://signmyrocket.com//uploads/2b2a523cd0c0e76cdbba95a89a9636b2_1676971281.jpg" alt="Trilium Notes supports Ukraine!" width="570"/>
+</p>
 
 ## 🎁 Features
 
@@ -39,14 +50,14 @@ Note: some links below will link to the original Trilium repository until Triliu
 * [Evernote](https://github.com/zadam/trilium/wiki/Evernote-import) and [Markdown import & export](https://github.com/zadam/trilium/wiki/Markdown)
 * [Web Clipper](https://github.com/zadam/trilium/wiki/Web-clipper) for easy saving of web content
 
-✨ Check out [awesome-trilium](https://github.com/Nriver/awesome-trilium) for 3rd party themes, scripts, plugins and more.
+Check out [awesome-trilium](https://github.com/Nriver/awesome-trilium) for 3rd party themes, scripts, plugins and more.
 
 ## 🏗 Builds
 
-Trilium is provided as either desktop application or self-hosted web application.
+Trilium is provided as either desktop application (Linux and Windows) or web application hosted on your server (Linux). Mac OS desktop build is available, but it is [unsupported](https://github.com/zadam/trilium/wiki/FAQ#mac-os-support).
 
-* If you want to use Trilium on the desktop, download binary release for your platform from [latest release](https://github.com/zadam/trilium/releases/latest), unzip the package and run ```trilium``` executable.
-* If you want to install Trilium on your own server, follow [this page](https://github.com/zadam/trilium/wiki/Server-installation).
+* If you want to use Trilium on the desktop, download binary release for your platform from [latest release](https://github.com/TriliumNext/Notes/releases/latest), unzip the package and run ```trilium``` executable.
+* If you want to install Trilium on server, follow [this page](https://github.com/zadam/trilium/wiki/Server-installation).
   * Currently only recent Chrome and Firefox are supported (tested) browsers.
 
 Trilium is also provided as a Flatpak:
@@ -71,7 +82,7 @@ npm install
 npm run start-server
 ```
 
-## 👏 Shoutouts
+## 📢 Shoutouts
 
 * [CKEditor 5](https://github.com/ckeditor/ckeditor5) - best WYSIWYG editor on the market, very interactive and listening team
 * [FancyTree](https://github.com/mar10/fancytree) - very feature rich tree library without real competition. Trilium Notes would not be the same without it.
@@ -80,8 +91,7 @@ npm run start-server
 
 ## 🤝 Support
 
-You can support the original Trilium developer using GitHub Sponsors, [PayPal](https://paypal.me/za4am) or Bitcoin (bitcoin:bc1qv3svjn40v89mnkre5vyvs2xw6y8phaltl385d2).
-Support for the TriliumNext organization will be possible in the near future.
+You can support Trilium using GitHub Sponsors, [PayPal](https://paypal.me/za4am) or Bitcoin (bitcoin:bc1qv3svjn40v89mnkre5vyvs2xw6y8phaltl385d2).
 
 ## 🔑 License
 
