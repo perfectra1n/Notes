@@ -66,6 +66,15 @@ jobs:
   build_docker:
     name: Build Docker images
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - base: ubuntu
+            platforms: linux/386,linux/arm64,linux/arm/v7
+            dockerfile: Dockerfile
+          - base: alpine
+            platforms: linux/amd64
+            dockerfile: Dockerfile.alpine
     needs:
       - test_docker
     permissions:
@@ -115,7 +124,8 @@ jobs:
         id: ghcr-push
         with:
           context: .
-          platforms: ${{ env.PLATFORMS }}
+          file: ${{ matrix.dockerfile }}
+          platforms: ${{ matrix.platforms }}
           push: true              
           tags: ${{ steps.ghcr-meta.outputs.tags }}
           labels: ${{ steps.ghcr-meta.outputs.labels }}
@@ -138,7 +148,8 @@ jobs:
         id: dh-push
         with:
           context: .
-          platforms: ${{ env.PLATFORMS }}
+          file: ${{ matrix.dockerfile }}
+          platforms: ${{ matrix.platforms }}
           push: true
           tags: ${{ steps.dh-meta.outputs.tags }}
           labels: ${{ steps.dh-meta.outputs.labels }}
