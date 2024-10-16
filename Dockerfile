@@ -1,5 +1,5 @@
-# !!! Don't try to build this Dockerfile directly, run it through bin/build-docker.sh script !!!
-FROM node:20.15.1-bullseye-slim
+# Build stage
+FROM node:20.15.1-bullseye-slim AS build
 
 # Configure system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nasm \
     libpng-dev \
     python3 \
-    gosu \
     && rm -rf /var/lib/apt/lists/*
 
 # Create app directory
@@ -29,29 +28,30 @@ RUN cp -R build/src/* src/. && \
     rm -r build && \
     rm docker_healthcheck.ts
 
-# Install app dependencies
-RUN apt-get purge -y --auto-remove \
-    autoconf \
-    automake \
-    g++ \
-    gcc \
-    libtool \
-    make \
-    nasm \
-    libpng-dev \
-    python3 \
-    && rm -rf /var/lib/apt/lists/*
+# Install app dependencies and build
 RUN npm install && \
     npm run webpack && \
-    npm prune --omit=dev
-RUN cp src/public/app/share.js src/public/app-dist/. && \
+    cp src/public/app/share.js src/public/app-dist/. && \
     cp -r src/public/app/doc_notes src/public/app-dist/. && \
     rm -rf src/public/app && rm src/services/asset_path.ts
 
-# Some setup tools need to be kept
+# Runtime stage
+FROM node:20.15.1-bullseye-slim
+
+# Install only necessary runtime dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gosu \
     && rm -rf /var/lib/apt/lists/*
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Copy the entire app directory from build stage
+COPY --from=build /usr/src/app .
+
+# Install production dependencies only
+RUN npm ci --only=production && \
+    npm prune --omit=dev
 
 # Start the application
 EXPOSE 8080
