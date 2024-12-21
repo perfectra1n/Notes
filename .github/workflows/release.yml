@@ -127,9 +127,8 @@ jobs:
           npm_config_target_arch: arm64
           npm_config_platform: linux
         run: |
-          npm config set arch arm64
           npm config set target_arch arm64
-          npm ci --target_arch=arm64 --arch=arm64 --rebuild
+          npm ci --target_arch=arm64 --rebuild
           npm run update-build-info
           NODE_ARCH=arm64 ./bin/build-server.sh
       - name: Prepare artifacts
