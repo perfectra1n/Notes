@@ -97,6 +97,31 @@ jobs:
     name: Build Linux Server ARM64
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare
+        run: |
+          platform=linux/arm64
+          echo "PLATFORM_PAIR=${platform//\//-}" >> $GITHUB_ENV
+      - name: Set IMAGE_NAME to lowercase
+        run: echo "IMAGE_NAME=${IMAGE_NAME,,}" >> $GITHUB_ENV
+      - name: Set TEST_TAG to lowercase
+        run: echo "TEST_TAG=${TEST_TAG,,}" >> $GITHUB_ENV
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ${{ env.GHCR_REGISTRY }}/${{ env.IMAGE_NAME }}
+            ${{ env.DOCKERHUB_REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=tag
+            type=sha
+          flavor: |
+            latest=false
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
