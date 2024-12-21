@@ -97,13 +97,24 @@ jobs:
     name: Build Linux Server ARM64
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: Set up node & dependencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: npm ci
+      - name: Run the TypeScript build
+        run: npx tsc
+      - name: Create server-package.json
+        run: cat package.json | grep -v electron > server-package.json
       - name: Build ARM64 Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/arm64
