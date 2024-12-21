@@ -4,6 +4,11 @@ set -e  # Fail on any command error
 
 PKG_DIR=dist/trilium-linux-x64-server
 NODE_VERSION=20.15.1
+NODE_ARCH=${NODE_ARCH:-x64}  # Default to x64 if not specified
+
+if [ "$NODE_ARCH" = "arm64" ]; then
+    PKG_DIR=dist/trilium-linux-arm64-server
+fi
 
 if [ "$1" != "DONTCOPY" ]
 then
@@ -11,12 +16,12 @@ then
 fi
 
 cd dist
-wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz
-tar xfJ node-v${NODE_VERSION}-linux-x64.tar.xz
-rm node-v${NODE_VERSION}-linux-x64.tar.xz
+wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${NODE_ARCH}.tar.xz
+tar xfJ node-v${NODE_VERSION}-linux-${NODE_ARCH}.tar.xz
+rm node-v${NODE_VERSION}-linux-${NODE_ARCH}.tar.xz
 cd ..
 
-mv dist/node-v${NODE_VERSION}-linux-x64 $PKG_DIR/node
+mv dist/node-v${NODE_VERSION}-linux-${NODE_ARCH} $PKG_DIR/node
 
 rm -r $PKG_DIR/node/lib/node_modules/npm
 rm -r $PKG_DIR/node/include/node
@@ -37,4 +42,4 @@ VERSION=`jq -r ".version" package.json`
 
 cd dist
 
-tar cJf trilium-linux-x64-server-${VERSION}.tar.xz trilium-linux-x64-server
+tar cJf trilium-linux-${NODE_ARCH}-server-${VERSION}.tar.xz trilium-linux-${NODE_ARCH}-server

@@ -3,7 +3,7 @@ on:
   push:
     tags:
       - "v*"
-  workflow_dispatch:    
+  workflow_dispatch:
 permissions:
   contents: write
 concurrency:
@@ -58,7 +58,7 @@ jobs:
           $file = Get-ChildItem -Path out/make -Filter '*.zip' -Recurse | Select-Object -First 1
           Copy-Item -Path $file.FullName -Destination "upload/TriliumNextNotes-${{ github.ref_name }}-${{ matrix.os.name }}-${{ matrix.arch }}.zip"
           $file = Get-ChildItem -Path out/make -Filter '*.${{ matrix.os.extension }}' -Recurse | Select-Object -First 1
-          Copy-Item -Path $file.FullName -Destination "upload/TriliumNextNotes-${{ github.ref_name }}-${{ matrix.os.name }}-${{ matrix.arch }}.${{ matrix.os.extension }}"      
+          Copy-Item -Path $file.FullName -Destination "upload/TriliumNextNotes-${{ github.ref_name }}-${{ matrix.os.name }}-${{ matrix.arch }}.${{ matrix.os.extension }}"
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
@@ -87,6 +87,46 @@ jobs:
           mkdir -p upload
           file=$(find dist -name '*.tar.xz' -print -quit)
           cp "$file" "upload/TriliumNextNotes-${{ github.ref_name }}-server-linux-x64.tar.xz"
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          fail_on_unmatched_files: true
+          files: upload/*.*
+  build_linux_server-arm64:
+    name: Build Linux Server ARM64
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up node & dependencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Install cross-compilation tools
+        if: ${{ env.NODE_ARCH == 'arm64' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+      - name: Run Linux server build (ARM64)
+        env:
+          ARCH: arm64
+          CC: aarch64-linux-gnu-gcc
+          CXX: aarch64-linux-gnu-g++
+          NODE_ARCH: arm64
+        run: |
+          npm run update-build-info
+          NODE_ARCH=arm64 ./bin/build-server.sh
+      - name: Prepare artifacts
+        if: runner.os != 'windows'
+        run: |
+          mkdir -p upload
+          file=$(find dist -name '*.tar.xz' -print -quit)
+          cp "$file" "upload/TriliumNextNotes-${{ github.ref_name }}-server-linux-arm64.tar.xz"
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
