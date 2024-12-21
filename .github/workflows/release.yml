@@ -98,39 +98,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up node & dependencies
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "npm"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      - name: Install dependencies
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build ARM64 Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/arm64
+          load: true
+          tags: trilium-arm64-build:latest
+      - name: Extract server files from container
         run: |
-          # Clean any previous builds
-          rm -rf node_modules
-          npm cache clean --force
-          npm ci
-      - name: Install cross-compilation tools
-        if: ${{ env.NODE_ARCH == 'arm64' }}
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
-      - name: Run Linux server build (ARM64)
-        env:
-          ARCH: arm64
-          CC: aarch64-linux-gnu-gcc
-          CXX: aarch64-linux-gnu-g++
-          NODE_ARCH: arm64
-          NODE_OPTIONS: "--no-experimental-fetch --no-experimental-global-customevent"
-          npm_config_arch: arm64
-          npm_config_target_arch: arm64
-          npm_config_platform: linux
-        run: |
-          npm config set target_arch arm64
-          npm ci --target_arch=arm64 --rebuild
-          npm run update-build-info
-          NODE_ARCH=arm64 ./bin/build-server.sh
+          # Create a container from the image
+          container_id=$(docker create trilium-arm64-build:latest)
+
+          # Create directories
+          mkdir -p dist/trilium-linux-arm64-server
+
+          # Copy files from container
+          docker cp $container_id:/app/dist/trilium-linux-arm64-server/. dist/trilium-linux-arm64-server/
+
+          # Cleanup container
+          docker rm $container_id
+
+          # Create tarball
+          cd dist
+          VERSION=$(jq -r ".version" ../package.json)
+          tar cJf trilium-linux-arm64-server-${VERSION}.tar.xz trilium-linux-arm64-server
       - name: Prepare artifacts
         if: runner.os != 'windows'
         run: |
