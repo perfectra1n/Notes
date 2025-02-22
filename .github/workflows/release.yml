@@ -60,6 +60,10 @@ jobs:
           # Update keychain settings
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" build.keychain
 
+          # Verify certificates are properly installed
+          echo "Verifying certificates..."
+          security find-identity -v -p codesigning build.keychain
+
       - name: Set up node & dependencies
         uses: actions/setup-node@v4
         with:
