@@ -17,6 +17,9 @@ module.exports = {
         overwrite: true,
         asar: true,
         icon: "./images/app-icons/icon",
+        osxSign: {
+            'hardened-runtime': true,
+        },
         extraResource: [
             // Moved to root
             ...extraResourcesForPlatform,
