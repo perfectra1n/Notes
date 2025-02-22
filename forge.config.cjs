@@ -18,11 +18,6 @@ module.exports = {
         asar: true,
         icon: "./images/app-icons/icon",
         osxSign: {},
-        osxNotarize: {
-            appleId: process.env.APPLE_ID,
-            appleIdPassword: process.env.APPLE_ID_PASSWORD,
-            teamId: process.env.APPLE_TEAM_ID
-        },
         extraResource: [
             // Moved to root
             ...extraResourcesForPlatform,
