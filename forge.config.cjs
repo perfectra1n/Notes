@@ -17,15 +17,8 @@ module.exports = {
         overwrite: true,
         asar: true,
         icon: "./images/app-icons/icon",
-        osxSign: {
-            'hardened-runtime': true,
-            'gatekeeper-assess': false,
-            'entitlements': 'entitlements.plist',
-            'entitlements-inherit': 'entitlements.plist',
-            'signature-flags': 'library'
-        },
+        osxSign: {},
         osxNotarize: {
-            tool: 'notarytool',
             appleId: process.env.APPLE_ID,
             appleIdPassword: process.env.APPLE_ID_PASSWORD,
             teamId: process.env.APPLE_TEAM_ID
