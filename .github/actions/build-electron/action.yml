@@ -104,9 +104,13 @@ runs:
         APPLE_ID_PASSWORD: ${{ env.APPLE_ID_PASSWORD }}
         APPLE_TEAM_ID: ${{ env.APPLE_TEAM_ID }}
       run: |
-        # Find the artifacts
-        APP_PATH=$(find out/make -name "*.app" -print -quit)
-        DMG_PATH=$(find out/make -name "*.dmg" -print -quit)
+        # Find the artifacts using absolute paths
+        WORKSPACE_DIR="$GITHUB_WORKSPACE"
+        APP_PATH=$(find "$WORKSPACE_DIR/out/make" -name "*.app" -print -quit)
+        DMG_PATH=$(find "$WORKSPACE_DIR/out/make" -name "*.dmg" -print -quit)
+        
+        echo "Found app at: $APP_PATH"
+        echo "Found DMG at: $DMG_PATH"
         
         if [ -d "$APP_PATH" ]; then
           echo "Notarizing app bundle..."
