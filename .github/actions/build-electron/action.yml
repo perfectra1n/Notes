@@ -124,16 +124,39 @@ runs:
 
         if [ -f "$DMG_PATH" ]; then
           echo "Notarizing DMG..."
-          # Submit DMG for notarization
-          xcrun notarytool submit "$DMG_PATH" \
+          echo "DMG details:"
+          codesign -dvv "$DMG_PATH" || true
+
+          # Submit DMG for notarization and save the submission ID
+          SUBMISSION_ID=$(xcrun notarytool submit "$DMG_PATH" \
             --apple-id "$APPLE_ID" \
             --password "$APPLE_ID_PASSWORD" \
             --team-id "$APPLE_TEAM_ID" \
-            --wait
+            --output-format json | jq -r '.id')
 
-          # Staple the DMG
-          echo "Stapling DMG..."
-          xcrun stapler staple "$DMG_PATH"
+          echo "Submission ID: $SUBMISSION_ID"
+
+          # Get detailed info about the submission
+          echo "Detailed notarization info:"
+          xcrun notarytool info "$SUBMISSION_ID" \
+            --apple-id "$APPLE_ID" \
+            --password "$APPLE_ID_PASSWORD" \
+            --team-id "$APPLE_TEAM_ID"
+
+          # Get the submission log for more details about any issues
+          echo "Notarization log:"
+          xcrun notarytool log "$SUBMISSION_ID" \
+            --apple-id "$APPLE_ID" \
+            --password "$APPLE_ID_PASSWORD" \
+            --team-id "$APPLE_TEAM_ID"
+
+          # Check if the app was actually signed before notarization
+          echo "Checking code signing status before stapling:"
+          pkgutil --check-signature "$DMG_PATH" || true
+
+          # Try stapling anyway to see detailed errors
+          echo "Attempting to staple with verbose output..."
+          xcrun stapler staple -v "$DMG_PATH"
         fi
 
     - name: Verify code signing

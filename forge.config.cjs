@@ -23,6 +23,12 @@ module.exports = {
             'entitlements-inherit': 'entitlements.plist',
             'gatekeeper-assess': false,
         },
+        osxNotarize: {
+            teamId: process.env.APPLE_TEAM_ID,
+            appleId: process.env.APPLE_ID,
+            appleIdPassword: process.env.APPLE_ID_PASSWORD,
+            appPath: path.join(__dirname, 'out', 'make', `${APP_NAME}.app`),
+        },
         extraResource: [
             // Moved to root
             ...extraResourcesForPlatform,
