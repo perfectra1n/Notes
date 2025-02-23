@@ -96,6 +96,32 @@ runs:
           --platform=$PLATFORM \
           --verbose
 
+    # Add DMG signing step
+    - name: Sign DMG
+      if: inputs.os == 'macos'
+      shell: bash
+      run: |
+        echo "Signing DMG file..."
+        dmg_file=$(find out -name "*.dmg" -print -quit)
+        if [ -n "$dmg_file" ]; then
+          echo "Found DMG: $dmg_file"
+          # Get the first valid signing identity from the keychain
+          SIGNING_IDENTITY=$(security find-identity -v -p codesigning build.keychain | grep "Developer ID Application" | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+          if [ -z "$SIGNING_IDENTITY" ]; then
+            echo "Error: No valid Developer ID Application certificate found in keychain"
+            exit 1
+          fi
+          echo "Using signing identity: $SIGNING_IDENTITY"
+          # Sign the DMG
+          codesign --force --sign "$SIGNING_IDENTITY" --options runtime --timestamp "$dmg_file"
+          # Notarize the DMG
+          xcrun notarytool submit "$dmg_file" --apple-id "$APPLE_ID" --password "$APPLE_ID_PASSWORD" --team-id "$APPLE_TEAM_ID" --wait
+          # Staple the notarization ticket
+          xcrun stapler staple "$dmg_file"
+        else
+          echo "No DMG found to sign"
+        fi
+
     - name: Verify code signing
       if: inputs.os == 'macos'
       shell: bash
