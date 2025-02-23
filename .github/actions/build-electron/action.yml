@@ -1,3 +1,6 @@
+name: "Build Electron App"
+description: "Builds and packages the Electron app for different platforms"
+
 inputs:
   os:
     description: "One of the supported platforms: macos, linux, windows"
@@ -74,7 +77,7 @@ runs:
         ELECTRON_NOTARIZE_DEBUG: 1
         ELECTRON_ENABLE_LOGGING: 1
         ELECTRON_DEBUG_NOTARIZATION: 1
-        # Pass through required environment variables for signing
+        # Pass through required environment variables for signing and notarization
         APPLE_TEAM_ID: ${{ env.APPLE_TEAM_ID }}
         APPLE_ID: ${{ env.APPLE_ID }}
         APPLE_ID_PASSWORD: ${{ env.APPLE_ID_PASSWORD }}
@@ -96,9 +99,42 @@ runs:
     - name: Prepare artifacts
       shell: bash
       run: |
-        mkdir -p upload;
-        for ext in ${{ inputs.extension }};
-        do
-          file=$(find out/make -name "*.$ext" -print -quit);
-          cp "$file" "upload/TriliumNextNotes-${{ github.ref_name }}-${{ inputs.os }}-${{ inputs.arch }}.$ext";
-        done
+        mkdir -p upload
+
+        if [ "${{ inputs.os }}" = "macos" ]; then
+          # For macOS, we need to look in specific directories based on the maker
+          echo "Collecting macOS artifacts..."
+
+          # DMG files are in out/make/dmg
+          if [ -f "out/make/dmg/"*.dmg ]; then
+            cp out/make/dmg/*.dmg "upload/TriliumNextNotes-${{ github.ref_name }}-darwin-${{ inputs.arch }}.dmg"
+          else
+            echo "Warning: DMG file not found in out/make/dmg/"
+            ls -la out/make/dmg/
+          fi
+
+          # ZIP files are in out/make/zip
+          if [ -f "out/make/zip/"*.zip ]; then
+            cp out/make/zip/*.zip "upload/TriliumNextNotes-${{ github.ref_name }}-darwin-${{ inputs.arch }}.zip"
+          else
+            echo "Warning: ZIP file not found in out/make/zip/"
+            ls -la out/make/zip/
+          fi
+        else
+          # For other platforms, use the existing logic but with better error handling
+          echo "Collecting artifacts for ${{ inputs.os }}..."
+          for ext in ${{ inputs.extension }}; do
+            file=$(find out/make -name "*.$ext" -print -quit)
+            if [ -n "$file" ]; then
+              echo "Found $file for extension $ext"
+              cp "$file" "upload/TriliumNextNotes-${{ github.ref_name }}-${{ inputs.os }}-${{ inputs.arch }}.$ext"
+            else
+              echo "Warning: No file found with extension .$ext"
+              echo "Contents of out/make:"
+              ls -R out/make/
+            fi
+          done
+        fi
+
+        echo "Final contents of upload directory:"
+        ls -la upload/
