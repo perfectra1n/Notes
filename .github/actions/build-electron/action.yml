@@ -79,6 +79,9 @@ runs:
         APPLE_ID: ${{ env.APPLE_ID }}
         APPLE_ID_PASSWORD: ${{ env.APPLE_ID_PASSWORD }}
         APPLE_TEAM_ID: ${{ env.APPLE_TEAM_ID }}
+        DEBUG: 'electron-osx-sign*,@electron/notarize*,electron-forge:*'
+        ELECTRON_NOTARIZE_DEBUG: 1
+        ELECTRON_BUILDER_VERBOSE: true
       run: |
         echo "Starting build with debugging..."
         echo "Environment check (redacted):"
@@ -86,33 +89,30 @@ runs:
         echo "APPLE_ID_PASSWORD set: $([[ -n "$APPLE_ID_PASSWORD" ]] && echo 'yes' || echo 'no')"
         echo "APPLE_TEAM_ID set: $([[ -n "$APPLE_TEAM_ID" ]] && echo 'yes' || echo 'no')"
 
-        # Print working directory and expected paths
+        # Print working directory
         echo "Current working directory: $(pwd)"
-        echo "Expected app path: $(pwd)/out/make/TriliumNext Notes.app"
-
-        # Enable more verbose debugging
-        DEBUG='electron-osx-sign*,@electron/notarize*,electron-forge:*' ELECTRON_NOTARIZE_DEBUG=1 npm run electron-forge:make -- --arch=${{ inputs.arch }}
-
-        echo "Build completed, checking output..."
+        
+        # Run the build with a timeout and save output
+        timeout 45m npm run electron-forge:make -- --arch=${{ inputs.arch }} 2>&1 | tee build.log
+        
+        # Check if the build succeeded
+        if [ ${PIPESTATUS[0]} -eq 124 ]; then
+          echo "Build timed out after 45 minutes. Last 50 lines of output:"
+          tail -n 50 build.log
+          exit 1
+        elif [ ${PIPESTATUS[0]} -ne 0 ]; then
+          echo "Build failed. Last 50 lines of output:"
+          tail -n 50 build.log
+          exit ${PIPESTATUS[0]}
+        fi
+        
+        # Check build output
         if [ -d "out/make" ]; then
-          echo "Build directory exists"
+          echo "Build completed. Contents of out/make:"
           ls -la out/make/
-
-          # Try to find the app bundle
-          APP_PATH=$(find out/make -name "*.app" -print -quit)
-          if [ -n "$APP_PATH" ]; then
-            echo "Found app at: $APP_PATH"
-            echo "Attempting manual notarization check..."
-            xcrun notarytool submit "$APP_PATH" \
-              --apple-id "$APPLE_ID" \
-              --password "$APPLE_ID_PASSWORD" \
-              --team-id "$APPLE_TEAM_ID" \
-              --wait || true
-          else
-            echo "No .app bundle found in out/make"
-          fi
         else
-          echo "Build directory 'out/make' not found"
+          echo "Build directory not found!"
+          exit 1
         fi
 
     # Add signing verification steps for macOS
