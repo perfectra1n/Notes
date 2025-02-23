@@ -18,7 +18,7 @@ runs:
       with:
         p12-file-base64: ${{ env.APPLE_APP_CERTIFICATE_BASE64 }}
         p12-password: ${{ env.APPLE_APP_CERTIFICATE_PASSWORD }}
-        keychain: build.keychain
+        keychain: build
         keychain-password: ${{ github.run_id }}
 
     - name: Install the Apple installer certificate
@@ -27,7 +27,7 @@ runs:
       with:
         p12-file-base64: ${{ env.APPLE_INSTALLER_CERTIFICATE_BASE64 }}
         p12-password: ${{ env.APPLE_INSTALLER_CERTIFICATE_PASSWORD }}
-        keychain: build.keychain
+        keychain: build
         keychain-password: ${{ github.run_id }}
         create-keychain: false
 
