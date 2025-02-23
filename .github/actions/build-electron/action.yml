@@ -75,7 +75,6 @@ runs:
         ELECTRON_ENABLE_LOGGING: 1
         ELECTRON_DEBUG_NOTARIZATION: 1
         # Pass through required environment variables for signing
-        CSC_NAME: "Mac Developer ID Application: Jonathon Fuller" # This is what electron-forge actually looks for
         APPLE_TEAM_ID: ${{ env.APPLE_TEAM_ID }}
         APPLE_ID: ${{ env.APPLE_ID }}
         APPLE_ID_PASSWORD: ${{ env.APPLE_ID_PASSWORD }}

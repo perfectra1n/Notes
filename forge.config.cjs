@@ -17,20 +17,11 @@ module.exports = {
         overwrite: true,
         asar: true,
         icon: "./images/app-icons/icon",
-        osxSign: {
-            identity: process.env.CSC_NAME,
-            'hardened-runtime': true,
-            entitlements: 'entitlements.plist',
-            'entitlements-inherit': 'entitlements.plist',
-            'gatekeeper-assess': false,
-            'pre-auto-entitlements': false
-        },
+        osxSign: {},
         osxNotarize: {
-            tool: 'notarytool',
-            teamId: process.env.APPLE_TEAM_ID,
             appleId: process.env.APPLE_ID,
-            appleIdPassword: process.env.APPLE_ID_PASSWORD,
-            appPath: path.join('out', 'make', `${APP_NAME}.app`)
+            appleIdPassword: process.env.APPLE_PASSWORD,
+            teamId: process.env.APPLE_TEAM_ID
         },
         extraResource: [
             // Moved to root
