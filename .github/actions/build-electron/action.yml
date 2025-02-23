@@ -96,13 +96,59 @@ runs:
           --platform=$PLATFORM \
           --verbose
 
+    - name: Verify code signing
+      if: inputs.os == 'macos'
+      shell: bash
+      run: |
+        echo "Verifying code signing for all artifacts..."
+
+        # First check the .app bundle
+        echo "Looking for .app bundle..."
+        app_bundle=$(find out -name "*.app" -print -quit)
+        if [ -n "$app_bundle" ]; then
+          echo "Found app bundle: $app_bundle"
+          echo "Verifying app bundle signing..."
+          codesign --verify --deep --strict --verbose=2 "$app_bundle"
+          echo "Displaying app bundle signing info..."
+          codesign --display --verbose=2 "$app_bundle"
+
+          echo "Checking entitlements..."
+          codesign --display --entitlements :- "$app_bundle"
+
+          echo "Checking notarization status..."
+          xcrun stapler validate "$app_bundle" || echo "Warning: App bundle not notarized yet"
+        else
+          echo "No .app bundle found to verify"
+        fi
+
+        # Then check DMG if it exists
+        echo "Looking for DMG..."
+        dmg_file=$(find out -name "*.dmg" -print -quit)
+        if [ -n "$dmg_file" ]; then
+          echo "Found DMG: $dmg_file"
+          echo "Verifying DMG signing..."
+          codesign --verify --deep --strict --verbose=2 "$dmg_file"
+          echo "Displaying DMG signing info..."
+          codesign --display --verbose=2 "$dmg_file"
+
+          echo "Checking DMG notarization..."
+          xcrun stapler validate "$dmg_file" || echo "Warning: DMG not notarized yet"
+        else
+          echo "No DMG found to verify"
+        fi
+
+        # Finally check ZIP if it exists
+        echo "Looking for ZIP..."
+        zip_file=$(find out -name "*.zip" -print -quit)
+        if [ -n "$zip_file" ]; then
+          echo "Found ZIP: $zip_file"
+          echo "Note: ZIP files are not code signed, but their contents should be"
+        fi
+
     - name: Prepare artifacts
       shell: bash
       run: |
         mkdir -p upload
-
-        echo "Contents of out directory:"
-        ls -R out/
 
         if [ "${{ inputs.os }}" = "macos" ]; then
           # For macOS, we need to look in specific directories based on the maker
