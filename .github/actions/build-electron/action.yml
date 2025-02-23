@@ -11,26 +11,32 @@ inputs:
 runs:
   using: composite
   steps:
-    # Use Apple's official actions for certificate management
-    - name: Install the Apple certificate and provisioning profile
+    # Set up certificates for macOS app and installer signing
+    - name: Install the Apple certificates
       if: inputs.os == 'macos'
       uses: apple-actions/import-codesign-certs@v2
       with:
         p12-file-base64: ${{ env.APPLE_APP_CERTIFICATE_BASE64 }}
         p12-password: ${{ env.APPLE_APP_CERTIFICATE_PASSWORD }}
+        keychain: build.keychain
+        keychain-password: ${{ github.run_id }}
 
-    - name: Install Apple Installer Certificate
+    - name: Install the Apple installer certificate
       if: inputs.os == 'macos'
       uses: apple-actions/import-codesign-certs@v2
       with:
         p12-file-base64: ${{ env.APPLE_INSTALLER_CERTIFICATE_BASE64 }}
         p12-password: ${{ env.APPLE_INSTALLER_CERTIFICATE_PASSWORD }}
+        keychain: build.keychain
+        keychain-password: ${{ github.run_id }}
         create-keychain: false
 
-    - name: Set up Python for appdmg to be installed
+    - name: Set up Python and other macOS dependencies
       if: ${{ inputs.os == 'macos' }}
       shell: bash
-      run: brew install python-setuptools
+      run: |
+        brew install python-setuptools
+        brew install create-dmg
 
     - name: Install dependencies for RPM and Flatpak package building
       if: ${{ inputs.os == 'linux' }}
@@ -84,8 +90,8 @@ runs:
         echo "Build completed. Contents of out/make:"
         ls -la out/make/
 
-    # Use Apple's notarization action if on macOS
-    - name: Notarize the app
+    # Notarize and staple both app and DMG for macOS
+    - name: Notarize the app bundle
       if: inputs.os == 'macos'
       uses: apple-actions/notarize-macos@v2
       with:
@@ -94,12 +100,26 @@ runs:
         password: ${{ env.APPLE_ID_PASSWORD }}
         team-id: ${{ env.APPLE_TEAM_ID }}
         
-    # Staple the notarization ticket to the app
-    - name: Staple the app
+    - name: Staple the app bundle
       if: inputs.os == 'macos'
       uses: apple-actions/staple-macos@v1
       with:
         app-path: "out/make/*.app"
+
+    - name: Notarize the DMG
+      if: inputs.os == 'macos'
+      uses: apple-actions/notarize-macos@v2
+      with:
+        app-path: "out/make/*.dmg"
+        apple-id: ${{ env.APPLE_ID }}
+        password: ${{ env.APPLE_ID_PASSWORD }}
+        team-id: ${{ env.APPLE_TEAM_ID }}
+        
+    - name: Staple the DMG
+      if: inputs.os == 'macos'
+      uses: apple-actions/staple-macos@v1
+      with:
+        app-path: "out/make/*.dmg"
 
     - name: Verify code signing
       if: inputs.os == 'macos'
@@ -115,18 +135,24 @@ runs:
         echo "Found DMG at: $DMG_PATH"
 
         if [ -d "$APP_PATH" ]; then
-          echo "Checking code signing for app bundle..."
+          echo "Checking app bundle signing..."
           codesign -dvv "$APP_PATH"
-          echo "Detailed verification:"
+          echo "Detailed app verification:"
           codesign -vv --deep --strict "$APP_PATH"
-          
-          echo "Verifying notarization:"
+          echo "Verifying app notarization:"
           xcrun stapler validate "$APP_PATH"
+          
+          # Also verify all components inside the app bundle
+          echo "Verifying app bundle components:"
+          find "$APP_PATH/Contents/MacOS" -type f -exec codesign -dvv {} \;
+          find "$APP_PATH/Contents/Frameworks" -type f -exec codesign -dvv {} \;
         fi
 
         if [ -f "$DMG_PATH" ]; then
           echo "Checking DMG signing..."
           codesign -dvv "$DMG_PATH"
+          echo "Verifying DMG notarization:"
+          xcrun stapler validate "$DMG_PATH"
         fi
 
     - name: Prepare artifacts
