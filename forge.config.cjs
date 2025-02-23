@@ -22,6 +22,8 @@ module.exports = {
             entitlements: 'entitlements.plist',
             'entitlements-inherit': 'entitlements.plist',
             'gatekeeper-assess': false,
+            identity: 'Developer ID Application',
+            'signature-flags': 'library'
         },
         extraResource: [
             // Moved to root
