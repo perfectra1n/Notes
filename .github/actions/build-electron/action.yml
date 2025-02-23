@@ -75,17 +75,40 @@ runs:
         security find-certificate -a -c "Developer ID Application" -p build.keychain | openssl x509 -text
     - name: Run electron-forge
       shell: bash
+      env:
+        APPLE_ID: ${{ env.APPLE_ID }}
+        APPLE_ID_PASSWORD: ${{ env.APPLE_ID_PASSWORD }}
+        APPLE_TEAM_ID: ${{ env.APPLE_TEAM_ID }}
       run: |
-        # Enable debugging for both signing and notarization
-        DEBUG='electron-osx-sign*,@electron/notarize*' ELECTRON_NOTARIZE_DEBUG=1 npm run electron-forge:make -- --arch=${{ inputs.arch }}
+        echo "Starting build with debugging..."
+        echo "Environment check (redacted):"
+        echo "APPLE_ID set: $([[ -n "$APPLE_ID" ]] && echo 'yes' || echo 'no')"
+        echo "APPLE_ID_PASSWORD set: $([[ -n "$APPLE_ID_PASSWORD" ]] && echo 'yes' || echo 'no')"
+        echo "APPLE_TEAM_ID set: $([[ -n "$APPLE_TEAM_ID" ]] && echo 'yes' || echo 'no')"
 
-        # If the build completes, check notarization status
+        # Enable more verbose debugging
+        DEBUG='electron-osx-sign*,@electron/notarize*,electron-forge:*' ELECTRON_NOTARIZE_DEBUG=1 npm run electron-forge:make -- --arch=${{ inputs.arch }}
+
+        echo "Build completed, checking output..."
         if [ -d "out/make" ]; then
-          echo "Checking notarization info..."
-          xcrun notarytool info --apple-id "$APPLE_ID" --password "$APPLE_ID_PASSWORD" --team-id "$APPLE_TEAM_ID" "out/make/TriliumNext Notes.app" || true
+          echo "Build directory exists"
+          ls -la out/make/
 
-          echo "Checking notarization history..."
-          xcrun notarytool history --apple-id "$APPLE_ID" --password "$APPLE_ID_PASSWORD" --team-id "$APPLE_TEAM_ID" || true
+          # Try to find the app bundle
+          APP_PATH=$(find out/make -name "*.app" -print -quit)
+          if [ -n "$APP_PATH" ]; then
+            echo "Found app at: $APP_PATH"
+            echo "Attempting manual notarization check..."
+            xcrun notarytool submit "$APP_PATH" \
+              --apple-id "$APPLE_ID" \
+              --password "$APPLE_ID_PASSWORD" \
+              --team-id "$APPLE_TEAM_ID" \
+              --wait || true
+          else
+            echo "No .app bundle found in out/make"
+          fi
+        else
+          echo "Build directory 'out/make' not found"
         fi
 
     # Add signing verification steps for macOS
