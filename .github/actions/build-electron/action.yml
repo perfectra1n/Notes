@@ -62,7 +62,7 @@ runs:
         APPLE_ID: ${{ env.APPLE_ID }}
         APPLE_ID_PASSWORD: ${{ env.APPLE_ID_PASSWORD }}
         APPLE_TEAM_ID: ${{ env.APPLE_TEAM_ID }}
-        DEBUG: 'electron-osx-sign*,@electron/notarize*,electron-forge:*'
+        DEBUG: "electron-osx-sign*,@electron/notarize*,electron-forge:*"
         ELECTRON_NOTARIZE_DEBUG: 1
         ELECTRON_BUILDER_VERBOSE: true
       run: |
@@ -75,7 +75,7 @@ runs:
         # Run the build
         npm run electron-forge:make -- --arch=${{ inputs.arch }} 2>&1 | tee build.log
         BUILD_STATUS=${PIPESTATUS[0]}
-        
+
         if [ $BUILD_STATUS -ne 0 ]; then
           echo "Build failed. Last 50 lines of output:"
           tail -n 50 build.log
@@ -102,27 +102,26 @@ runs:
         # Find the artifacts
         APP_PATH=$(find out/make -name "*.app" -print -quit)
         DMG_PATH=$(find out/make -name "*.dmg" -print -quit)
-        
+
         if [ -d "$APP_PATH" ]; then
           echo "Notarizing app bundle..."
           # Create a temporary ZIP of the app for notarization
           ditto -c -k --keepParent "$APP_PATH" "app.zip"
-          
+
           # Submit for notarization
           xcrun notarytool submit "app.zip" \
             --apple-id "$APPLE_ID" \
             --password "$APPLE_ID_PASSWORD" \
-            --team-id "$APPLE_TEAM_ID" \
-            --wait
-          
+            --team-id "$APPLE_TEAM_ID"
+
           # Staple the app
           echo "Stapling app bundle..."
           xcrun stapler staple "$APP_PATH"
-          
+
           # Clean up
           rm "app.zip"
         fi
-        
+
         if [ -f "$DMG_PATH" ]; then
           echo "Notarizing DMG..."
           # Submit DMG for notarization
@@ -131,7 +130,7 @@ runs:
             --password "$APPLE_ID_PASSWORD" \
             --team-id "$APPLE_TEAM_ID" \
             --wait
-          
+
           # Staple the DMG
           echo "Stapling DMG..."
           xcrun stapler staple "$DMG_PATH"
@@ -158,7 +157,7 @@ runs:
           echo "Verifying app notarization:"
           xcrun stapler validate "$APP_PATH"
           spctl --assess --type exec -vv "$APP_PATH"
-          
+
           # Also verify all components inside the app bundle
           echo "Verifying app bundle components:"
           find "$APP_PATH/Contents/MacOS" -type f -exec codesign -dvv {} \;
