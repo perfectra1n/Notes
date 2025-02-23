@@ -76,7 +76,17 @@ runs:
     - name: Run electron-forge
       shell: bash
       run: |
-        DEBUG='electron-osx-sign*' npm run electron-forge:make -- --arch=${{ inputs.arch }}
+        # Enable debugging for both signing and notarization
+        DEBUG='electron-osx-sign*,@electron/notarize*' ELECTRON_NOTARIZE_DEBUG=1 npm run electron-forge:make -- --arch=${{ inputs.arch }}
+
+        # If the build completes, check notarization status
+        if [ -d "out/make" ]; then
+          echo "Checking notarization info..."
+          xcrun notarytool info --apple-id "$APPLE_ID" --password "$APPLE_ID_PASSWORD" --team-id "$APPLE_TEAM_ID" "out/make/TriliumNext Notes.app" || true
+
+          echo "Checking notarization history..."
+          xcrun notarytool history --apple-id "$APPLE_ID" --password "$APPLE_ID_PASSWORD" --team-id "$APPLE_TEAM_ID" || true
+        fi
 
     # Add signing verification steps for macOS
     - name: Verify code signing
