@@ -11,6 +11,40 @@ inputs:
 runs:
   using: composite
   steps:
+    # Set up certificates and keychain for macOS
+    - name: Install Apple Certificates
+      if: inputs.os == 'macos'
+      shell: bash
+      env:
+        APP_CERTIFICATE_BASE64: ${{ env.APPLE_APP_CERTIFICATE_BASE64 }}
+        APP_CERTIFICATE_PASSWORD: ${{ env.APPLE_APP_CERTIFICATE_PASSWORD }}
+        INSTALLER_CERTIFICATE_BASE64: ${{ env.APPLE_INSTALLER_CERTIFICATE_BASE64 }}
+        INSTALLER_CERTIFICATE_PASSWORD: ${{ env.APPLE_INSTALLER_CERTIFICATE_PASSWORD }}
+        KEYCHAIN_PASSWORD: ${{ github.run_id }}
+      run: |
+        # Create keychain
+        security create-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
+        security default-keychain -s build.keychain
+        security unlock-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
+        security set-keychain-settings -t 3600 -u build.keychain
+
+        # Import application certificate
+        echo "$APP_CERTIFICATE_BASE64" | base64 --decode > application.p12
+        security import application.p12 -k build.keychain -P "$APP_CERTIFICATE_PASSWORD" -T /usr/bin/codesign
+        rm application.p12
+
+        # Import installer certificate
+        echo "$INSTALLER_CERTIFICATE_BASE64" | base64 --decode > installer.p12
+        security import installer.p12 -k build.keychain -P "$INSTALLER_CERTIFICATE_PASSWORD" -T /usr/bin/codesign
+        rm installer.p12
+
+        # Update keychain settings
+        security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" build.keychain
+
+        # Verify certificates
+        echo "Verifying certificates..."
+        security find-identity -v -p codesigning build.keychain
+
     - name: Set up Python for appdmg to be installed
       if: ${{ inputs.os == 'macos' }}
       shell: bash
@@ -33,6 +67,10 @@ runs:
     - name: Run electron-forge
       shell: bash
       run: npm run electron-forge:make -- --arch=${{ inputs.arch }}
+    - name: Clean up keychain
+      if: inputs.os == 'macos' && always()
+      shell: bash
+      run: security delete-keychain build.keychain
     - name: Prepare artifacts
       shell: bash
       run: |
