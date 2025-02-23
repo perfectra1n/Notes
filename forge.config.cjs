@@ -18,7 +18,7 @@ module.exports = {
         asar: true,
         icon: "./images/app-icons/icon",
         osxSign: {
-            identity: process.env.APPLE_DEV_ID,
+            identity: process.env.CSC_NAME,
             'hardened-runtime': true,
             entitlements: 'entitlements.plist',
             'entitlements-inherit': 'entitlements.plist',
