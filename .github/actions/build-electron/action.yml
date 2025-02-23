@@ -68,9 +68,18 @@ runs:
         ELECTRON_ENABLE_LOGGING: 1
         ELECTRON_DEBUG_NOTARIZATION: 1
       run: |
+        # Map OS names to Electron Forge platform names
+        if [ "${{ inputs.os }}" = "macos" ]; then
+          PLATFORM="darwin"
+        elif [ "${{ inputs.os }}" = "windows" ]; then
+          PLATFORM="win32"
+        else
+          PLATFORM="${{ inputs.os }}"
+        fi
+
         npm run electron-forge:make -- \
           --arch=${{ inputs.arch }} \
-          --platform=${{ inputs.os }} \
+          --platform=$PLATFORM \
           --verbose
 
     - name: Prepare artifacts
