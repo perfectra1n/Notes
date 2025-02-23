@@ -64,9 +64,49 @@ runs:
     - name: Update build info
       shell: bash
       run: npm run chore:update-build-info
+    - name: Verify certificates before build
+      if: inputs.os == 'macos'
+      shell: bash
+      run: |
+        echo "Available signing identities:"
+        security find-identity -v -p codesigning build.keychain
+
+        echo "Certificate details:"
+        security find-certificate -a -c "Developer ID Application" -p build.keychain | openssl x509 -text
     - name: Run electron-forge
       shell: bash
-      run: npm run electron-forge:make -- --arch=${{ inputs.arch }}
+      run: |
+        DEBUG='electron-osx-sign*' npm run electron-forge:make -- --arch=${{ inputs.arch }}
+
+    # Add signing verification steps for macOS
+    - name: Verify code signing
+      if: inputs.os == 'macos'
+      shell: bash
+      run: |
+        echo "Listing build output directory:"
+        ls -la out/make/
+
+        APP_PATH=$(find out/make -name "*.app" -print -quit)
+        DMG_PATH=$(find out/make -name "*.dmg" -print -quit)
+
+        echo "Found app at: $APP_PATH"
+        echo "Found DMG at: $DMG_PATH"
+
+        if [ -d "$APP_PATH" ]; then
+          echo "Checking code signing for app bundle..."
+          codesign -dvv "$APP_PATH" || true
+          echo "Detailed verification:"
+          codesign -vv --deep --strict "$APP_PATH" || true
+
+          echo "Checking app bundle contents:"
+          find "$APP_PATH" -type f -exec codesign -dvv {} \; 2>&1 || true
+        fi
+
+        if [ -f "$DMG_PATH" ]; then
+          echo "Checking DMG signing..."
+          codesign -dvv "$DMG_PATH" || true
+        fi
+
     - name: Clean up keychain
       if: inputs.os == 'macos' && always()
       shell: bash

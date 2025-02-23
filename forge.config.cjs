@@ -17,7 +17,17 @@ module.exports = {
         overwrite: true,
         asar: true,
         icon: "./images/app-icons/icon",
-        osxSign: {},
+        osxSign: {
+            hardenedRuntime: true,
+            entitlements: 'entitlements.plist',
+            'entitlements-inherit': 'entitlements.plist',
+            'gatekeeper-assess': false,
+        },
+        osxNotarize: {
+            teamId: process.env.APPLE_TEAM_ID,
+            appleId: process.env.APPLE_ID,
+            appleIdPassword: process.env.APPLE_ID_PASSWORD,
+        },
         extraResource: [
             // Moved to root
             ...extraResourcesForPlatform,
