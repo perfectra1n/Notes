@@ -31,9 +31,9 @@ module.exports = {
         },
         osxNotarize: {
             tool: 'notarytool',
-            appleApiKey: process.env.APPLE_API_KEY,
-            appleApiKeyId: process.env.APPLE_API_KEY_ID,
-            appleApiIssuer: process.env.APPLE_API_ISSUER,
+            teamId: process.env.APPLE_TEAM_ID,
+            appleId: process.env.APPLE_ID,
+            appleIdPassword: process.env.APPLE_ID_PASSWORD,
             appPath: path.join(__dirname, 'out', 'TriliumNext Notes.app')
         },
         extraResource: [
