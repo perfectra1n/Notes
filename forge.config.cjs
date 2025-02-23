@@ -20,21 +20,17 @@ module.exports = {
         osxSign: {
             identity: process.env.APPLE_DEV_ID,
             'hardened-runtime': true,
-            'signature-flags': 'runtime',
             entitlements: 'entitlements.plist',
             'entitlements-inherit': 'entitlements.plist',
             'gatekeeper-assess': false,
-            platform: 'darwin',
-            strictVerify: true,
-            'pre-auto-entitlements': false,
-            type: 'distribution'
+            'pre-auto-entitlements': false
         },
         osxNotarize: {
             tool: 'notarytool',
             teamId: process.env.APPLE_TEAM_ID,
             appleId: process.env.APPLE_ID,
             appleIdPassword: process.env.APPLE_ID_PASSWORD,
-            appPath: path.join(__dirname, 'out', 'TriliumNext Notes.app')
+            appPath: path.join('out', 'make', `${APP_NAME}.app`)
         },
         extraResource: [
             // Moved to root
