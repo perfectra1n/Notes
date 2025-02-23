@@ -86,6 +86,10 @@ runs:
         echo "APPLE_ID_PASSWORD set: $([[ -n "$APPLE_ID_PASSWORD" ]] && echo 'yes' || echo 'no')"
         echo "APPLE_TEAM_ID set: $([[ -n "$APPLE_TEAM_ID" ]] && echo 'yes' || echo 'no')"
 
+        # Print working directory and expected paths
+        echo "Current working directory: $(pwd)"
+        echo "Expected app path: $(pwd)/out/make/TriliumNext Notes.app"
+
         # Enable more verbose debugging
         DEBUG='electron-osx-sign*,@electron/notarize*,electron-forge:*' ELECTRON_NOTARIZE_DEBUG=1 npm run electron-forge:make -- --arch=${{ inputs.arch }}
 
