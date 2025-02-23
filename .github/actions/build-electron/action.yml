@@ -48,7 +48,9 @@ runs:
     - name: Set up Python for appdmg to be installed
       if: ${{ inputs.os == 'macos' }}
       shell: bash
-      run: brew install python-setuptools
+      run: |
+        brew install python-setuptools
+        brew install coreutils
     - name: Install dependencies for RPM and Flatpak package building
       if: ${{ inputs.os == 'linux' }}
       shell: bash
@@ -93,17 +95,24 @@ runs:
         echo "Current working directory: $(pwd)"
         
         # Run the build with a timeout and save output
-        timeout 45m npm run electron-forge:make -- --arch=${{ inputs.arch }} 2>&1 | tee build.log
+        if command -v gtimeout >/dev/null 2>&1; then
+          gtimeout 45m npm run electron-forge:make -- --arch=${{ inputs.arch }} 2>&1 | tee build.log
+          BUILD_STATUS=${PIPESTATUS[0]}
+        else
+          echo "WARNING: gtimeout not found, running without timeout"
+          npm run electron-forge:make -- --arch=${{ inputs.arch }} 2>&1 | tee build.log
+          BUILD_STATUS=${PIPESTATUS[0]}
+        fi
         
         # Check if the build succeeded
-        if [ ${PIPESTATUS[0]} -eq 124 ]; then
+        if [ $BUILD_STATUS -eq 124 ]; then
           echo "Build timed out after 45 minutes. Last 50 lines of output:"
           tail -n 50 build.log
           exit 1
-        elif [ ${PIPESTATUS[0]} -ne 0 ]; then
+        elif [ $BUILD_STATUS -ne 0 ]; then
           echo "Build failed. Last 50 lines of output:"
           tail -n 50 build.log
-          exit ${PIPESTATUS[0]}
+          exit $BUILD_STATUS
         fi
         
         # Check build output
