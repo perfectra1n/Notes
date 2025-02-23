@@ -8,11 +8,12 @@ inputs:
   extension:
     description: "Platform specific extensions to copy in the output: dmg, deb, rpm, exe, zip"
     required: true
+
 runs:
   using: composite
   steps:
-    # Set up certificates for macOS app and installer signing
-    - name: Install the Apple certificates
+    # Certificate setup
+    - name: Import Apple certificates
       if: inputs.os == 'macos'
       uses: apple-actions/import-codesign-certs@v2
       with:
@@ -21,7 +22,7 @@ runs:
         keychain: build
         keychain-password: ${{ github.run_id }}
 
-    - name: Install the Apple installer certificate
+    - name: Install Installer certificate
       if: inputs.os == 'macos'
       uses: apple-actions/import-codesign-certs@v2
       with:
@@ -29,25 +30,8 @@ runs:
         p12-password: ${{ env.APPLE_INSTALLER_CERTIFICATE_PASSWORD }}
         keychain: build
         keychain-password: ${{ github.run_id }}
-        create-keychain: false
 
-    - name: Set up Python and other macOS dependencies
-      if: ${{ inputs.os == 'macos' }}
-      shell: bash
-      run: |
-        brew install python-setuptools
-        brew install create-dmg
-
-    - name: Install dependencies for RPM and Flatpak package building
-      if: ${{ inputs.os == 'linux' }}
-      shell: bash
-      run: |
-        sudo apt-get update && sudo apt-get install rpm flatpak-builder elfutils
-        flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-        FLATPAK_ARCH=$(if [[ ${{ inputs.arch }} = 'arm64' ]]; then echo 'aarch64'; else echo 'x86_64'; fi)
-        FLATPAK_VERSION='24.08'
-        flatpak install --user --no-deps --arch $FLATPAK_ARCH --assumeyes runtime/org.freedesktop.Platform/$FLATPAK_ARCH/$FLATPAK_VERSION runtime/org.freedesktop.Sdk/$FLATPAK_ARCH/$FLATPAK_VERSION org.electronjs.Electron2.BaseApp/$FLATPAK_ARCH/$FLATPAK_VERSION
-
+    # Build setup
     - name: Install dependencies
       shell: bash
       run: npm ci
@@ -56,144 +40,19 @@ runs:
       shell: bash
       run: npm run chore:update-build-info
 
-    - name: Run electron-forge build
+    # Critical debugging configuration
+    - name: Run electron-forge build with enhanced logging
       shell: bash
       env:
-        APPLE_ID: ${{ env.APPLE_ID }}
-        APPLE_ID_PASSWORD: ${{ env.APPLE_ID_PASSWORD }}
-        APPLE_TEAM_ID: ${{ env.APPLE_TEAM_ID }}
         DEBUG: "electron-osx-sign*,@electron/notarize*,electron-forge:*"
         ELECTRON_NOTARIZE_DEBUG: 1
-        ELECTRON_BUILDER_VERBOSE: true
+        ELECTRON_ENABLE_LOGGING: 1
+        ELECTRON_DEBUG_NOTARIZATION: 1
       run: |
-        echo "Starting build with debugging..."
-        echo "Environment check (redacted):"
-        echo "APPLE_ID set: $([[ -n "$APPLE_ID" ]] && echo 'yes' || echo 'no')"
-        echo "APPLE_ID_PASSWORD set: $([[ -n "$APPLE_ID_PASSWORD" ]] && echo 'yes' || echo 'no')"
-        echo "APPLE_TEAM_ID set: $([[ -n "$APPLE_TEAM_ID" ]] && echo 'yes' || echo 'no')"
-
-        # Run the build
-        npm run electron-forge:make -- --arch=${{ inputs.arch }} 2>&1 | tee build.log
-        BUILD_STATUS=${PIPESTATUS[0]}
-
-        if [ $BUILD_STATUS -ne 0 ]; then
-          echo "Build failed. Last 50 lines of output:"
-          tail -n 50 build.log
-          exit $BUILD_STATUS
-        fi
-
-        if [ ! -d "out/make" ]; then
-          echo "Build directory not found!"
-          exit 1
-        fi
-
-        echo "Build completed. Contents of out/make:"
-        ls -la out/make/
-
-    # Handle notarization and stapling for macOS
-    - name: Notarize and staple macOS artifacts
-      if: inputs.os == 'macos'
-      shell: bash
-      env:
-        APPLE_ID: ${{ env.APPLE_ID }}
-        APPLE_ID_PASSWORD: ${{ env.APPLE_ID_PASSWORD }}
-        APPLE_TEAM_ID: ${{ env.APPLE_TEAM_ID }}
-      run: |
-        # Find the artifacts
-        APP_PATH=$(find out/make -name "*.app" -print -quit)
-        DMG_PATH=$(find out/make -name "*.dmg" -print -quit)
-
-        if [ -d "$APP_PATH" ]; then
-          echo "Notarizing app bundle..."
-          # Create a temporary ZIP of the app for notarization
-          ditto -c -k --keepParent "$APP_PATH" "app.zip"
-
-          # Submit for notarization
-          xcrun notarytool submit "app.zip" \
-            --apple-id "$APPLE_ID" \
-            --password "$APPLE_ID_PASSWORD" \
-            --team-id "$APPLE_TEAM_ID"
-
-          # Staple the app
-          echo "Stapling app bundle..."
-          xcrun stapler staple "$APP_PATH"
-
-          # Clean up
-          rm "app.zip"
-        fi
-
-        if [ -f "$DMG_PATH" ]; then
-          echo "Notarizing DMG..."
-          echo "DMG details:"
-          codesign -dvv "$DMG_PATH" || true
-
-          # Submit DMG for notarization and save the submission ID
-          SUBMISSION_ID=$(xcrun notarytool submit "$DMG_PATH" \
-            --apple-id "$APPLE_ID" \
-            --password "$APPLE_ID_PASSWORD" \
-            --team-id "$APPLE_TEAM_ID" \
-            --output-format json | jq -r '.id')
-
-          echo "Submission ID: $SUBMISSION_ID"
-
-          # Get detailed info about the submission
-          echo "Detailed notarization info:"
-          xcrun notarytool info "$SUBMISSION_ID" \
-            --apple-id "$APPLE_ID" \
-            --password "$APPLE_ID_PASSWORD" \
-            --team-id "$APPLE_TEAM_ID"
-
-          # Get the submission log for more details about any issues
-          echo "Notarization log:"
-          xcrun notarytool log "$SUBMISSION_ID" \
-            --apple-id "$APPLE_ID" \
-            --password "$APPLE_ID_PASSWORD" \
-            --team-id "$APPLE_TEAM_ID"
-
-          # Check if the app was actually signed before notarization
-          echo "Checking code signing status before stapling:"
-          pkgutil --check-signature "$DMG_PATH" || true
-
-          # Try stapling anyway to see detailed errors
-          echo "Attempting to staple with verbose output..."
-          xcrun stapler staple -v "$DMG_PATH"
-        fi
-
-    - name: Verify code signing
-      if: inputs.os == 'macos'
-      shell: bash
-      run: |
-        echo "Listing build output directory:"
-        ls -la out/make/
-
-        APP_PATH=$(find out/make -name "*.app" -print -quit)
-        DMG_PATH=$(find out/make -name "*.dmg" -print -quit)
-
-        echo "Found app at: $APP_PATH"
-        echo "Found DMG at: $DMG_PATH"
-
-        if [ -d "$APP_PATH" ]; then
-          echo "Checking app bundle signing..."
-          codesign -dvv "$APP_PATH"
-          echo "Detailed app verification:"
-          codesign -vv --deep --strict "$APP_PATH"
-          echo "Verifying app notarization:"
-          xcrun stapler validate "$APP_PATH"
-          spctl --assess --type exec -vv "$APP_PATH"
-
-          # Also verify all components inside the app bundle
-          echo "Verifying app bundle components:"
-          find "$APP_PATH/Contents/MacOS" -type f -exec codesign -dvv {} \;
-          find "$APP_PATH/Contents/Frameworks" -type f -exec codesign -dvv {} \;
-        fi
-
-        if [ -f "$DMG_PATH" ]; then
-          echo "Checking DMG signing..."
-          codesign -dvv "$DMG_PATH"
-          echo "Verifying DMG notarization:"
-          xcrun stapler validate "$DMG_PATH"
-          spctl --assess --type open --context context:primary-signature -v "$DMG_PATH"
-        fi
+        npm run electron-forge:make -- \
+          --arch=${{ inputs.arch }} \
+          --platform=${{ inputs.os }} \
+          --verbose
 
     - name: Prepare artifacts
       shell: bash

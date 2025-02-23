@@ -18,16 +18,23 @@ module.exports = {
         asar: true,
         icon: "./images/app-icons/icon",
         osxSign: {
-            hardenedRuntime: true,
+            identity: process.env.APPLE_DEV_ID,
+            'hardened-runtime': true,
+            'signature-flags': 'runtime',
             entitlements: 'entitlements.plist',
             'entitlements-inherit': 'entitlements.plist',
             'gatekeeper-assess': false,
+            platform: 'darwin',
+            strictVerify: true,
+            'pre-auto-entitlements': false,
+            type: 'distribution'
         },
         osxNotarize: {
-            teamId: process.env.APPLE_TEAM_ID,
-            appleId: process.env.APPLE_ID,
-            appleIdPassword: process.env.APPLE_ID_PASSWORD,
-            appPath: path.join(__dirname, 'out', 'make', `${APP_NAME}.app`),
+            tool: 'notarytool',
+            appleApiKey: process.env.APPLE_API_KEY,
+            appleApiKeyId: process.env.APPLE_API_KEY_ID,
+            appleApiIssuer: process.env.APPLE_API_ISSUER,
+            appPath: path.join(__dirname, 'out', 'TriliumNext Notes.app')
         },
         extraResource: [
             // Moved to root
