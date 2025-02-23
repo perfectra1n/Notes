@@ -11,46 +11,27 @@ inputs:
 runs:
   using: composite
   steps:
-    # Set up certificates and keychain for macOS
-    - name: Install Apple Certificates
+    # Use Apple's official actions for certificate management
+    - name: Install the Apple certificate and provisioning profile
       if: inputs.os == 'macos'
-      shell: bash
-      env:
-        APP_CERTIFICATE_BASE64: ${{ env.APPLE_APP_CERTIFICATE_BASE64 }}
-        APP_CERTIFICATE_PASSWORD: ${{ env.APPLE_APP_CERTIFICATE_PASSWORD }}
-        INSTALLER_CERTIFICATE_BASE64: ${{ env.APPLE_INSTALLER_CERTIFICATE_BASE64 }}
-        INSTALLER_CERTIFICATE_PASSWORD: ${{ env.APPLE_INSTALLER_CERTIFICATE_PASSWORD }}
-        KEYCHAIN_PASSWORD: ${{ github.run_id }}
-      run: |
-        # Create keychain
-        security create-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
-        security default-keychain -s build.keychain
-        security unlock-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
-        security set-keychain-settings -t 3600 -u build.keychain
+      uses: apple-actions/import-codesign-certs@v2
+      with:
+        p12-file-base64: ${{ env.APPLE_APP_CERTIFICATE_BASE64 }}
+        p12-password: ${{ env.APPLE_APP_CERTIFICATE_PASSWORD }}
 
-        # Import application certificate
-        echo "$APP_CERTIFICATE_BASE64" | base64 --decode > application.p12
-        security import application.p12 -k build.keychain -P "$APP_CERTIFICATE_PASSWORD" -T /usr/bin/codesign
-        rm application.p12
-
-        # Import installer certificate
-        echo "$INSTALLER_CERTIFICATE_BASE64" | base64 --decode > installer.p12
-        security import installer.p12 -k build.keychain -P "$INSTALLER_CERTIFICATE_PASSWORD" -T /usr/bin/codesign
-        rm installer.p12
-
-        # Update keychain settings
-        security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" build.keychain
-
-        # Verify certificates
-        echo "Verifying certificates..."
-        security find-identity -v -p codesigning build.keychain
+    - name: Install Apple Installer Certificate
+      if: inputs.os == 'macos'
+      uses: apple-actions/import-codesign-certs@v2
+      with:
+        p12-file-base64: ${{ env.APPLE_INSTALLER_CERTIFICATE_BASE64 }}
+        p12-password: ${{ env.APPLE_INSTALLER_CERTIFICATE_PASSWORD }}
+        create-keychain: false
 
     - name: Set up Python for appdmg to be installed
       if: ${{ inputs.os == 'macos' }}
       shell: bash
-      run: |
-        brew install python-setuptools
-        brew install coreutils
+      run: brew install python-setuptools
+
     - name: Install dependencies for RPM and Flatpak package building
       if: ${{ inputs.os == 'linux' }}
       shell: bash
@@ -60,22 +41,16 @@ runs:
         FLATPAK_ARCH=$(if [[ ${{ inputs.arch }} = 'arm64' ]]; then echo 'aarch64'; else echo 'x86_64'; fi)
         FLATPAK_VERSION='24.08'
         flatpak install --user --no-deps --arch $FLATPAK_ARCH --assumeyes runtime/org.freedesktop.Platform/$FLATPAK_ARCH/$FLATPAK_VERSION runtime/org.freedesktop.Sdk/$FLATPAK_ARCH/$FLATPAK_VERSION org.electronjs.Electron2.BaseApp/$FLATPAK_ARCH/$FLATPAK_VERSION
+
     - name: Install dependencies
       shell: bash
       run: npm ci
+
     - name: Update build info
       shell: bash
       run: npm run chore:update-build-info
-    - name: Verify certificates before build
-      if: inputs.os == 'macos'
-      shell: bash
-      run: |
-        echo "Available signing identities:"
-        security find-identity -v -p codesigning build.keychain
 
-        echo "Certificate details:"
-        security find-certificate -a -c "Developer ID Application" -p build.keychain | openssl x509 -text
-    - name: Run electron-forge
+    - name: Run electron-forge build
       shell: bash
       env:
         APPLE_ID: ${{ env.APPLE_ID }}
@@ -91,40 +66,41 @@ runs:
         echo "APPLE_ID_PASSWORD set: $([[ -n "$APPLE_ID_PASSWORD" ]] && echo 'yes' || echo 'no')"
         echo "APPLE_TEAM_ID set: $([[ -n "$APPLE_TEAM_ID" ]] && echo 'yes' || echo 'no')"
 
-        # Print working directory
-        echo "Current working directory: $(pwd)"
+        # Run the build
+        npm run electron-forge:make -- --arch=${{ inputs.arch }} 2>&1 | tee build.log
+        BUILD_STATUS=${PIPESTATUS[0]}
         
-        # Run the build with a timeout and save output
-        if command -v gtimeout >/dev/null 2>&1; then
-          gtimeout 45m npm run electron-forge:make -- --arch=${{ inputs.arch }} 2>&1 | tee build.log
-          BUILD_STATUS=${PIPESTATUS[0]}
-        else
-          echo "WARNING: gtimeout not found, running without timeout"
-          npm run electron-forge:make -- --arch=${{ inputs.arch }} 2>&1 | tee build.log
-          BUILD_STATUS=${PIPESTATUS[0]}
-        fi
-        
-        # Check if the build succeeded
-        if [ $BUILD_STATUS -eq 124 ]; then
-          echo "Build timed out after 45 minutes. Last 50 lines of output:"
-          tail -n 50 build.log
-          exit 1
-        elif [ $BUILD_STATUS -ne 0 ]; then
+        if [ $BUILD_STATUS -ne 0 ]; then
           echo "Build failed. Last 50 lines of output:"
           tail -n 50 build.log
           exit $BUILD_STATUS
         fi
-        
-        # Check build output
-        if [ -d "out/make" ]; then
-          echo "Build completed. Contents of out/make:"
-          ls -la out/make/
-        else
+
+        if [ ! -d "out/make" ]; then
           echo "Build directory not found!"
           exit 1
         fi
 
-    # Add signing verification steps for macOS
+        echo "Build completed. Contents of out/make:"
+        ls -la out/make/
+
+    # Use Apple's notarization action if on macOS
+    - name: Notarize the app
+      if: inputs.os == 'macos'
+      uses: apple-actions/notarize-macos@v2
+      with:
+        app-path: "out/make/*.app"
+        apple-id: ${{ env.APPLE_ID }}
+        password: ${{ env.APPLE_ID_PASSWORD }}
+        team-id: ${{ env.APPLE_TEAM_ID }}
+        
+    # Staple the notarization ticket to the app
+    - name: Staple the app
+      if: inputs.os == 'macos'
+      uses: apple-actions/staple-macos@v1
+      with:
+        app-path: "out/make/*.app"
+
     - name: Verify code signing
       if: inputs.os == 'macos'
       shell: bash
@@ -140,23 +116,19 @@ runs:
 
         if [ -d "$APP_PATH" ]; then
           echo "Checking code signing for app bundle..."
-          codesign -dvv "$APP_PATH" || true
+          codesign -dvv "$APP_PATH"
           echo "Detailed verification:"
-          codesign -vv --deep --strict "$APP_PATH" || true
-
-          echo "Checking app bundle contents:"
-          find "$APP_PATH" -type f -exec codesign -dvv {} \; 2>&1 || true
+          codesign -vv --deep --strict "$APP_PATH"
+          
+          echo "Verifying notarization:"
+          xcrun stapler validate "$APP_PATH"
         fi
 
         if [ -f "$DMG_PATH" ]; then
           echo "Checking DMG signing..."
-          codesign -dvv "$DMG_PATH" || true
+          codesign -dvv "$DMG_PATH"
         fi
 
-    - name: Clean up keychain
-      if: inputs.os == 'macos' && always()
-      shell: bash
-      run: security delete-keychain build.keychain
     - name: Prepare artifacts
       shell: bash
       run: |
