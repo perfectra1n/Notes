@@ -30,6 +30,25 @@ runs:
         p12-password: ${{ env.APPLE_INSTALLER_CERTIFICATE_PASSWORD }}
         keychain: build
         keychain-password: ${{ github.run_id }}
+        # We don't need to create a keychain here because we're using the build keychain that was created in the previous step
+        create-keychain: false
+
+    - name: Set up Python and other macOS dependencies
+      if: ${{ inputs.os == 'macos' }}
+      shell: bash
+      run: |
+        brew install python-setuptools
+        brew install create-dmg
+
+    - name: Install dependencies for RPM and Flatpak package building
+      if: ${{ inputs.os == 'linux' }}
+      shell: bash
+      run: |
+        sudo apt-get update && sudo apt-get install rpm flatpak-builder elfutils
+        flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        FLATPAK_ARCH=$(if [[ ${{ inputs.arch }} = 'arm64' ]]; then echo 'aarch64'; else echo 'x86_64'; fi)
+        FLATPAK_VERSION='24.08'
+        flatpak install --user --no-deps --arch $FLATPAK_ARCH --assumeyes runtime/org.freedesktop.Platform/$FLATPAK_ARCH/$FLATPAK_VERSION runtime/org.freedesktop.Sdk/$FLATPAK_ARCH/$FLATPAK_VERSION org.electronjs.Electron2.BaseApp/$FLATPAK_ARCH/$FLATPAK_VERSION
 
     # Build setup
     - name: Install dependencies
